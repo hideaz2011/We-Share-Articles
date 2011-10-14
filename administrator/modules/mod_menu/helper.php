@@ -209,7 +209,7 @@ class modMenuHelper
 				$menu->addChild(new JMenuNode(JText::_('Template Manager'), 'index.php?option=com_templates', 'class:themes'));
 			}
 			if ($manageLanguages) {
-				$menu->addChild(new JMenuNode(JText::_('Language Manager'), 'index.php?option=com_languages', 'class:language'));
+				//$menu->addChild(new JMenuNode(JText::_('Language Manager'), 'index.php?option=com_languages', 'class:language'));
 			}
 			$menu->getParent();
 		}

@@ -26,14 +26,14 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
-		<param name="show_category" type="radio" default="1" label="Category Name" description="PARAMCATEG">
+		<!--param name="show_category" type="radio" default="1" label="Category Name" description="PARAMCATEG">
 			<option value="0">Hide</option>
 			<option value="1">Show</option>
 		</param>
 		<param name="link_category" type="radio" default="1" label="Category Name Linkable" description="PARAMCATEGLINK">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
-		</param>
+		</param-->
 
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<param name="show_author" type="radio" default="1" label="Author Names" description="TIPIFSETTOSHOWAUTHOR">
@@ -101,6 +101,16 @@
 			default="" label="Filter Tags" description="TIPSFILTERTAGS" />
 		<param name="filter_attritbutes" type="text" menu="hide"
 			default="" label="Filter Attributes" description="TIPSFILTERATTRIBUTES" />
-
 	</params>
+			<params group="group-name" addPath= "/administrator/components/com_content/elements">
+	<param name="sectionid" type="multilist" default="OPT1" multiple="multiple" label="Select one or more items"
+ description="Select one or more items from the list.  You can use Ctrl-click to select more than one item.">
+		<option value="OPT1">ungategorised</option>
+		<option value="OPT2">Title for option 2</option>
+		<option value="OPT3">Title for option 3</option>
+		<option value="OPT4">Title for option 4</option>
+		<option value="OPT5">Title for option 5</option>
+	</param>
+</params>
+
 </config>

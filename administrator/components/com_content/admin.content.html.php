@@ -57,7 +57,7 @@ class ContentView
 					<td nowrap="nowrap">
 						<?php
 						echo $lists['sectionid'];
-						echo $lists['catid'];
+						//echo $lists['catid'];
 						echo $lists['authorid'];
 						echo $lists['state'];
 						?>
@@ -93,9 +93,12 @@ class ContentView
 					<th class="title" width="8%" nowrap="nowrap">
 						<?php echo JHTML::_('grid.sort',   'Section', 'section_name', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
-					<th  class="title" width="8%" nowrap="nowrap">
-						<?php echo JHTML::_('grid.sort',   'Category', 'cc.title', @$lists['order_Dir'], @$lists['order'] ); ?>
+                    <th class="title" width="8%" nowrap="nowrap">
+						<?php echo JHTML::_('grid.sort',   'Sections', 'mysection', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
+					<!--th  class="title" width="8%" nowrap="nowrap">
+						<?php echo JHTML::_('grid.sort',   'Category', 'cc.title', @$lists['order_Dir'], @$lists['order'] ); ?>
+					</th-->
 					<th  class="title" width="8%" nowrap="nowrap">
 						<?php echo JHTML::_('grid.sort',   'Author', 'author', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
@@ -126,6 +129,8 @@ class ContentView
 				$row = &$rows[$i];
 
 				$link 	= 'index.php?option=com_content&sectionid='. $redirect .'&task=edit&cid[]='. $row->id;
+				
+
 
 				$row->sect_link = JRoute::_( 'index.php?option=com_sections&task=edit&cid[]='. $row->sectionid );
 				$row->cat_link 	= JRoute::_( 'index.php?option=com_categories&task=edit&cid[]='. $row->catid );
@@ -229,15 +234,18 @@ class ContentView
 					<td align="center">
 						<?php echo $access;?>
 					</td>
-						<td>
+						<td align="center">
 							<a href="<?php echo $row->sect_link; ?>" title="<?php echo JText::_( 'Edit Section' ); ?>">
 								<?php echo $row->section_name; ?></a>
 						</td>
-					<td>
+                        <td align="center">
+								<?php echo $row->mysections; ?>
+						</td>
+					<!--td>
 						<a href="<?php echo $row->cat_link; ?>" title="<?php echo JText::_( 'Edit Category' ); ?>">
 							<?php echo $row->name; ?></a>
-					</td>
-					<td>
+					</td-->
+					<td align="center">
 						<?php echo $author; ?>
 					</td>
 					<td nowrap="nowrap">
@@ -332,9 +340,9 @@ class ContentView
 				<th width="15%"  class="title">
 					<?php echo JHTML::_('grid.sort',   'Section', 'sectname', @$lists['order_Dir'], @$lists['order'] ); ?>
 				</th>
-				<th width="15%"  class="title">
+				<!--th width="15%"  class="title">
 					<?php echo JHTML::_('grid.sort',   'Category', 'cc.name', @$lists['order_Dir'], @$lists['order'] ); ?>
-				</th>
+				</th-->
 				<th width="15%"  class="title">
 					<?php echo JHTML::_('grid.sort',   'Author', 'author', @$lists['order_Dir'], @$lists['order'] ); ?>
 				</th>
@@ -392,8 +400,8 @@ class ContentView
 						<a href="<?php echo $row->sec_link; ?>" title="<?php echo JText::_( 'Edit Section' ); ?>">
 							<?php echo $row->sectname; ?></a>
 					</td>
-					<td>
-						<a href="<?php echo $row->cat_link; ?>" title="<?php echo JText::_( 'Edit Category' ); ?>">
+					<!--td>
+						<a href="<?php echo $row->cat_link; ?>" title="<?php echo JText::_( 'Edit Category' ); ?>"-->
 							<?php echo $row->name; ?></a>
 					</td>
 					<td>
@@ -819,19 +827,28 @@ class ContentView
 				</label>
 			</td>
 			<td>
+            <!--select multiple="multiple" name="formCountries[]">
+                <option value="US">Education</option>
+                <option value="UK">sports</option>
+                <option value="France">Advertisement</option>
+                <option value="Mexico">business</option>
+            </select-->
+
 				<?php echo $lists['sectionid']; ?>
-			</td>
-			<td>
+             </td>
+			
+            <!--td>
 				<label for="catid">
 					<?php echo JText::_( 'Category' ); ?>
 				</label>
 			</td>
 			<td>
 				<?php echo $lists['catid']; ?>
-			</td>
+			</td-->
 		</tr>
 		</table>
 		<?php
+	
 	}
 
 	function _displayArticleStats(&$row, &$lists )

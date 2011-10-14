@@ -445,7 +445,7 @@ class JToolBarHelper
 	* @param string An override for the alt text
 	* @since 1.0
 	*/
-	function save($task = 'save', $alt = 'Save')
+	function save($task = 'save', $alt = 'Submit')
 	{
 		$bar = & JToolBar::getInstance('toolbar');
 		// Add a save button

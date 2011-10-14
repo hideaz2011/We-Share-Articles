@@ -60,6 +60,7 @@ class ContentHelper
 			$filterType		= $config->get( 'filter_type' );
 			$filterTags		= preg_split( '#[,\s]+#', trim( $config->get( 'filter_tags' ) ) );
 			$filterAttrs	= preg_split( '#[,\s]+#', trim( $config->get( 'filter_attritbutes' ) ) );
+			
 			switch ($filterType)
 			{
 				case 'NH':
@@ -127,9 +128,10 @@ class ContentHelper
 			$text	= $filter->clean( $text );
 		}
 		return $text;
+		
 	}
 
-
+	
 
 	/**
 	* Function to reset Hit count of an article
@@ -162,7 +164,7 @@ class ContentHelper
 		$db->setQuery($query);
 		$categories = array_merge($categories, $db->loadObjectList());
 
-		$category = JHTML::_('select.genericlist',  $categories, 'catid', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'value', 'text', $active);
+		/*$category = JHTML::_('select.genericlist',  $categories, 'catid', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'value', 'text', $active);*/
 
 		return $category;
 	}

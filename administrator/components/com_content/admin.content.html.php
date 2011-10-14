@@ -491,11 +491,11 @@ class ContentView
 				alert( "<?php echo JText::_( 'Article must have a title', true ); ?>" );
 			} else if (form.sectionid.value == "-1"){
 				alert( "<?php echo JText::_( 'You must select a Section', true ); ?>" );
-			} else if (form.catid.value == "-1"){
+			} /*else if (form.catid.value == "-1"){
 				alert( "<?php echo JText::_( 'You must select a Category', true ); ?>" );
  			} else if (form.catid.value == ""){
  				alert( "<?php echo JText::_( 'You must select a Category', true ); ?>" );
-			} else if (text == ""){
+			} */else if (text == ""){
 				alert( "<?php echo JText::_( 'Article must have some text', true ); ?>" );
 			} else {
 				<?php
@@ -795,29 +795,11 @@ class ContentView
 			</td>
 			<td>
 				<label>
-					<?php echo JText::_( 'Published' ); ?>
+					<?php echo JText::_( 'Publish Status' ); ?>
 				</label>
 			</td>
 			<td>
 				<?php echo $lists['state']; ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="alias">
-					<?php echo JText::_( 'Alias' ); ?>
-				</label>
-			</td>
-			<td>
-				<input class="inputbox" type="text" name="alias" id="alias" size="40" maxlength="255" value="<?php echo $row->alias; ?>" title="<?php echo JText::_( 'ALIASTIP' ); ?>" />
-			</td>
-			<td>
-				<label>
-				<?php echo JText::_( 'Frontpage' ); ?>
-				</label>
-			</td>
-			<td>
-				<?php echo $lists['frontpage']; ?>
 			</td>
 		</tr>
 		<tr>
@@ -827,17 +809,9 @@ class ContentView
 				</label>
 			</td>
 			<td>
-            <!--select multiple="multiple" name="formCountries[]">
-                <option value="US">Education</option>
-                <option value="UK">sports</option>
-                <option value="France">Advertisement</option>
-                <option value="Mexico">business</option>
-            </select-->
-
 				<?php echo $lists['sectionid']; ?>
-             </td>
-			
-            <!--td>
+			</td>
+			<!--td>
 				<label for="catid">
 					<?php echo JText::_( 'Category' ); ?>
 				</label>
@@ -845,7 +819,25 @@ class ContentView
 			<td>
 				<?php echo $lists['catid']; ?>
 			</td-->
+            <!--td>
+				<label for="alias">
+					<?php echo JText::_( 'Alias' ); ?>
+				</label>
+			</td>
+			<td>
+				<input class="inputbox" type="text" name="alias" id="alias" size="40" maxlength="255" value="<?php echo $row->alias; ?>" title="<?php echo JText::_( 'ALIASTIP' ); ?>" />
+			</td-->
+            
+			<td>
+				<label>
+				<?php echo JText::_( 'Frontpage' ); ?>
+				</label>
+			</td>
+			<td>
+				<?php echo $lists['frontpage']; ?>
+			</td>
 		</tr>
+		
 		</table>
 		<?php
 	

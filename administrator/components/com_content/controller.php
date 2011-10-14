@@ -395,7 +395,7 @@ class ContentController extends JController
 			}
 		}
 
-		/*$sectioncategories = array ();
+		$sectioncategories = array ();
 		$sectioncategories[-1] = array ();
 		$sectioncategories[-1][] = JHTML::_('select.option', '-1', JText::_( 'Select Category' ), 'id', 'title');
 		$section_list = implode('\', \'', $section_list);
@@ -436,7 +436,7 @@ class ContentController extends JController
 
 		$categories[] = JHTML::_('select.option', '-1', JText::_( 'Select Category' ), 'id', 'title');
 		$lists['catid'] = JHTML::_('select.genericlist',  $categories, 'catid', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title', intval($row->catid));
-*/
+
 		// build the html select list for ordering
 		$query = 'SELECT ordering AS value, title AS text' .
 				' FROM #__content' .
@@ -452,7 +452,10 @@ class ContentController extends JController
 		$lists['frontpage'] = JHTML::_('select.booleanlist', 'frontpage', '', $row->frontpage);
 
 		// build the html radio buttons for published
-		$lists['state'] = JHTML::_('select.booleanlist', 'state', '', $row->state);
+		
+		//$lists['state'] = JHTML::_('select.booleanlist', 'state', '', $row->state);
+		//JHTML::_('select.booleanlist', 'state', '', 'male', 'female');
+		$lists['state'] = JHTML::_('select.booleanlist', 'state', '', $row->state,'Published', 'Drafts');
 
 		/*
 		 * We need to unify the introtext and fulltext fields and have the
@@ -532,8 +535,21 @@ class ContentController extends JController
 		$row->id = (int) $row->id;
 		$postvalues = JRequest::get('post');
 		$mysectionids = $postvalues['sectionid'];
+		
+		$query1 = 'DELETE from  #__article_section where article_id = ('. (int) $row->id .')'; 
+		
+		$db->setQuery($query1);
+			if (!$db->query())
+			{
+				JError::raiseError( 500, $db->stderr() );
+				return false;
+			}
+		
 		for ($g=0;$g<count($mysectionids);$g++)
 		{
+			$query = 'INSERT INTO #__content(section_id,title)' .
+						' VALUES ( '. (int) $row->id .', '.$mysectionids[$g].' )';
+						
 			$query = 'INSERT INTO #__article_section(article_id,section_id)' .
 						' VALUES ( '. (int) $row->id .', '.$mysectionids[$g].' )';
 			$db->setQuery($query);
@@ -544,7 +560,7 @@ class ContentController extends JController
 			}
 			
 		}
-		
+		echo $query;
 		
 		//echo "<pre>";
 		//print_r($mysectionids);

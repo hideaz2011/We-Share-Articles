@@ -45,6 +45,7 @@ class ContentController extends JController
 	{
 		global $mainframe;
 
+
 		// Initialize variables
 		$db			=& JFactory::getDBO();
 		$filter		= null;
@@ -161,6 +162,43 @@ class ContentController extends JController
 				$order;
 		$db->setQuery($query, $pagination->limitstart, $pagination->limit);
 		$rows = $db->loadObjectList();
+			
+		//echo "<pre>";
+		for($h=0;$h<count($rows);$h++)
+		{
+			//echo $rows[$h]->title;
+			$q = 'SELECT section_id from #__article_section where article_id='.$rows[$h]->id;
+			$db->setQuery($q);
+		 	$name = $db->loadResultArray();
+			
+			
+			//print_r($name);
+			if (count($name) != 0) {
+				for($l=0;$l<count($name);$l++)
+				{
+					$q = 'SELECT title from #__sections where id='.$name[$l];
+					$db->setQuery($q);
+					$names = $db->loadResult();
+					if ($l == (count($name)-1))
+					{
+						$rows[$h]->mysections .= $names;
+					} else {
+						$rows[$h]->mysections .= $names.",";
+					}
+				}
+			}
+			//if ($i == (count($rows)-1))
+			//{
+				//$rows[$i]->mysections .= $name;
+			//} else {
+				/*for($l=0;$l<count($name);$l++)
+				{
+					$rows[$h]->mysections .= $name[$l].",";
+				}*/
+		}
+	
+			//print_r($rows);
+		//exit();
 
 		// If there is a database query error, throw a HTTP 500 and exit
 		if ($db->getErrorNum()) {
@@ -179,7 +217,8 @@ class ContentController extends JController
 		// get list of sections for dropdown filter
 		$javascript = 'onchange="document.adminForm.submit();"';
 		$lists['sectionid'] = JHTML::_('list.section', 'filter_sectionid', $filter_sectionid, $javascript);
-
+		
+		
 		// get list of Authors for dropdown filter
 		$query = 'SELECT c.created_by, u.name' .
 				' FROM #__content AS c' .
@@ -205,6 +244,7 @@ class ContentController extends JController
 		$lists['search'] = $search;
 
 		ContentView::showContent($rows, $lists, $pagination, $redirect);
+		
 	}
 
 	/**
@@ -337,12 +377,13 @@ class ContentController extends JController
 		$sections[] = JHTML::_('select.option', '-1', '- '.JText::_('Select Section').' -', 'id', 'title');
 		$sections[] = JHTML::_('select.option', '0', JText::_('Uncategorized'), 'id', 'title');
 		$sections = array_merge($sections, $db->loadObjectList());
-		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid', 'class="inputbox" size="1" '.$javascript, 'id', 'title', intval($row->sectionid));
-
+		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="10"'.$javascript, 'id', 'title', intval($row->sectionid));
+	
 		foreach ($sections as $section)
 		{
 			$section_list[] = (int) $section->id;
 			// get the type name - which is a special category
+			
 			if ($row->sectionid) {
 				if ($section->id == $row->sectionid) {
 					$contentSection = $section->title;
@@ -354,7 +395,7 @@ class ContentController extends JController
 			}
 		}
 
-		$sectioncategories = array ();
+		/*$sectioncategories = array ();
 		$sectioncategories[-1] = array ();
 		$sectioncategories[-1][] = JHTML::_('select.option', '-1', JText::_( 'Select Category' ), 'id', 'title');
 		$section_list = implode('\', \'', $section_list);
@@ -394,8 +435,8 @@ class ContentController extends JController
 		}
 
 		$categories[] = JHTML::_('select.option', '-1', JText::_( 'Select Category' ), 'id', 'title');
-		$lists['catid'] = JHTML::_('select.genericlist',  $categories, 'catid', 'class="inputbox" size="1"', 'id', 'title', intval($row->catid));
-
+		$lists['catid'] = JHTML::_('select.genericlist',  $categories, 'catid', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title', intval($row->catid));
+*/
 		// build the html select list for ordering
 		$query = 'SELECT ordering AS value, title AS text' .
 				' FROM #__content' .
@@ -458,7 +499,7 @@ class ContentController extends JController
 	function saveContent()
 	{
 		global $mainframe;
-
+		
 		// Check for request forgeries
 		JRequest::checkToken() or jexit( 'Invalid Token' );
 
@@ -471,11 +512,14 @@ class ContentController extends JController
 		$details	= JRequest::getVar( 'details', array(), 'post', 'array');
 		$option		= JRequest::getCmd( 'option' );
 		$task		= JRequest::getCmd( 'task' );
-		$sectionid	= JRequest::getVar( 'sectionid', 0, '', 'int' );
+		$sectionid	= JRequest::getVar( 'sectionid', '0', '', 'int' );
 		$redirect	= JRequest::getVar( 'redirect', $sectionid, 'post', 'int' );
 		$menu		= JRequest::getVar( 'menu', 'mainmenu', 'post', 'menutype' );
 		$menuid		= JRequest::getVar( 'menuid', 0, 'post', 'int' );
 		$nullDate	= $db->getNullDate();
+		
+		
+
 
 		$row = & JTable::getInstance('content');
 		if (!$row->bind(JRequest::get('post'))) {
@@ -486,6 +530,25 @@ class ContentController extends JController
 
 		// sanitise id field
 		$row->id = (int) $row->id;
+		$postvalues = JRequest::get('post');
+		$mysectionids = $postvalues['sectionid'];
+		for ($g=0;$g<count($mysectionids);$g++)
+		{
+			$query = 'INSERT INTO #__article_section(article_id,section_id)' .
+						' VALUES ( '. (int) $row->id .', '.$mysectionids[$g].' )';
+			$db->setQuery($query);
+			if (!$db->query())
+			{
+				JError::raiseError( 500, $db->stderr() );
+				return false;
+			}
+			
+		}
+		
+		
+		//echo "<pre>";
+		//print_r($mysectionids);
+		//exit();
 
 		$isNew = true;
 		// Are we saving from an item edit?

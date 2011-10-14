@@ -23,7 +23,7 @@ $query = 'SELECT menutype, COUNT(id) AS numitems'
 $db->setQuery( $query );
 $rows = $db->loadObjectList();
 ?>
-<table class="adminlist">
+<!--table class="adminlist">
 	<tr>
 		<td class="title" width="80%">
 			<strong><?php echo JText::_( 'Menu' ); ?></strong>
@@ -49,4 +49,4 @@ foreach ($rows as $row)
 <?php
 }
 ?>
-</table>
+</table-->

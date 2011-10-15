@@ -179,6 +179,7 @@ class ContentController extends JController
 					$q = 'SELECT title from #__sections where id='.$name[$l];
 					$db->setQuery($q);
 					$names = $db->loadResult();
+					
 					if ($l == (count($name)-1))
 					{
 						$rows[$h]->mysections .= $names;
@@ -187,6 +188,7 @@ class ContentController extends JController
 					}
 				}
 			}
+			
 			//if ($i == (count($rows)-1))
 			//{
 				//$rows[$i]->mysections .= $name;
@@ -375,15 +377,19 @@ class ContentController extends JController
 		$db->setQuery($query);
 
 		$sections[] = JHTML::_('select.option', '-1', '- '.JText::_('Select Section').' -', 'id', 'title');
-		$sections[] = JHTML::_('select.option', '0', JText::_('Uncategorized'), 'id', 'title');
+		//$sections[] = JHTML::_('select.option', '0', JText::_('Uncategorized'), 'id', 'title');
+		
 		$sections = array_merge($sections, $db->loadObjectList());
-		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="10"'.$javascript, 'id', 'title', intval($row->sectionid));
+		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title', $arr);
+		
+		//echo $sectionid;
+		//exit();
 	
 		foreach ($sections as $section)
 		{
 			$section_list[] = (int) $section->id;
 			// get the type name - which is a special category
-			
+						
 			if ($row->sectionid) {
 				if ($section->id == $row->sectionid) {
 					$contentSection = $section->title;
@@ -533,32 +539,7 @@ class ContentController extends JController
 		$postvalues = JRequest::get('post');
 		$mysectionids = $postvalues['sectionid'];
 		
-		$query1 = 'DELETE from  #__article_section where article_id = ('. (int) $row->id .')'; 
 		
-		$db->setQuery($query1);
-			if (!$db->query())
-			{
-				JError::raiseError( 500, $db->stderr() );
-				return false;
-			}
-		
-		
-		for ($g=0;$g<count($mysectionids);$g++)
-		{
-			$query = 'INSERT INTO #__content(section_id,title)' .
-						' VALUES ( '. (int) $row->id .', '.$mysectionids[$g].' )';
-						
-			$query = 'INSERT INTO #__article_section(article_id,section_id)' .
-						' VALUES ( '. (int) $row->id .', '.$mysectionids[$g].' )';
-			$db->setQuery($query);
-			if (!$db->query())
-			{
-				JError::raiseError( 500, $db->stderr() );
-				return false;
-			}
-			
-		}
-		echo $query;
 		
 		//echo "<pre>";
 		//print_r($mysectionids);
@@ -660,6 +641,31 @@ class ContentController extends JController
 			JError::raiseError( 500, $db->stderr() );
 			return false;
 		}
+		
+		$query1 = 'DELETE from  #__article_section where article_id = ('. (int) $row->id .')'; 
+		
+		$db->setQuery($query1);
+			if (!$db->query())
+			{
+				JError::raiseError( 500, $db->stderr() );
+				return false;
+			}
+		
+		for ($g=0;$g<count($mysectionids);$g++)
+		{
+						
+			$query = 'INSERT INTO #__article_section(article_id,section_id)' .
+						' VALUES ( '. (int) $row->id .', '.$mysectionids[$g].' )';
+			$db->setQuery($query);
+			
+			if (!$db->query())
+			{
+				JError::raiseError( 500, $db->stderr() );
+				return false;
+			}
+			
+		}
+		echo $query;
 
 		// Check the article and update item order
 		$row->checkin();

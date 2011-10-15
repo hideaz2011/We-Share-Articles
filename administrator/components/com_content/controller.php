@@ -380,7 +380,8 @@ class ContentController extends JController
 		//$sections[] = JHTML::_('select.option', '0', JText::_('Uncategorized'), 'id', 'title');
 		
 		$sections = array_merge($sections, $db->loadObjectList());
-		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title', $arr);
+		
+		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title', intval($row->secrtonid));
 		
 		//echo $sectionid;
 		//exit();

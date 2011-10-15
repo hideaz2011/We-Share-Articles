@@ -77,7 +77,7 @@ class TOOLBAR_content
 		JToolBarHelper::publishList();
 		JToolBarHelper::unpublishList();
 		JToolBarHelper::customX( 'movesect', 'move.png', 'move_f2.png', 'Move' );
-		JToolBarHelper::customX( 'copy', 'copy.png', 'copy_f2.png', 'Copy' );
+		//JToolBarHelper::customX( 'copy', 'copy.png', 'copy_f2.png', 'Copy' );
 		JToolBarHelper::trash();
 		JToolBarHelper::editListX();
 		JToolBarHelper::addNewX();

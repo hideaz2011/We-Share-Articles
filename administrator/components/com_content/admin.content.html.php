@@ -57,7 +57,7 @@ class ContentView
 					<td nowrap="nowrap">
 						<?php
 						echo $lists['sectionid'];
-						//echo $lists['catid'];
+						echo $lists['catid'];
 						echo $lists['authorid'];
 						echo $lists['state'];
 						?>
@@ -91,11 +91,11 @@ class ContentView
 						<?php echo JHTML::_('grid.sort',   'Access', 'groupname', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
 					<th class="title" width="8%" nowrap="nowrap">
-						<?php echo JHTML::_('grid.sort',   'Section', 'section_name', @$lists['order_Dir'], @$lists['order'] ); ?>
+						<?php echo JHTML::_('grid.sort',   'Section', 'mysection', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
-                    <th class="title" width="8%" nowrap="nowrap">
+                    <!--th class="title" width="8%" nowrap="nowrap">
 						<?php echo JHTML::_('grid.sort',   'Sections', 'mysection', @$lists['order_Dir'], @$lists['order'] ); ?>
-					</th>
+					</th-->
 					<!--th  class="title" width="8%" nowrap="nowrap">
 						<?php echo JHTML::_('grid.sort',   'Category', 'cc.title', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th-->
@@ -236,11 +236,11 @@ class ContentView
 					</td>
 						<td align="center">
 							<a href="<?php echo $row->sect_link; ?>" title="<?php echo JText::_( 'Edit Section' ); ?>">
-								<?php echo $row->section_name; ?></a>
+								<?php echo $row->mysections; ?></a>
 						</td>
-                        <td align="center">
+                        <!--td align="center">
 								<?php echo $row->mysections; ?>
-						</td>
+						</td-->
 					<!--td>
 						<a href="<?php echo $row->cat_link; ?>" title="<?php echo JText::_( 'Edit Category' ); ?>">
 							<?php echo $row->name; ?></a>
@@ -795,7 +795,7 @@ class ContentView
 			</td>
 			<td>
 				<label>
-					<?php echo JText::_( 'Publish Status' ); ?>
+					<?php echo JText::_( 'Publis State' ); ?>
 				</label>
 			</td>
 			<td>
@@ -803,6 +803,14 @@ class ContentView
 			</td>
 		</tr>
 		<tr>
+			<!--td>
+				<label for="alias">
+					<?php echo JText::_( 'Alias' ); ?>
+				</label>
+			</td>
+			<td>
+				<input class="inputbox" type="text" name="alias" id="alias" size="40" maxlength="255" value="<?php echo $row->alias; ?>" title="<?php echo JText::_( 'ALIASTIP' ); ?>" />
+			</td-->
 			<td>
 				<label for="sectionid">
 					<?php echo JText::_( 'Section' ); ?>
@@ -811,24 +819,8 @@ class ContentView
 			<td>
 				<?php echo $lists['sectionid']; ?>
 			</td>
-			<!--td>
-				<label for="catid">
-					<?php echo JText::_( 'Category' ); ?>
-				</label>
-			</td>
-			<td>
-				<?php echo $lists['catid']; ?>
-			</td-->
-            <!--td>
-				<label for="alias">
-					<?php echo JText::_( 'Alias' ); ?>
-				</label>
-			</td>
-			<td>
-				<input class="inputbox" type="text" name="alias" id="alias" size="40" maxlength="255" value="<?php echo $row->alias; ?>" title="<?php echo JText::_( 'ALIASTIP' ); ?>" />
-			</td-->
-            
-			<td>
+
+            <td>
 				<label>
 				<?php echo JText::_( 'Frontpage' ); ?>
 				</label>
@@ -837,7 +829,16 @@ class ContentView
 				<?php echo $lists['frontpage']; ?>
 			</td>
 		</tr>
-		
+		<!--tr>
+						<td>
+				<label for="catid">
+					<?php echo JText::_( 'Category' ); ?>
+				</label>
+			</td>
+			<td>
+				<?php echo $lists['catid']; ?>
+			</td>
+		</tr-->
 		</table>
 		<?php
 	

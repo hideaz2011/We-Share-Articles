@@ -35,7 +35,7 @@ class TOOLBAR_content
 			
 		}
 		else{
-			JToolBarHelper::save1();
+			JToolBarHelper::submit();
 		}
 		
 		JToolBarHelper::apply();

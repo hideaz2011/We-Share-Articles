@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.1.3.1
+-- version 3.1.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2011 at 01:27 PM
--- Server version: 5.1.33
--- PHP Version: 5.2.9
+-- Generation Time: Oct 16, 2011 at 07:56 AM
+-- Server version: 5.1.46
+-- PHP Version: 5.2.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `jos_articles_liked` (
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `viewer_id` (`viewer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_articles_liked`
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `jos_articles_ratings` (
   PRIMARY KEY (`id`),
   KEY `viewer_id` (`viewer_id`,`article_id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_articles_ratings`
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `jos_article_comments` (
   `created_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_article_comments`
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `jos_article_read` (
   PRIMARY KEY (`id`),
   KEY `viewer_id` (`viewer_id`,`article_id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_article_read`
@@ -113,14 +113,12 @@ CREATE TABLE IF NOT EXISTS `jos_article_section` (
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `section_id` (`section_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_article_section`
 --
 
-INSERT INTO `jos_article_section` (`id`, `article_id`, `section_id`) VALUES
-(2, 14, 1);
 
 -- --------------------------------------------------------
 
@@ -141,16 +139,12 @@ CREATE TABLE IF NOT EXISTS `jos_article_tags` (
   KEY `article_id_4` (`article_id`),
   KEY `article_id_5` (`article_id`),
   KEY `tag_id_3` (`tag_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_article_tags`
 --
 
-INSERT INTO `jos_article_tags` (`id`, `article_id`, `tag_id`) VALUES
-(2, 1, 1),
-(4, 1, 2),
-(5, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -165,14 +159,12 @@ CREATE TABLE IF NOT EXISTS `jos_author_articles` (
   PRIMARY KEY (`id`),
   KEY `author_id` (`author_id`,`article_id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_author_articles`
 --
 
-INSERT INTO `jos_author_articles` (`id`, `author_id`, `article_id`) VALUES
-(1, 62, 1);
 
 -- --------------------------------------------------------
 
@@ -191,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `jos_author_rating` (
   KEY `rating` (`rating`),
   KEY `rating_2` (`rating`),
   KEY `author_id_2` (`author_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_author_rating`
@@ -232,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `jos_banner` (
   PRIMARY KEY (`bid`),
   KEY `viewbanner` (`showBanner`),
   KEY `idx_banner_catid` (`catid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_banner`
@@ -255,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `jos_bannerclient` (
   `checked_out_time` time DEFAULT NULL,
   `editor` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_bannerclient`
@@ -307,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `jos_categories` (
   KEY `cat_idx` (`section`,`published`,`access`),
   KEY `idx_access` (`access`),
   KEY `idx_checkout` (`checked_out`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_categories`
@@ -339,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `jos_components` (
   `enabled` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `parent_option` (`parent`,`option`(32))
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_components`
@@ -404,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `jos_contact_details` (
   `webpage` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_contact_details`
@@ -459,27 +451,12 @@ CREATE TABLE IF NOT EXISTS `jos_content` (
   KEY `idx_state` (`state`),
   KEY `idx_catid` (`catid`),
   KEY `idx_createdby` (`created_by`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_content`
 --
 
-INSERT INTO `jos_content` (`id`, `title`, `alias`, `title_alias`, `introtext`, `fulltext`, `video`, `filename`, `state`, `sectionid`, `mask`, `catid`, `created`, `created_by`, `created_by_alias`, `modified`, `modified_by`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `images`, `urls`, `attribs`, `version`, `parentid`, `ordering`, `metakey`, `metadesc`, `access`, `hits`, `activate`, `article_type`, `metadata`) VALUES
-(1, 'php', 'php', 'html', '<p>dsgdfgshhf  dfhh fgh fghasdgsagdhsgfu gdsgafuf  gafhjgfhjgfjlffffffdhjghgh dghgsdhfg hghsdgf hgdhasgfhgfhghfghagfjhghghg  dsghfghjdsghfjgjagfuaefb  uisadggfigusgf uasdgf gdisaguf uiasudfd  fyuasgdu fgugf auisdgfugsufgdsg f usd fu sduf alsdufidgfu g;a hsduf usdu  ausgdfu gudsg uuisdg fgasidgf sua sa dgg dasuidu uias;g duau usadufg  asudg fgdu uiasggfy7gsdfabhgub gasduifkjasdfvugusad aus igdf asbk 89as  dhaksg diuagsi ugdsgf gasdfggfasbd fjgasuidgfig uisgdfi</p>\r\n<p> </p>\r\n', '\r\n<p> </p>\r\n<p><img src="images/stories/food/coffee.jpg" border="0" />codshja gudgsg fasgf asgdf gasjghd aisgd sa dg absditQHWY6RS VGv das sald ga sdgasc vcxvyu VTzx fkuixjJXicsduyfudsvvyfX gfsx FZXbvUZCbxbchxchjB FZXfcgB gZVXCFbVZXHcXZCbvuvvxvc hXJCvXvchxb c ubcvxhjglbzxcbvxcvdvfuydhcvhcv</p>\r\n<p> </p>', 'no', 'xls', 1, 3, 0, 1, '1999-11-30 00:00:00', 62, '', '2011-10-15 12:21:46', 62, 0, '0000-00-00 00:00:00', '1999-11-30 00:00:00', '0000-00-00 00:00:00', 'no', 'no', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 20, 0, 1, '', '', 1, 8, 0, 'D', 'robots=\nauthor='),
-(2, 'web design', 'web-design', '', '<p><img src="images/stories/clock.jpg" border="0" /></p>\r\n<p> </p>\r\n<p>dsgdfgshhf  dfhh fgh fghasdgsagdhsgfu gdsgafuf  gafhjgfhjgfjlffffffdhjghgh dghgsdhfg hghsdgf hgdhasgfhgfhghfghagfjhghghg  dsghfghjdsghfjgjagfuaefb  uisadggfigusgf uasdgf gdisaguf uiasudfd  fyuasgdu fgugf auisdgfugsufgdsg f usd fu sduf alsdufidgfu g;a hsduf usdu  ausgdfu gudsg uuisdg fgasidgf sua sa dgg dasuidu uias;g duau usadufg  asudg fgdu uiasggfy7gsdfabhgub gasduifkjasdfvugusad aus igdf asbk 89as  dhaksg diuagsi ugdsgf gasdfggfasbd fjgasuidgfig uisgdfi</p>\r\n<p>dsgdfgshhf  dfhh fgh fghasdgsagdhsgfu gdsgafuf  gafhjgfhjgfjlffffffdhjghgh dghgsdhfg hghsdgf hgdhasgfhgfhghfghagfjhghghg  dsghfghjdsghfjgjagfuaefb  uisadggfigusgf uasdgf gdisaguf uiasudfd  fyuasgdu fgugf auisdgfugsufgdsg f usd fu sduf alsdufidgfu g;a hsduf usdu  ausgdfu gudsg uuisdg fgasidgf sua sa dgg dasuidu uias;g duau usadufg  asudg fgdu uiasggfy7gsdfabhgub gasduifkjasdfvugusad aus igdf asbk 89as  dhaksg diuagsi ugdsgf gasdfggfasbd fjgasuidgfig uisgdfi</p>\r\n<p>dsgdfgshhf  dfhh fgh fghasdgsagdhsgfu gdsgafuf  gafhjgfhjgfjlffffffdhjghgh dghgsdhfg hghsdgf hgdhasgfhgfhghfghagfjhghghg  dsghfghjdsghfjgjagfuaefb  uisadggfigusgf uasdgf gdisaguf uiasudfd  fyuasgdu fgugf auisdgfugsufgdsg f usd fu sduf alsdufidgfu g;a hsduf usdu  ausgdfu gudsg uuisdg fgasidgf sua sa dgg dasuidu uias;g duau usadufg  asudg fgdu uiasggfy7gsdfabhgub gasduifkjasdfvugusad aus igdf asbk 89as  dhaksg diuagsi ugdsgf gasdfggfasbd fjgasuidgfig uisgdfi</p>\r\n<p>dsgdfgshhf  dfhh fgh fghasdgsagdhsgfu gdsgafuf  gafhjgfhjgfjlffffffdhjghgh dghgsdhfg hghsdgf hgdhasgfhgfhghfghagfjhghghg  dsghfghjdsghfjgjagfuaefb  uisadggfigusgf uasdgf gdisaguf uiasudfd  fyuasgdu fgugf auisdgfugsufgdsg f usd fu sduf alsdufidgfu g;a hsduf usdu  ausgdfu gudsg uuisdg fgasidgf sua sa dgg dasuidu uias;g duau usadufg  asudg fgdu uiasggfy7gsdfabhgub gasduifkjasdfvugusad aus igdf asbk 89as  dhaksg diuagsi ugdsgf gasdfggfasbd fjgasuidgfig uisgdfi</p>\r\n<p>dsgdfgshhf  dfhh fgh fghasdgsagdhsgfu gdsgafuf  gafhjgfhjgfjlffffffdhjghgh dghgsdhfg hghsdgf hgdhasgfhgfhghfghagfjhghghg  dsghfghjdsghfjgjagfuaefb  uisadggfigusgf uasdgf gdisaguf uiasudfd  fyuasgdu fgugf auisdgfugsufgdsg f usd fu sduf alsdufidgfu g;a hsduf usdu  ausgdfu gudsg uuisdg fgasidgf sua sa dgg dasuidu uias;g duau usadufg  asudg fgdu uiasggfy7gsdfabhgub gasduifkjasdfvugusad aus igdf asbk 89as  dhaksg diuagsi ugdsgf gasdfggfasbd fjgasuidgfig uisgdfi</p>\r\n<p>dsgdfgshhf  dfhh fgh fghasdgsagdhsgfu gdsgafuf  gafhjgfhjgfjlffffffdhjghgh dghgsdhfg hghsdgf hgdhasgfhgfhghfghagfjhghghg  dsghfghjdsghfjgjagfuaefb  uisadggfigusgf uasdgf gdisaguf uiasudfd  fyuasgdu fgugf auisdgfugsufgdsg f usd fu sduf alsdufidgfu g;a hsduf usdu  ausgdfu gudsg uuisdg fgasidgf sua sa dgg dasuidu uias;g duau usadufg  asudg fgdu uiasggfy7gsdfabhgub gasduifkjasdfvugusad aus igdf asbk 89as  dhaksg diuagsi ugdsgf gasdfggfasbd fjgasuidgfig uisgdficgnvbhmb,mc,</p>\r\n<p> </p>\r\n<p> </p>\r\n<p>ashfhsaku asdu ufsg fgasgdfgagshj gdasgdh gigsa asgd iasd fgas gfasgd ta agsd f hdfga  asgdf</p>\r\n<p> </p>\r\n<p> </p>', '', '', '', 1, 3, 0, 1, '2011-10-11 07:32:13', 62, '', '2011-10-15 11:58:03', 62, 62, '2011-10-15 12:16:27', '2011-10-11 07:32:13', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 48, 0, 4, '', '', 0, 1, 0, 'D', 'robots=\nauthor='),
-(3, 'gfjfjmkmm', 'bvnbvn', '', '<p>vbcmvmc</p>', '', '', '', -2, 2, 0, 1, '2011-10-11 10:19:44', 62, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '2011-10-11 10:19:44', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 1, 0, 0, '', '', 0, 0, 0, 'D', 'robots=\nauthor='),
-(4, 'cvnxcvn', 'xcvncvn', '', '<p>cvbxcvnxcvn</p>', '', '', '', 1, 3, 0, 1, '2011-10-11 11:36:43', 62, '', '2011-10-14 14:15:44', 62, 0, '0000-00-00 00:00:00', '2011-10-11 11:36:43', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 8, 0, 2, '', '', 0, 5, 0, 'D', 'robots=\nauthor='),
-(5, 'dhanapal', 'dhanapal', '', '<p>sdfhgdhsfghhb vlxfb klxncvk s sdnf dm f oigea  dfvidig basbdbi siudabuads iuiasd uiksdugasdnuig suggsdf iusadfg ZJXI dgsdbasgh YGZxcuzxh dsfsaag</p>', '', '', '', 1, 3, 0, 1, '2011-10-11 13:59:42', 62, '', '2011-10-15 12:23:01', 62, 62, '2011-10-15 12:25:27', '2011-10-11 13:59:42', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 12, 0, 6, '', '', 0, 9, 0, 'D', 'robots=\nauthor='),
-(6, 'css', 'css', '', '<p>dfdgdfhfghhghdfhh</p>', '', '', '', 1, 0, 0, 1, '2011-10-11 14:25:19', 62, '', '2011-10-14 07:53:56', 62, 0, '0000-00-00 00:00:00', '2011-10-11 14:25:19', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 10, 0, 5, '', '', 0, 17, 0, 'D', 'robots=\nauthor='),
-(7, 'cv cncb', 'cv-cncb', '', '<p>bvnbvn</p>', '', '', '', 1, 2, 0, 1, '2011-10-12 09:05:04', 62, '', '2011-10-15 09:43:23', 62, 0, '0000-00-00 00:00:00', '2011-10-12 09:05:04', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 19, 0, 3, '', '', 0, 7, 0, 'D', 'robots=\nauthor='),
-(8, 'maries', 'maries', '', '<p>dgffjh hfg khjk ghf khgf</p>', '', '', '', 1, 3, 0, 0, '2011-10-12 09:46:21', 62, '', '2011-10-15 13:09:46', 62, 0, '0000-00-00 00:00:00', '2011-10-12 09:46:21', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 9, 0, 7, '', '', 0, 0, 0, 'D', 'robots=\nauthor='),
-(9, 'naren', 'naren', '', '<p>fghgjhk gh khj ghk hj</p>', '', '', '', 1, 2, 0, 0, '2011-10-12 09:53:57', 62, '', '2011-10-14 14:15:56', 62, 62, '2011-10-15 11:43:09', '2011-10-12 09:53:57', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 12, 0, 6, '', '', 0, 0, 0, 'D', 'robots=\nauthor='),
-(10, 'c++', 'c', '', '<p>sfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knf</p>\r\n', '\r\n<p><img src="images/stories/fruit/pears.jpg" border="0" />sfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g   sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn  knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g   sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn  knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g   sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn  knfsfdgh d fdfgdmfsm;g  sdnfks ndfn sdnk nfkn knfsfdgh d fdfgdmfsm;g   sdnfks ndfn sdnk nfkn kn</p>\r\n<p> </p>', '', '', 1, 2, 0, 0, '2011-10-12 12:40:58', 62, '', '2011-10-14 10:09:30', 62, 62, '2011-10-15 10:01:50', '2011-10-12 12:40:58', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 3, 0, 5, '', '', 0, 0, 0, 'D', 'robots=\nauthor='),
-(11, 'RDBMS', 'rdbms', '', '<p>dsgfdgfdhfghj hjk jlkj;lkfdfdfd</p>', '', '', '', 1, 0, 0, 0, '2011-10-12 12:50:39', 62, '', '2011-10-15 06:46:54', 62, 0, '0000-00-00 00:00:00', '2011-10-12 12:50:39', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 6, 0, 4, '', '', 1, 0, 0, 'D', 'robots=\nauthor='),
-(12, 'sdghasd', 'sdghasd', '', '<p>asfsfa</p>', '', '', '', 1, 0, 0, 0, '2011-10-15 12:50:43', 62, '', '0000-00-00 00:00:00', 0, 62, '2011-10-15 12:51:16', '2011-10-15 12:50:43', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 1, 0, 3, '', '', 0, 0, 0, 'D', 'robots=\nauthor='),
-(13, 'dhana', 'dhana', '', '<p>sfdsfdfa</p>', '', '', '', 1, 0, 0, 0, '2011-10-15 12:51:24', 62, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '2011-10-15 12:51:24', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 1, 0, 2, '', '', 0, 0, 0, 'D', 'robots=\nauthor='),
-(14, 'ddg', 'ddg', '', '<p>fdgghdgsx</p>', '', '', '', 1, 0, 0, 0, '2011-10-15 13:20:00', 62, '', '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00', '2011-10-15 13:20:00', '0000-00-00 00:00:00', '', '', 'show_title=\nlink_titles=\nshow_intro=\nshow_section=\nlink_section=\nshow_category=\nlink_category=\nshow_vote=\nshow_author=\nshow_create_date=\nshow_modify_date=\nshow_pdf_icon=\nshow_print_icon=\nshow_email_icon=\nlanguage=\nkeyref=\nreadmore=', 1, 0, 1, '', '', 0, 0, 0, 'D', 'robots=\nauthor=');
 
 -- --------------------------------------------------------
 
@@ -545,7 +522,7 @@ CREATE TABLE IF NOT EXISTS `jos_core_acl_aro` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jos_section_value_value_aro` (`section_value`(100),`value`(100)),
   KEY `jos_gacl_hidden_aro` (`hidden`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_core_acl_aro`
@@ -573,7 +550,7 @@ CREATE TABLE IF NOT EXISTS `jos_core_acl_aro_groups` (
   PRIMARY KEY (`id`),
   KEY `jos_gacl_parent_id_aro_groups` (`parent_id`),
   KEY `jos_gacl_lft_rgt_aro_groups` (`lft`,`rgt`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_core_acl_aro_groups`
@@ -625,7 +602,7 @@ CREATE TABLE IF NOT EXISTS `jos_core_acl_aro_sections` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jos_gacl_value_aro_sections` (`value`),
   KEY `jos_gacl_hidden_aro_sections` (`hidden`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_core_acl_aro_sections`
@@ -743,7 +720,7 @@ CREATE TABLE IF NOT EXISTS `jos_menu` (
   PRIMARY KEY (`id`),
   KEY `componentid` (`componentid`,`menutype`,`published`,`access`),
   KEY `menutype` (`menutype`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_menu`
@@ -765,7 +742,7 @@ CREATE TABLE IF NOT EXISTS `jos_menu_types` (
   `description` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `menutype` (`menutype`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_menu_types`
@@ -792,7 +769,7 @@ CREATE TABLE IF NOT EXISTS `jos_messages` (
   `message` text NOT NULL,
   PRIMARY KEY (`message_id`),
   KEY `useridto_state` (`user_id_to`,`state`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_messages`
@@ -863,7 +840,7 @@ CREATE TABLE IF NOT EXISTS `jos_modules` (
   PRIMARY KEY (`id`),
   KEY `published` (`published`,`access`),
   KEY `newsfeeds` (`module`,`published`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_modules`
@@ -928,7 +905,7 @@ CREATE TABLE IF NOT EXISTS `jos_newsfeeds` (
   PRIMARY KEY (`id`),
   KEY `published` (`published`),
   KEY `catid` (`catid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_newsfeeds`
@@ -956,7 +933,7 @@ CREATE TABLE IF NOT EXISTS `jos_plugins` (
   `params` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_folder` (`published`,`client_id`,`access`,`folder`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_plugins`
@@ -1014,7 +991,7 @@ CREATE TABLE IF NOT EXISTS `jos_polls` (
   `access` int(11) NOT NULL DEFAULT '0',
   `lag` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_polls`
@@ -1034,7 +1011,7 @@ CREATE TABLE IF NOT EXISTS `jos_poll_data` (
   `hits` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `pollid` (`pollid`,`text`(1))
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_poll_data`
@@ -1054,7 +1031,7 @@ CREATE TABLE IF NOT EXISTS `jos_poll_date` (
   `poll_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `poll_id` (`poll_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_poll_date`
@@ -1102,7 +1079,7 @@ CREATE TABLE IF NOT EXISTS `jos_sections` (
   `params` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_scope` (`scope`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_sections`
@@ -1138,7 +1115,8 @@ CREATE TABLE IF NOT EXISTS `jos_session` (
 --
 
 INSERT INTO `jos_session` (`username`, `time`, `session_id`, `guest`, `userid`, `usertype`, `gid`, `client_id`, `data`) VALUES
-('admin', '1318684811', 'f421dbdbe0355bf998cd8bf4849e8c46', 0, 62, 'Super Administrator', 25, 1, '__default|a:8:{s:22:"session.client.browser";s:67:"Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2";s:15:"session.counter";i:39;s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:5:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}s:11:"application";a:1:{s:4:"data";O:8:"stdClass":1:{s:4:"lang";s:0:"";}}s:10:"com_cpanel";a:1:{s:4:"data";O:8:"stdClass":1:{s:9:"mtupgrade";O:8:"stdClass":1:{s:7:"checked";b:1;}}}s:12:"com_sections";a:1:{s:4:"data";O:8:"stdClass":5:{s:12:"filter_order";s:10:"s.ordering";s:16:"filter_order_Dir";s:0:"";s:12:"filter_state";s:1:"P";s:6:"search";s:0:"";s:10:"limitstart";i:0;}}s:6:"global";a:1:{s:4:"data";O:8:"stdClass":1:{s:4:"list";O:8:"stdClass":1:{s:5:"limit";s:2:"20";}}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";s:2:"62";s:4:"name";s:13:"Administrator";s:8:"username";s:5:"admin";s:5:"email";s:25:"admin@wesharearticles.com";s:8:"password";s:65:"cd17f4d39c0e8822b20a084f613349c9:JwwytvmDw2Y1VtFx5jgo3oJPM9C7N03H";s:14:"password_clear";s:0:"";s:8:"usertype";s:19:"Super Administrator";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:3:"gid";s:2:"25";s:12:"registerDate";s:19:"2011-10-08 10:40:04";s:13:"lastvisitDate";s:19:"2011-10-15 11:42:23";s:10:"activation";s:0:"";s:6:"params";s:0:"";s:3:"aid";i:2;s:5:"guest";i:0;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:73:"D:\\xampp\\htdocs\\We-Share-Articles\\libraries\\joomla\\html\\parameter\\element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"454bd29666530bff132e3bb42737862d";s:19:"session.timer.start";i:1318683033;s:18:"session.timer.last";i:1318684810;s:17:"session.timer.now";i:1318684811;}');
+('', '1318751432', '978c17fa0791c1d88d99fefeab6ceb9f', 1, 0, '', 0, 1, '__default|a:8:{s:15:"session.counter";i:1;s:19:"session.timer.start";i:1318751423;s:18:"session.timer.last";i:1318751423;s:17:"session.timer.now";i:1318751423;s:22:"session.client.browser";s:67:"Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:1:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:8:"usertype";N;s:5:"block";N;s:9:"sendEmail";i:0;s:3:"gid";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:3:"aid";i:0;s:5:"guest";i:1;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:73:"C:\\xampp\\htdocs\\We-Share-Articles\\libraries\\joomla\\html\\parameter\\element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"58fa2f0614539c0f5c330e1e4ceb7517";}'),
+('admin', '1318751480', 'e05be850db81083e1d5ed6c88ca4746b', 0, 62, 'Super Administrator', 25, 1, '__default|a:8:{s:15:"session.counter";i:6;s:19:"session.timer.start";i:1318751423;s:18:"session.timer.last";i:1318751450;s:17:"session.timer.now";i:1318751480;s:22:"session.client.browser";s:67:"Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:3:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}s:11:"application";a:1:{s:4:"data";O:8:"stdClass":1:{s:4:"lang";s:0:"";}}s:10:"com_cpanel";a:1:{s:4:"data";O:8:"stdClass":1:{s:9:"mtupgrade";O:8:"stdClass":1:{s:7:"checked";b:1;}}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";s:2:"62";s:4:"name";s:13:"Administrator";s:8:"username";s:5:"admin";s:5:"email";s:25:"admin@wesharearticles.com";s:8:"password";s:65:"cd17f4d39c0e8822b20a084f613349c9:JwwytvmDw2Y1VtFx5jgo3oJPM9C7N03H";s:14:"password_clear";s:0:"";s:8:"usertype";s:19:"Super Administrator";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:3:"gid";s:2:"25";s:12:"registerDate";s:19:"2011-10-08 10:40:04";s:13:"lastvisitDate";s:19:"2011-10-15 12:50:33";s:10:"activation";s:0:"";s:6:"params";s:0:"";s:3:"aid";i:2;s:5:"guest";i:0;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:73:"C:\\xampp\\htdocs\\We-Share-Articles\\libraries\\joomla\\html\\parameter\\element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"58fa2f0614539c0f5c330e1e4ceb7517";}');
 
 -- --------------------------------------------------------
 
@@ -1170,7 +1148,7 @@ CREATE TABLE IF NOT EXISTS `jos_subscribed_section` (
   PRIMARY KEY (`id`),
   KEY `viewer_id` (`viewer_id`,`section_id`),
   KEY `section_id` (`section_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_subscribed_section`
@@ -1188,16 +1166,12 @@ CREATE TABLE IF NOT EXISTS `jos_tags` (
   `tagname` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname` (`tagname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_tags`
 --
 
-INSERT INTO `jos_tags` (`id`, `tagname`) VALUES
-(3, 'naren'),
-(1, 'tag1'),
-(2, 'tag2');
 
 -- --------------------------------------------------------
 
@@ -1251,17 +1225,14 @@ CREATE TABLE IF NOT EXISTS `jos_users` (
   KEY `gid_block` (`gid`,`block`),
   KEY `username` (`username`),
   KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_users`
 --
 
 INSERT INTO `jos_users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `image`, `biography`, `website`, `isfeatured`, `isNewsletterSubscribed`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
-(62, 'Administrator', 'admin', 'admin@wesharearticles.com', 'cd17f4d39c0e8822b20a084f613349c9:JwwytvmDw2Y1VtFx5jgo3oJPM9C7N03H', 'Super Administrator', 0, 1, '', '', '', 0, 0, 25, '2011-10-08 10:40:04', '2011-10-15 12:50:33', '', ''),
-(63, 'naren', 'author', 'mailfornarens@gmail.com', '767b98cfdea816889587b142e1a258a3:bYt8APjzNNWuOh7vuPNdbfjCRxfgikiC', 'Author', 0, 0, '', '', '', 0, 0, 19, '2011-10-08 11:26:40', '0000-00-00 00:00:00', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(64, 'dhanapal', 'dhanapal', 'dhanapal.hideaz@gmail.com', '392b3f747085fedd7c88910d094f2a14:ez7IdczsiZDD6e537bulXzf8PxLYYLqb', 'Author', 0, 0, '', '', '', 0, 0, 19, '2011-10-11 17:48:16', '0000-00-00 00:00:00', '525e79bc65348ae95c2309320a99521a:$1$2e8076c2$', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(65, 'dhanapal', 'dhanapal p', 'dhana281188@gmail.com', '0e4f24bc69f15138c3126c70a4ced675:HnNO1cS6gqCegdTNXFj4KTVs71PGaFCy', 'Registered', 1, 0, '', '', '', 0, 0, 18, '2011-10-12 14:21:54', '0000-00-00 00:00:00', '8cabda7bb25f1f79456106eebebedc1c', '\n');
+(62, 'Administrator', 'admin', 'admin@wesharearticles.com', 'cd17f4d39c0e8822b20a084f613349c9:JwwytvmDw2Y1VtFx5jgo3oJPM9C7N03H', 'Super Administrator', 0, 1, '', '', '', 0, 0, 25, '2011-10-08 10:40:04', '2011-10-16 07:50:33', '', '');
 
 -- --------------------------------------------------------
 
@@ -1288,7 +1259,7 @@ CREATE TABLE IF NOT EXISTS `jos_weblinks` (
   `params` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`,`published`,`archived`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_weblinks`

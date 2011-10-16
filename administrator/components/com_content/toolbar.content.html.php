@@ -41,7 +41,7 @@ class TOOLBAR_content
 		JToolBarHelper::apply();
 		if ( $edit ) {
 			// for existing articles the button is renamed `close`
-			JToolBarHelper::cancell( 'cancel', 'Close' );
+			JToolBarHelper::cancel( 'cancel', 'Close' );
 		} else {
 			JToolBarHelper::cancel();
 		}

@@ -38,6 +38,8 @@ class TOOLBAR_content
 		else{
 			JToolBarHelper::submit();
 		}
+		//ghghgh
+			//ggghghgh
 		JToolBarHelper::apply();
 		if ( $edit ) {
 			// for existing articles the button is renamed `close`
@@ -46,6 +48,8 @@ class TOOLBAR_content
 			JToolBarHelper::cancel();
 		}
 		JToolBarHelper::help( 'screen.content.edit' );
+		//ghghgh
+			//ggghghgh
 	}
 /*
 	function _ARCHIVE()

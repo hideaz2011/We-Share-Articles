@@ -38,6 +38,14 @@ class TOOLBAR_content
 		else{
 			JToolBarHelper::submit();
 		}
+		if($edit){
+			JToolBarHelper::save();
+			//ghghgh
+			//ggghghgh
+		}
+		else{
+			JToolBarHelper::submit();
+		}
 		//ghghgh
 			//ggghghgh
 		JToolBarHelper::apply();

@@ -31,7 +31,7 @@ class TOOLBAR_content
 		JToolBarHelper::title( JText::_( 'Article' ).': <small><small>[ '. $text.' ]</small></small>', 'addedit.png' );
 		JToolBarHelper::preview( 'index.php?option=com_content&id='.$cid.'&tmpl=component', true );
 		if($edit){
-			JToolBarHelper::save();
+			//JToolBarHelper::save();
 		}
 		else{
 			JToolBarHelper::submit();

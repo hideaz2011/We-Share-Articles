@@ -445,12 +445,20 @@ class JToolBarHelper
 	* @param string An override for the alt text
 	* @since 1.0
 	*/
-	function save($task = 'save', $alt = 'Submit')
+	function save($task = 'save', $alt = 'Save')
 	{
 		$bar = & JToolBar::getInstance('toolbar');
 		// Add a save button
 		$bar->appendButton( 'Standard', 'save', $alt, $task, false, false );
 	}
+	
+	function submit($task = 'save', $alt = 'Submit')
+	{
+		$bar = & JToolBar::getInstance('toolbar');
+		// Add a save button
+		$bar->appendButton( 'Standard', 'save', $alt, $task, false, false );
+	}
+	
 
 	/**
 	* Writes a cancel button and invokes a cancel operation (eg a checkin)

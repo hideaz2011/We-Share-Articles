@@ -534,16 +534,30 @@ class ContentController extends JController
 			return false;
 		}
 		$row->bind($details);
-
+		
+		
 		// sanitise id field
 		$row->id = (int) $row->id;
 		$postvalues = JRequest::get('post');
 		$mysectionids = $postvalues['sectionid'];
+		echo "<pre>";
+		print_r($postvalues);
+		exit();
+
+		$tags = JRequest::getVar('tags');
+		$query = "INSERT INTO #__tags(tagname) VALUES ('".$tags."')";
+		$db->setQuery($query);
+			if (!$db->query())
+			{
+				JError::raiseError( 500, $db->stderr() );
+				return false;
+			}
+			
 		
 		
-		
+		//ContentHelper::storetags($tags);
 		//echo "<pre>";
-		//print_r($mysectionids);
+		//print_r($tags);
 		//exit();
 
 		$isNew = true;
@@ -589,6 +603,7 @@ class ContentController extends JController
 		}
 
 		// Get a state and parameter variables from the request
+		//$row->tags = JRequest::getvar('tags', 'post');
 		$row->state	= JRequest::getVar( 'state', 0, '', 'int' );
 		$params		= JRequest::getVar( 'params', null, 'post', 'array' );
 
@@ -747,6 +762,9 @@ class ContentController extends JController
 		}
 	}
 
+	
+	
+	
 	/**
 	* Changes the state of one or more content pages
 	*

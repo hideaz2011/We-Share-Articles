@@ -32,22 +32,12 @@ class TOOLBAR_content
 		JToolBarHelper::preview( 'index.php?option=com_content&id='.$cid.'&tmpl=component', true );
 		if($edit){
 			JToolBarHelper::save();
-			//ghghgh
-			//ggghghgh
+			
 		}
 		else{
 			JToolBarHelper::submit();
 		}
-		if($edit){
-			JToolBarHelper::save();
-			//ghghgh
-			//ggghghgh
-		}
-		else{
-			JToolBarHelper::submit();
-		}
-		//ghghgh
-			//ggghghgh
+		
 		JToolBarHelper::apply();
 		if ( $edit ) {
 			// for existing articles the button is renamed `close`
@@ -56,8 +46,7 @@ class TOOLBAR_content
 			JToolBarHelper::cancel();
 		}
 		JToolBarHelper::help( 'screen.content.edit' );
-		//ghghgh
-			//ggghghgh
+		
 	}
 /*
 	function _ARCHIVE()

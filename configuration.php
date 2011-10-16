@@ -1,6 +1,7 @@
 <?php
 class JConfig {
 /* Site Settings */
+
 var $offline = '0';
 var $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
 var $sitename = 'wesharearticles';

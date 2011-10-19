@@ -263,7 +263,6 @@ class ContentController extends JController
 		// Initialize variables
 		$db				= & JFactory::getDBO();
 		$user			= & JFactory::getUser();
-
 		$cid			= JRequest::getVar( 'cid', array(0), '', 'array' );
 		JArrayHelper::toInteger($cid, array(0));
 		$id				= JRequest::getVar( 'id', $cid[0], '', 'int' );
@@ -274,6 +273,7 @@ class ContentController extends JController
 
 		// Create and load the content table row
 		$row = & JTable::getInstance('content');
+		
 		if($edit)
 			$row->load($id);
 
@@ -450,6 +450,12 @@ class ContentController extends JController
 				' WHERE catid = ' . (int) $row->catid .
 				' AND state >= 0' .
 				' ORDER BY ordering';
+		
+		//echo "<pre>";
+		//print_r($query);
+		//exit();
+
+		
 		if($edit)
 			$lists['ordering'] = JHTML::_('list.specificordering', $row, $id, $query, 1);
 		else
@@ -500,6 +506,8 @@ class ContentController extends JController
 		$form->loadINI($row->metadata);
 
 		ContentView::editContent($row, $contentSection, $lists, $sectioncategories, $option, $form);
+	
+			
 	}
 
 	/**
@@ -541,7 +549,7 @@ class ContentController extends JController
 		$postvalues = JRequest::get('post');
 		$mysectionids = $postvalues['sectionid'];
 		echo "<pre>";
-		print_r($postvalues);
+		print_r($row->title);
 		exit();
 
 		$tags = JRequest::getVar('tags');

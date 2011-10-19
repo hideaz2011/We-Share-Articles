@@ -249,7 +249,7 @@ class ContentView
 						<?php echo $author; ?>
 					</td>
 					<td nowrap="nowrap">
-						<?php echo JHTML::_('date',  $row->created, JText::_('DATE_FORMAT_LC4') ); ?>
+						<?php echo JHTML::_('date',  $row->created, JText::_('DATE_FORMAT_LC5') ); ?>
 					</td>
 					<td nowrap="nowrap" align="center">
 						<?php echo $row->hits ?>
@@ -862,6 +862,18 @@ class ContentView
 				<?php echo $lists['catid']; ?>
 			</td>
 		</tr-->
+		<tr>
+			<td>
+				<label for="tags">
+					<?php echo JText::_( 'Tags' ); ?>
+				</label>
+			</td>
+			<td>
+				<input class="inputbox" type="text" name="tags" id="tags" size="40" maxlength="255" value="<?php echo $row->tags; ?>" />
+
+				<!--textarea rows="2" cols="22" name="tags" id="tags" value="<?php echo $row->title; ?> ">
+                </textarea-->
+			</td>
 		</table>
 		<?php
 	

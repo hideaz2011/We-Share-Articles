@@ -33,6 +33,7 @@ class JElementArticle extends JElement
 		$template 	= $mainframe->getTemplate();
 		$fieldName	= $control_name.'['.$name.']';
 		$article =& JTable::getInstance('content');
+
 		if ($value) {
 			$article->load($value);
 		} else {

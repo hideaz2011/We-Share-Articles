@@ -263,7 +263,6 @@ class ContentController extends JController
 		// Initialize variables
 		$db				= & JFactory::getDBO();
 		$user			= & JFactory::getUser();
-
 		$cid			= JRequest::getVar( 'cid', array(0), '', 'array' );
 		JArrayHelper::toInteger($cid, array(0));
 		$id				= JRequest::getVar( 'id', $cid[0], '', 'int' );
@@ -274,6 +273,7 @@ class ContentController extends JController
 
 		// Create and load the content table row
 		$row = & JTable::getInstance('content');
+		
 		if($edit)
 			$row->load($id);
 
@@ -456,6 +456,12 @@ class ContentController extends JController
 				' WHERE catid = ' . (int) $row->catid .
 				' AND state >= 0' .
 				' ORDER BY ordering';
+		
+		//echo "<pre>";
+		//print_r($query);
+		//exit();
+
+		
 		if($edit)
 			$lists['ordering'] = JHTML::_('list.specificordering', $row, $id, $query, 1);
 		else
@@ -506,6 +512,8 @@ class ContentController extends JController
 		$form->loadINI($row->metadata);
 
 		ContentView::editContent($row, $contentSection, $lists, $sectioncategories, $option, $form);
+	
+			
 	}
 
 	/**
@@ -540,16 +548,30 @@ class ContentController extends JController
 			return false;
 		}
 		$row->bind($details);
-
+		
+		
 		// sanitise id field
 		$row->id = (int) $row->id;
 		$postvalues = JRequest::get('post');
 		$mysectionids = $postvalues['sectionid'];
+		echo "<pre>";
+		print_r($row->title);
+		exit();
+
+		$tags = JRequest::getVar('tags');
+		$query = "INSERT INTO #__tags(tagname) VALUES ('".$tags."')";
+		$db->setQuery($query);
+			if (!$db->query())
+			{
+				JError::raiseError( 500, $db->stderr() );
+				return false;
+			}
+			
 		
 		
-		
+		//ContentHelper::storetags($tags);
 		//echo "<pre>";
-		//print_r($mysectionids);
+		//print_r($tags);
 		//exit();
 
 		$isNew = true;
@@ -595,6 +617,7 @@ class ContentController extends JController
 		}
 
 		// Get a state and parameter variables from the request
+		//$row->tags = JRequest::getvar('tags', 'post');
 		$row->state	= JRequest::getVar( 'state', 0, '', 'int' );
 		$params		= JRequest::getVar( 'params', null, 'post', 'array' );
 
@@ -753,6 +776,9 @@ class ContentController extends JController
 		}
 	}
 
+	
+	
+	
 	/**
 	* Changes the state of one or more content pages
 	*

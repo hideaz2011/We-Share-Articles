@@ -184,7 +184,7 @@ class ContentController extends JController
 					{
 						$rows[$h]->mysections .= $names;
 					} else {
-						$rows[$h]->mysections .= $names.",";
+						$rows[$h]->mysections .= $names.", ";
 					}
 				}
 			}
@@ -376,12 +376,18 @@ class ContentController extends JController
 				' ORDER BY s.ordering';
 		$db->setQuery($query);
 
-		$sections[] = JHTML::_('select.option', '-1', '- '.JText::_('Select Section').' -', 'id', 'title');
+		$sections[] = JHTML::_('select.option', '-1', '- '.JText::_('Select Section').' -', 'id', 'title',true);
 		//$sections[] = JHTML::_('select.option', '0', JText::_('Uncategorized'), 'id', 'title');
 		
 		$sections = array_merge($sections, $db->loadObjectList());
 		
-		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title', intval($row->secrtonid));
+		$q = 'SELECT section_id from #__article_section where article_id='.(int) $row->id;
+		$db->setQuery($q);
+		
+		$arr = $db->loadResultArray();
+		
+		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title',$arr);
+		
 		
 		//echo $sectionid;
 		//exit();

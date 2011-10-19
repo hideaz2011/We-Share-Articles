@@ -484,12 +484,32 @@ class ContentView
 				submitform( pressbutton );
 				return;
 			}
+			
+			
+			var sectn = document.getElementById('sectionid');			
+			var count=0;
+			for(h=0;h<sectn.options.length;h++) {
+				if (sectn.options[h].selected) {
+					count++;
+				}
+			}
+			for(b=0;b<sectn.options.length;b++) {
+				if (sectn.options[b].selected) {
+					if ((sectn.options[b].value == 1) && (count > 1)) {
+						alert("<?php echo JText::_( 'When you select uncategorized, others should not be selected', true ); ?>" );
+						return false;
+					}
+				}
+			}
+			
 
 			// do field validation
 			var text = <?php echo $editor->getContent( 'text' ); ?>
 			if (form.title.value == ""){
 				alert( "<?php echo JText::_( 'Article must have a title', true ); ?>" );
-			} else if (form.sectionid.value == "-1"){
+			} else if ((form.sectionid.value == "-1") || (form.sectionid.value == "")){
+				alert( "<?php echo JText::_( 'You must select a Section', true ); ?>" );
+			} /*else if {
 				alert( "<?php echo JText::_( 'You must select a Section', true ); ?>" );
 			} /*else if (form.catid.value == "-1"){
 				alert( "<?php echo JText::_( 'You must select a Category', true ); ?>" );
@@ -497,7 +517,10 @@ class ContentView
  				alert( "<?php echo JText::_( 'You must select a Category', true ); ?>" );
 			} */else if (text == ""){
 				alert( "<?php echo JText::_( 'Article must have some text', true ); ?>" );
-			} else {
+			} else if (!(text.match(/<hr\s+id=(\"|')system-readmore(\"|')\s*\/*>/))) {
+				alert( "<?php echo JText::_( 'Article must have Read More Entry', true ); ?>" );
+			}
+			else {
 				<?php
 				echo $editor->save( 'text' );
 				?>
@@ -795,7 +818,7 @@ class ContentView
 			</td>
 			<td>
 				<label>
-					<?php echo JText::_( 'Publis State' ); ?>
+					<?php echo JText::_( 'Publish Status' ); ?>
 				</label>
 			</td>
 			<td>

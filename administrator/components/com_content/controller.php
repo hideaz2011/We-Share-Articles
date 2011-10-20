@@ -60,6 +60,7 @@ class ContentController extends JController
 		$filter_state		= $mainframe->getUserStateFromRequest( $context.'filter_state',		'filter_state',		'',	'word' );
 		$catid				= $mainframe->getUserStateFromRequest( $context.'catid',			'catid',			0,	'int' );
 		$filter_authorid	= $mainframe->getUserStateFromRequest( $context.'filter_authorid',	'filter_authorid',	0,	'int' );
+		
 		$filter_sectionid	= $mainframe->getUserStateFromRequest( $context.'filter_sectionid',	'filter_sectionid',	-1,	'int' );
 		$search				= $mainframe->getUserStateFromRequest( $context.'search',			'search',			'',	'string' );
 		if (strpos($search, '"') !== false) {
@@ -89,20 +90,22 @@ class ContentController extends JController
 		} else {
 			$order = ' ORDER BY '. $filter_order .' '. $filter_order_Dir .', section_name, cc.title, c.ordering';
 		}
-		$all = 1;
-
+		$all = 0;
+		
 		if ($filter_sectionid >= 0) {
 			$filter = ' WHERE cc.section = '. (int) $filter_sectionid;
 		}
 		$section->title = 'All Articles';
 		$section->id = 0;
-
+		
 		/*
 		 * Add the filter specific information to the where clause
 		 */
 		// Section filter
+		
 		if ($filter_sectionid >= 0) {
 			$where[] = 'c.sectionid = ' . (int) $filter_sectionid;
+			
 		}
 		// Category filter
 		if ($catid > 0) {
@@ -110,7 +113,7 @@ class ContentController extends JController
 		}
 		// Author filter
 		if ($filter_authorid > 0) {
-			$where[] = 'c.created_by = ' . (int) $filter_authorid;
+			$where[] = 's.created_by = ' . (int) $filter_authorid;
 		}
 		// Content state filter
 		if ($filter_state) {
@@ -126,6 +129,7 @@ class ContentController extends JController
 				}
 			}
 		}
+		
 		// Keyword filter
 		if ($search) {
 			$where[] = '(LOWER( c.title ) LIKE '.$db->Quote( '%'.$db->getEscaped( $search, true ).'%', false ) .
@@ -139,17 +143,18 @@ class ContentController extends JController
 		$query = 'SELECT COUNT(*)' .
 				' FROM #__content AS c' .
 				' LEFT JOIN #__categories AS cc ON cc.id = c.catid' .
-				' LEFT JOIN #__sections AS s ON s.id = c.sectionid' .
+				' LEFT JOIN #__sections AS s ON s.id = sectionid' .
 				$where;
 		$db->setQuery($query);
 		$total = $db->loadResult();
 
-
+		
 		// Create the pagination object
 		jimport('joomla.html.pagination');
 		$pagination = new JPagination($total, $limitstart, $limit);
 
 		// Get the articles
+		
 		$query = 'SELECT c.*, g.name AS groupname, cc.title AS name, u.name AS editor, f.content_id AS frontpage, s.title AS section_name, v.name AS author' .
 				' FROM #__content AS c' .
 				' LEFT JOIN #__categories AS cc ON cc.id = c.catid' .
@@ -160,19 +165,15 @@ class ContentController extends JController
 				' LEFT JOIN #__content_frontpage AS f ON f.content_id = c.id' .
 				$where .
 				$order;
+			
 		$db->setQuery($query, $pagination->limitstart, $pagination->limit);
 		$rows = $db->loadObjectList();
 			
-		//echo "<pre>";
 		for($h=0;$h<count($rows);$h++)
 		{
-			//echo $rows[$h]->title;
 			$q = 'SELECT section_id from #__article_section where article_id='.$rows[$h]->id;
 			$db->setQuery($q);
 		 	$name = $db->loadResultArray();
-			
-			
-			//print_r($name);
 			if (count($name) != 0) {
 				for($l=0;$l<count($name);$l++)
 				{
@@ -182,26 +183,16 @@ class ContentController extends JController
 					
 					if ($l == (count($name)-1))
 					{
-						$rows[$h]->mysections .= $names;
+						$rows[$h]->mysections .= "<a href='index.php?option=com_sections&task=edit&cid[]=".$name[$l]."'>".$names."</a>";
 					} else {
-						$rows[$h]->mysections .= $names.", ";
+						$rows[$h]->mysections .= "<a href='index.php?option=com_sections&task=edit&cid[]=".$name[$l]."'>".$names."</a>".", ";
 					}
 				}
 			}
 			
-			//if ($i == (count($rows)-1))
-			//{
-				//$rows[$i]->mysections .= $name;
-			//} else {
-				/*for($l=0;$l<count($name);$l++)
-				{
-					$rows[$h]->mysections .= $name[$l].",";
-				}*/
 		}
 	
-			//print_r($rows);
-		//exit();
-
+		
 		// If there is a database query error, throw a HTTP 500 and exit
 		if ($db->getErrorNum()) {
 			JError::raiseError( 500, $db->stderr() );
@@ -217,8 +208,20 @@ class ContentController extends JController
 		$lists['catid'] = ContentHelper::filterCategory($query, $catid);
 
 		// get list of sections for dropdown filter
-		$javascript = 'onchange="document.adminForm.submit();"';
-		$lists['sectionid'] = JHTML::_('list.section', 'filter_sectionid', $filter_sectionid, $javascript);
+		//$javascript = 'onchange="document.adminForm.submit();"';
+		
+		$query = 'SELECT id, title FROM #__sections';
+		$db->setQuery($query);
+		$sctns = $db->loadObjectList();
+		
+		$sec_options[-1] = JHTML::_('select.option', -1, "-Select Section-");
+		for($s=0;$s<count($sctns);$s++) {
+			$sec_options[$s] = JHTML::_('select.option', $sctns[$s]->id, $sctns[$s]->title);	
+		}
+
+		$lists['sectionid'] = JHTML::_('select.genericlist', $sec_options, 'filter_sectionid', 'class="inputbox" onchange="document.adminForm.submit();" ');
+	
+		//$lists['sectionid'] = JHTML::_('list.section', 'filter_sectionid', $filter_sectionid, $javascript);
 		
 		
 		// get list of Authors for dropdown filter
@@ -231,8 +234,11 @@ class ContentController extends JController
 				' GROUP BY u.id' .
 				' ORDER BY u.name, u.id';
 		$authors[] = JHTML::_('select.option', '0', '- '.JText::_('Select Author').' -', 'created_by', 'name');
+		
 		$db->setQuery($query);
+				
 		$authors = array_merge($authors, $db->loadObjectList());
+		
 		$lists['authorid'] = JHTML::_('select.genericlist',  $authors, 'filter_authorid', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'created_by', 'name', $filter_authorid);
 
 		// state filter
@@ -283,7 +289,7 @@ class ContentController extends JController
 				$mainframe->redirect('index.php?option=com_content', JText::_('You cannot edit an archived item'));
 			}
 		}
-
+	
 		// A sectionid of zero means grab from all sections
 		if ($sectionid == 0) {
 			$where = ' WHERE section NOT LIKE "%com_%"';
@@ -317,7 +323,7 @@ class ContentController extends JController
 					' WHERE id = '. (int) $row->created_by;
 			$db->setQuery($query);
 			$row->creator = $db->loadResult();
-
+			
 			// test to reduce unneeded query
 			if ($row->created_by == $row->modified_by) {
 				$row->modifier = $row->creator;
@@ -328,8 +334,9 @@ class ContentController extends JController
 				$db->setQuery($query);
 				$row->modifier = $db->loadResult();
 			}
-
-			$query = 'SELECT COUNT(content_id)' .
+				//print_r($row->modifier);
+		
+		$query = 'SELECT COUNT(content_id)' .
 					' FROM #__content_frontpage' .
 					' WHERE content_id = '. (int) $row->id;
 			$db->setQuery($query);
@@ -343,7 +350,7 @@ class ContentController extends JController
 			if (!$sectionid && JRequest::getInt('filter_sectionid')) {
 				$sectionid =JRequest::getInt('filter_sectionid');
 			}
-
+			
 			if (JRequest::getInt('catid'))
 			{
 				$row->catid	 = JRequest::getInt('catid');
@@ -383,11 +390,8 @@ class ContentController extends JController
 		
 		$q = 'SELECT section_id from #__article_section where article_id='.(int) $row->id;
 		$db->setQuery($q);
-		
 		$arr = $db->loadResultArray();
-		
 		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title',$arr);
-		
 		
 		//echo $sectionid;
 		//exit();
@@ -421,11 +425,11 @@ class ContentController extends JController
 		$cat_list = $db->loadObjectList();
 
 		// Uncategorized category mapped to uncategorized section
-		$uncat = new stdClass();
+		/*$uncat = new stdClass();
 		$uncat->id = 0;
 		$uncat->title = JText::_('Uncategorized');
 		$uncat->section = 0;
-		$cat_list[] = $uncat;
+		$cat_list[] = $uncat;*/
 		foreach ($sections as $section)
 		{
 			$sectioncategories[$section->id] = array ();
@@ -554,10 +558,7 @@ class ContentController extends JController
 		$row->id = (int) $row->id;
 		$postvalues = JRequest::get('post');
 		$mysectionids = $postvalues['sectionid'];
-		echo "<pre>";
-		print_r($row->title);
-		exit();
-
+		
 		$tags = JRequest::getVar('tags');
 		$query = "INSERT INTO #__tags(tagname) VALUES ('".$tags."')";
 		$db->setQuery($query);
@@ -566,14 +567,7 @@ class ContentController extends JController
 				JError::raiseError( 500, $db->stderr() );
 				return false;
 			}
-			
 		
-		
-		//ContentHelper::storetags($tags);
-		//echo "<pre>";
-		//print_r($tags);
-		//exit();
-
 		$isNew = true;
 		// Are we saving from an item edit?
 		if ($row->id) {
@@ -687,6 +681,7 @@ class ContentController extends JController
 			$query = 'INSERT INTO #__article_section(article_id,section_id)' .
 						' VALUES ( '. (int) $row->id .', '.$mysectionids[$g].' )';
 			$db->setQuery($query);
+			
 			
 			if (!$db->query())
 			{
@@ -1061,7 +1056,7 @@ class ContentController extends JController
 				' WHERE s.scope = "content"' .
 				' ORDER BY s.title, c.title';
 		$db->setQuery($query);
-		$rows[] = JHTML::_('select.option', "0, 0", JText::_('UNCATEGORIZED'));
+		//$rows[] = JHTML::_('select.option', "0, 0", JText::_('UNCATEGORIZED'));
 		$rows = array_merge($rows, $db->loadObjectList());
 		// build the html select list
 		$sectCatList = JHTML::_('select.genericlist',  $rows, 'sectcat', 'class="inputbox" size="8"', 'value', 'text', null);

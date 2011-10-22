@@ -15,7 +15,7 @@ var $debug_lang = '0';
 var $dbtype = 'mysql';
 var $host = 'localhost';
 var $user = 'root';
-var $password = '';
+var $password = 'root';
 var $db = 'wesharearticles';
 var $dbprefix = 'jos_';
 /* Server Settings */

@@ -54,7 +54,7 @@ class ContentModelFrontpage extends JModel
 		{
 			// Initialize some variables
 			$user	=& JFactory::getUser();
-
+			
 			// raise errors
 		}
 
@@ -75,7 +75,7 @@ class ContentModelFrontpage extends JModel
 			$query = $this->_buildQuery();
 			$this->_total = $this->_getListCount($query);
 		}
-
+		
 		return $this->_total;
 	}
 
@@ -88,6 +88,7 @@ class ContentModelFrontpage extends JModel
 	 */
 	function _loadData()
 	{
+		$db	=& JFactory::getDBO();
 		// Lets load the content if it doesn't already exist
 		if (empty($this->_data))
 		{
@@ -97,7 +98,31 @@ class ContentModelFrontpage extends JModel
 
 			$query = $this->_buildQuery();
 			$Arows = $this->_getList($query, $limitstart, $limit);
-
+				//echo "<pre>";
+				for ($dhanapal =0 ; $dhanapal<count($Arows);$dhanapal++)
+				{
+					//$Arows[$dhanapal]->title."<br>";
+					$myquery = 'SELECT a.article_id,a.section_id,b.title FROM jos_article_section a, jos_sections b where a.section_id=b.id and a.article_id='.$Arows[$dhanapal]->id;
+					$db->setQuery($myquery);
+					
+					$mysections = $db->loadObjectList();
+					
+					$Arows[$dhanapal]->mysections = "";
+					
+					for($rajavel=0;$rajavel<count($mysections);$rajavel++) {
+						if ($rajavel == (count($mysections)-1)) {
+							$Arows[$dhanapal]->mysections .= $mysections[$rajavel]->title;
+						} else {
+							$Arows[$dhanapal]->mysections .= $mysections[$rajavel]->title.", ";
+						}
+					}
+					//echo $Arows[$dhanapal]->mysections;
+					//echo "<br><br>";
+				}
+				//echo $Arows[0]->title;
+				//print_r($Arows);
+				
+			
 			// special handling required as Uncategorized content does not have a section / category id linkage
 			$i = $limitstart;
 			$rows = array();
@@ -108,23 +133,24 @@ class ContentModelFrontpage extends JModel
 				$i ++;
 			}
 			$this->_data = $rows;
-		}
+		
 		return true;
+		}
 	}
-
 	function _buildQuery()
 	{
 		global $mainframe;
 		// Get the page/component configuration
 		$params = &$mainframe->getParams();
-
+			
 		// Voting is turned on, get voting data as well for the content items
 		$voting	= ContentHelperQuery::buildVotingQuery($params);
-
+		
 		// Get the WHERE and ORDER BY clauses for the query
 		$where	= $this->_buildContentWhere();
-		$orderby 			= $this->_buildContentOrderBy();
-
+		$orderby= $this->_buildContentOrderBy();
+		
+		
 		$query = ' SELECT a.id, a.title, a.alias, a.title_alias, a.introtext, a.fulltext, a.sectionid, a.state, a.catid, a.created, a.created_by, a.created_by_alias, a.modified, a.modified_by,' .
 			' a.checked_out, a.checked_out_time, a.publish_up, a.publish_down, a.images, a.attribs, a.urls, a.metakey, a.metadesc, a.access,' .
 			' CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(\':\', a.id, a.alias) ELSE a.id END as slug,'.
@@ -144,6 +170,7 @@ class ContentModelFrontpage extends JModel
 			;
 
 		return $query;
+				
 	}
 
 	function _buildContentOrderBy()
@@ -167,10 +194,12 @@ class ContentModelFrontpage extends JModel
 
 	function _buildContentWhere()
 	{
+		
 		global $mainframe;
 
 		$user		=& JFactory::getUser();
 		$gid		= $user->get('aid', 0);
+		
 		// TODO: Should we be using requestTime here? or is JDate ok?
 		// $now		= $mainframe->get('requestTime');
 
@@ -179,10 +208,9 @@ class ContentModelFrontpage extends JModel
 
 		// Get the page/component configuration
 		$params = &$mainframe->getParams();
-
 		$noauth		= !$params->get('show_noauth');
 		$nullDate	= $this->_db->getNullDate();
-
+		
 		//First thing we need to do is assert that the articles are in the current category
 		$where = ' WHERE 1';
 
@@ -202,7 +230,6 @@ class ContentModelFrontpage extends JModel
 			$where .= ' AND ( a.publish_up = '.$this->_db->Quote($nullDate).' OR a.publish_up <= '.$this->_db->Quote($now).' )' .
 					  ' AND ( a.publish_down = '.$this->_db->Quote($nullDate).' OR a.publish_down >= '.$this->_db->Quote($now).' )';
 		}
-
 		return $where;
 	}
 }

@@ -46,20 +46,25 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 </tr>
 </table>
 <?php endif; ?>
+
 <?php  if (!$this->item->params->get('show_intro')) :
 	echo $this->item->event->afterDisplayTitle;
 endif; ?>
 <?php echo $this->item->event->beforeDisplayContent; ?>
 <table class="contentpaneopen<?php echo $this->escape($this->item->params->get( 'pageclass_sfx' )); ?>">
-<?php if (($this->item->params->get('show_section') && $this->item->sectionid) || ($this->item->params->get('show_category') && $this->item->catid)) : ?>
+
+<?php 
+
+if (($this->item->params->get('show_section') && $this->item->mysections) || ($this->item->params->get('show_category') && $this->item->catid)) : 
+?>
 <tr>
 	<td>
-		<?php if ($this->item->params->get('show_section') && $this->item->sectionid && isset($this->item->section)) : ?>
+		<?php// if ($this->item->params->get('show_section') && $this->item->mysections && isset($this->item->section)) : ?>
 		<span>
 			<?php if ($this->item->params->get('link_section')) : ?>
 				<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; ?>
 			<?php endif; ?>
-			<?php echo $this->escape($this->item->section); ?>
+			<?php echo $this->escape($this->item->mysections); ?>
 			<?php if ($this->item->params->get('link_section')) : ?>
 				<?php echo '</a>'; ?>
 			<?php endif; ?>
@@ -67,7 +72,7 @@ endif; ?>
 				<?php echo ' - '; ?>
 			<?php endif; ?>
 		</span>
-		<?php endif; ?>
+		<?php// endif; ?>
 		<?php if ($this->item->params->get('show_category') && $this->item->catid) : ?>
 		<span>
 			<?php if ($this->item->params->get('link_category')) : ?>

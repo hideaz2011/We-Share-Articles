@@ -18,8 +18,8 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 		<?php else : ?>
 			<?php echo $this->escape($this->item->title); ?>
 		<?php endif; ?>
-	</td>
-	<?php endif; ?>
+    </td>
+    <?php endif; ?>
 
 	<?php if ($this->item->params->get('show_pdf_icon')) : ?>
 	<td align="right" width="100%" class="buttonheading">
@@ -42,11 +42,13 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 	<td align="right" width="100%" class="buttonheading">
 		<?php echo JHTML::_('icon.edit', $this->item, $this->item->params, $this->access); ?>
 	</td>
-	<?php endif; ?>
+    <?php endif; ?>
+    
 </tr>
 </table>
 <?php endif; ?>
-
+<span class="small"><?php echo "Number Of Views:" .$this->item->hits; ?></span>
+    
 <?php  if (!$this->item->params->get('show_intro')) :
 	echo $this->item->event->afterDisplayTitle;
 endif; ?>

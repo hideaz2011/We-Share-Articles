@@ -263,14 +263,14 @@ class sections_html
 						<input class="text_area" type="text" name="alias" id="alias" value="<?php echo $row->alias; ?>" size="50" maxlength="255" title="<?php echo JText::_( 'ALIASTIP' ); ?>" />
 					</td>
 				</tr>
-				<tr>
+				<!--tr>
 					<td class="key">
 						<?php echo JText::_( 'Published' ); ?>:
 					</td>
 					<td colspan="2">
 						<?php echo $lists['published']; ?>
 					</td>
-				</tr>
+				</tr-->
 				<tr>
 					<td class="key">
 						<label for="ordering">
@@ -281,7 +281,7 @@ class sections_html
 						<?php echo $lists['ordering']; ?>
 					</td>
 				</tr>
-				<tr>
+				<!--tr>
 					<td nowrap="nowrap" valign="top" class="key">
 						<label for="access">
 							<?php echo JText::_( 'Access Level' ); ?>:
@@ -299,7 +299,7 @@ class sections_html
 						?>
 						<img src="<?php echo $path;?><?php echo $row->image;?>" name="imagelib" width="80" height="80" border="2" alt="<?php echo JText::_( 'Preview' ); ?>" />
 					</td>
-				</tr>
+				</tr-->
 				<tr>
 					<td class="key">
 						<label for="image">

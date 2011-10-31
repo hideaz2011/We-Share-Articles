@@ -274,7 +274,6 @@ function editSection( $edit)
 	$lists['access'] 			= JHTML::_('list.accesslevel',  $row );
 	// build the html radio buttons for published
 	$lists['published'] 		= JHTML::_('select.booleanlist',  'published', 'class="inputbox"', $row->published );
-
 	sections_html::edit( $row, $option, $lists );
 }
 

@@ -559,14 +559,14 @@ class ContentController extends JController
 		$postvalues = JRequest::get('post');
 		$mysectionids = $postvalues['sectionid'];
 		
-		$tags = JRequest::getVar('tags');
+		/*$tags = JRequest::getVar('tags');
 		$query = "INSERT INTO #__tags(tagname) VALUES ('".$tags."')";
 		$db->setQuery($query);
 			if (!$db->query())
 			{
 				JError::raiseError( 500, $db->stderr() );
 				return false;
-			}
+			}*/
 		
 		$isNew = true;
 		// Are we saving from an item edit?

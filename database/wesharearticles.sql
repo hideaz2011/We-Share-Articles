@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 3.1.1
 -- http://www.phpmyadmin.net
 --
@@ -305,9 +305,6 @@ CREATE TABLE IF NOT EXISTS `jos_categories` (
 -- Dumping data for table `jos_categories`
 --
 
-INSERT INTO `jos_categories` (`id`, `parent_id`, `title`, `name`, `alias`, `image`, `section`, `image_position`, `description`, `published`, `checked_out`, `checked_out_time`, `editor`, `ordering`, `access`, `count`, `params`) VALUES
-(1, 0, 'computer', '', 'computer', '', '2', 'left', '<p>sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhggggsagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhggggsagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg</p>', 1, 0, '0000-00-00 00:00:00', NULL, 1, 0, 0, ''),
-(2, 0, 'advertisement', '', 'advertisement', '', '3', 'left', '<p>sdfsgd fdh fh d  fdggggggghdfg</p>', 1, 0, '0000-00-00 00:00:00', NULL, 1, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1070,23 +1067,36 @@ CREATE TABLE IF NOT EXISTS `jos_sections` (
   `scope` varchar(50) NOT NULL DEFAULT '',
   `image_position` varchar(30) NOT NULL DEFAULT '',
   `description` text NOT NULL,
-  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT '1',
   `checked_out` int(11) unsigned NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `ordering` int(11) NOT NULL DEFAULT '0',
   `access` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `count` int(11) NOT NULL DEFAULT '0',
   `params` text NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`id`),
   KEY `idx_scope` (`scope`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `jos_sections`
 --
 
-INSERT INTO `jos_sections` (`id`, `title`, `name`, `alias`, `image`, `scope`, `image_position`, `description`, `published`, `checked_out`, `checked_out_time`, `ordering`, `access`, `count`, `params`) VALUES
-(1, 'Uncategorized', '', 'uncategorized', '', 'content', 'left', '<p>Uncategorized</p>', 1, 0, '0000-00-00 00:00:00', 1, 0, 0, '');
+INSERT INTO `jos_sections` (`id`, `title`, `name`, `alias`, `image`, `scope`, `image_position`, `description`, `published`, `checked_out`, `checked_out_time`, `ordering`, `access`, `count`, `params`, `status`) VALUES
+(1, 'Uncategorized', '', 'uncategorized', '', 'content', 'right', '<p>Uncategorized</p>', 1, 62, '2011-10-29 11:00:21', 2, 0, 0, '', 'SY'),
+(2, 'Stocks', '', 'stocks', '', 'content', 'right', '<p>Stocks</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(3, 'Mutual Funds', '', 'mutual Funds', '', 'content', 'right', '<p>Mutual Funds</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(4, 'ETFs', '', 'ETFs', '', 'content', 'right', '<p>ETFs</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(5, 'IPO', '', 'IPO', '', 'content', 'right', '<p>IPO</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(6, 'Gold & Silver', '', 'Gold & Silver', '', 'content', 'right', '<p>Gold & Silver</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(7, 'Futures & Options', '', 'Futures & Options', '', 'content', 'right', '<p>Futures & Options</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(8, 'Forex', '', 'Forex', '', 'content', 'right', '<p>Forex</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(9, 'Commodities', '', 'Commodities', '', 'content', 'right', '<p>Commodities</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(10, 'Global Trends', '', 'Global Trends', '', 'content', 'right', '<p>Global Trends</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(11, 'Investment Basics', '', 'Investment Basics', '', 'content', 'right', '<p>Investment Basics</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(12, 'Technical Analysis', '', 'Technical Analysis', '', 'content', 'right', '<p>Technical Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 
 -- --------------------------------------------------------
 

@@ -4,11 +4,11 @@
 	<params addpath="/administrator/components/com_content/elements">
 		<param name="created_by" type="author" default="" label="Author" description="DETAILAUTHOR" />
 		<!--param name="created_by_alias" type="text" size="20" default="" label="Author Alias" description="DETAILAUTHORALIAS" /!-->
-		<param name="access" type="list" size="20" default="0" label="Access Level" description="DETAILACCESS">
+		<!--param name="access" type="list" size="20" default="0" label="Access Level" description="DETAILACCESS">
 			<option value="0">Public</option>
 			<option value="1">Registered</option>
 			<option value="2">Special</option>
-		</param>
+		</param-->
 		<param name="created" type="calendar" default="" label="Created Date" description="DETAILCREATED" />
 		<param name="publish_up" type="calendar" default="" label="Start Publishing" description="DETAILSTART" />
 		<param name="publish_down" type="calendar" default="" label="Finish Publishing" description="DETAILFINISH" />
@@ -39,7 +39,7 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
-		<param name="show_category" type="list" default="" label="Category Name" description="PARAMCATEG">
+		<!--param name="show_category" type="list" default="" label="Category Name" description="PARAMCATEG">
 			<option value="">Use Global</option>
 			<option value="0">Hide</option>
 			<option value="1">Show</option>
@@ -48,7 +48,7 @@
 			<option value="">Use Global</option>
 			<option value="0">No</option>
 			<option value="1">Yes</option>
-		</param>
+		</param-->
 		<param name="show_vote" type="list" default="" label="Item Rating" description="PARAMRATING">
 			<option value="">Use Global</option>
 			<option value="0">Hide</option>

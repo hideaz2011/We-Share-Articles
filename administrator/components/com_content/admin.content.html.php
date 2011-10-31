@@ -845,7 +845,7 @@ class ContentView
 
             <td>
 				<label>
-				<?php echo JText::_( 'Frontpage' ); ?>
+				<?php echo JText::_( 'Approved' ); ?>
 				</label>
 			</td>
 			<td>

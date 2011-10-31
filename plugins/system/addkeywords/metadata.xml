@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<state>
+		<name>Metadata</name>
+		<description>Metadata Parameters</description>
+		<params>
+			<param name="meta_description" type="textarea" label="Meta Description" cols="30" rows="5"/>
+			<param name="meta_keywords" type="textarea" label="Meta Keywords" cols="30" rows="5"/>
+			<param name="robots" type="text" size="20" default="" label="Robots" description="METAROBOTS" />
+			<param name="author" type="text" size="20" default="" label="Author" description="METAAUTHOR" />
+		</params>
+		<advanced />
+	</state>
+</metadata>

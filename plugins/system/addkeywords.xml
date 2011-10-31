@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install version="1.5" type="plugin" group="system" method="upgrade">
+    <name>System - Add Keywords</name>
+	<author>Matt Faulds</author>
+	<creationDate>Dec 2009</creationDate>
+    <version>0.8RC3</version>
+    <description>PLUGIN_DESCRIPTION</description>
+	<copyright>Trafalgar Design (Trafalgar Press IOM Ltd)</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>mattfaulds@gmail.com</authorEmail>
+	<authorUrl>http://trafalgardesign.com</authorUrl>
+    <files>
+        <filename plugin="addkeywords">addkeywords.php</filename>
+ 		<folder>addkeywords</folder>
+    </files>
+    <languages>
+	   <language tag="en-GB">en-GB.plg_system_addkeywords.ini</language>
+	</languages>
+	  <params>
+	   <param type="spacer" default="KEY_GENERATION"/>
+	   <param name="dokeys" type="radio" default="1" label="KEY_GEN" description="KEY_GEN_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="doemptykeys" type="radio" default="0" label="EMPTY_KEYS" description="EMPTY_KEYS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="preservekeys" type="radio" default="0" label="PRESERVE_KEYS" description="PRESERVE_KEYS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="usetitle" type="radio" default="1" label="KEYS_USE_TITLE" description="KEYS_USE_TITLE_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="addauthor" type="radio" default="0" label="ADD_AUTHOR" description="ADD_AUTHOR_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="addsectcat" type="radio" default="0" label="ADD_SECTCAT" description="ADD_SECTCAT_DESC">
+		   <option value="0">No</option>
+		   <option value="section">Section only</option>
+		   <option value="category">Category only</option>
+   		   <option value="both">Both</option>
+	   </param>
+	   <param name="lengthofword" type="text" width="4" default="3" label="MIN_LENGTH" description="MIN_LENGTH_DESC"/>
+   	   <param name="keycount" type="text" width="4" default="20" label="NUM_KEYS" description="NUM_KEYS_DESC"/>
+   	   <param name="whitelistonly" type="radio" default="0" label="WHITELIST_ONLY" description="WHITELIST_ONLY_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+       <param name="blacklist" type="textarea" cols="40" rows="20" default="a, about, above, across, after, afterwards, again, against, all, almost, alone, along, already, also, although, always, am, among, amongst, amoungst, amount, an, and, another, any, anyhow, anyone, anything, anyway, anywhere, are, around, as, at, back, be, became, because, become, becomes, becoming, been, before, beforehand, behind, being, below, beside, besides, between, beyond, bill, both, bottom, but, by, call, can, cannot, cant, co, computer, con, could, couldnt, cry, de, describe, detail, dis, do, done, down, due, during, each, eg, eight, either, eleven, else, elsewhere, empty, enough, etc, even, ever, every, everyone, everything, everywhere, except, few, fifteen, fify, fill, find, fire, first, five, for, former, formerly, forty, found, four, from, front, full, further, get, give, go, had, has, hasnt, have, he, hence, her, here, hereafter, hereby, herein, hereupon, hers, herself, him, himself, his, how, however, http, hundred, i, ie, if, in, inc, indeed, interest, into, is, it, its, itself, keep, last, latter, latterly, least, less, ltd, made, many, may, me, meanwhile, might, mill, mine, more, moreover, most, mostly, move, much, must, my, myself, name, namely, neither, never, nevertheless, next, nine, no, nobody, none, noone, nor, not, nothing, now, nowhere, of, off, often, on, once, one, only, onto, or, org, other, others, otherwise, our, ours, ourselves, out, over, own, part, per, perhaps, please, put, rather, re, same, see, seem, seemed, seeming, seems, serious, several, she, should, show, side, since, sincere, six, sixty, so, some, somehow, someone, something, sometime, sometimes, somewhere, still, such, system, take, ten, than, that, the, their, them, themselves, then, thence, there, thereafter, thereby, therefore, therein, thereupon, these, they, thick, thin, third, this, those, though, three, through, throughout, thru, thus, to, together, too, top, toward, towards, twelve, twenty, two, un, under, until, up, upon, us, very, via, was, we, well, were, what, whatever, when, whence, whenever, where, whereafter, whereas, whereby, wherein, whereupon, wherever, whether, which, while, whither, who, whoever, whole, whom, whose, why, will, with, within, without, would, www, yet, you, your, yours, yourself, yourselves, s, say, said, says, the" label="BLACK_LABEL" description="BLACK_DESC"/>
+       <param name="whitelist" type="textarea" cols="40" rows="20" default="" label="WHITE_LABEL" description="WHITE_DESC"/>
+       <param name="whitewordweighting" type="text" width="4" default="5" label="WHITEWORDWEIGHTING" description="WHITEWORDWEIGHTING_DESC"/>
+       <param name="multiwordwhitelist" type="textarea" cols="40" rows="20" default="" label="MULTIWORDWHITE_LABEL" description="MULTIWORDWHITE_DESC"/>
+       <param name="multiwordweighting" type="text" width="4" default="5" label="MULTIWORDWEIGHTING" description="MULTIWORDWEIGHTING_DESC"/>
+       <param type="spacer" default="DESC_GENERATION"/>
+	   <param name="dodesc" type="radio" default="1" label="DESC_GEN" description="DESC_GEN_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="doemptydesc" type="radio" default="0" label="EMPTY_DESC" description="EMPTY_DESC_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="preservedesc" type="radio" default="0" label="PRESERVE_DESC" description="PRESERVE_DESC_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="descprimary" type="radio" default="sentence" label="PRIMARY" description="PRIMARY_DESC">
+	   	   <option value="sentence">Sentences</option>
+		   <option value="word">Words</option>
+		   <option value="char">Characters</option>
+	   </param>
+	   <param name="descsentcount" type="text" width="4" default="2" label="NUM_SENT" description="NUM_SENT_DESC"/>
+	   <param name="descwordcount" type="text" width="4" default="20" label="NUM_WORDS" description="NUM_WORDS_DESC"/>
+	   <param name="desccharcount" type="text" width="4" default="150" label="NUM_CHARS" description="NUM_CHARS_DESC"/>
+	   <param name="dotdotdot" type="radio" default="1" label="DOTDOTDOT" description="DOTDOTDOT_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+   	   <param type="spacer" default="TAGS"/>
+	   <param name="tags" type="radio" default="1" label="TAG_LABEL" description="TAG_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+   	   <param name="numtags" type="text" width="4" default="10" label="NUM_TAGS" description="NUM_TAGS_DESC"/>
+	   <param name="fronttag" type="radio" default="1" label="FRONTTAG_LABEL" description="FRONTTAG_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="blogtag" type="radio" default="1" label="BLOGTAG_LABEL" description="BLOGTAG_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="tagfieldset" type="radio" default="1" label="TAG_FIELDSET_LABEL" description="TAG_FIELDSET_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="tagtitle" type="text" width="20" default="Tags" label="TAG_TITLE" description="TAG_TITLE_DESC"/>
+	   <param name="searchtype" type="text" width="10" default="exact" label="SEARCH_TYPE" description="SEARCH_TYPE_DESC"/>
+	   <param name="ulstyle" type="text" width="20" default="margin:0;padding:0;" label="UL_STYLE" description="UL_STYLE_DESC"/>
+	   <param name="listyle" type="text" width="20" default="display:inline;list-style-type:none;padding: 0 0.5em;" label="LI_STYLE" description="LI_STYLE_DESC"/>
+	   <param type="spacer" default=" "/>
+	   <param type="spacer" default="FRONTEND TAG EDITING"/>
+       <param name="addtag" type="radio" default="0" label="Activate frontend tag editing" description="REQUIRES THE AK_SEO COMPONENT. USES AJAX AND MOOTOOLS. MAY NOT WORK WITH JQUERY.">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="addtagusers" type="usergroup" default="25" label="Select a user group" description="MINIMUM USER GROUP ABLE TO EDIT TAGS. HIGHER GROUPS INHERIT PERMISSIONS." />
+	   <param type="spacer" default=" "/>
+   	   <param type="spacer" default="RELATED_ITEMS"/>
+   	   <param name="relateditems" type="radio" default="0" label="RELATED_ITEMS_LABEL" description="RELATED_ITEMS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="modfieldset" type="radio" default="1" label="MOD_FIELDSET_LABEL" description="MOD_FIELDSET_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="modtitle" type="text" width="20" default="Related Articles" label="MOD_TITLE" description="MOD_TITLE_DESC"/>
+	   <param name="modname" type="text" width="20" default="ak_related" label="MOD_NAME" description="MOD_NAME_DESC"/>
+	   <param name="modstyle" type="list" default="none" label="MODSTYLE" description="MODSTYLE_DESC">
+		   <option value="table">table</option>
+		   <option value="horz">horz</option>
+		   <option value="none">none</option>
+		   <option value="xhtml">xhtml</option>
+		   <option value="rounded">rounded</option>
+		   <option value="outline">outline</option>
+	   </param>
+   	   <param type="spacer" default=" "/>
+   	   <param type="spacer" default="FRONT_EXCLUSIONS"/>
+   	   <param name="frontmenuid" type="akmenuitems" default="" label="FRONT_MENU_ID"
+			multiple="YES" size="10" description="FRONT_MENU_ID_DESC"
+			query="(SELECT id AS value, name as frontmenuid FROM #__menu) 
+					ORDER BY frontmenuid" />
+	   <param name="frontsecid" type="aksql" default="" label="FRONT_SECT_ID"
+			multiple="YES" description="FRONT_SECT_ID_DESC"
+			query="(SELECT '' AS value, '-None-' as frontsecid)
+					UNION
+					(SELECT '0' AS value, '-Uncategorised-' as frontsecid)
+					UNION
+					(SELECT id AS value, title as frontsecid FROM #__sections) 
+					ORDER BY frontsecid" />
+	   <param name="frontcatid" type="aksql" default="" label="FRONT_CAT_ID"
+			multiple="YES" description="FRONT_CAT_ID_DESC"
+			query="(SELECT '' AS value, '-None-' as frontcatid)
+					UNION
+					(SELECT '0' AS value, '-Uncategorised-' as frontcatid)
+					UNION
+					(SELECT c.id AS value, CONCAT(s.title, ' / ', c.title) as frontcatid
+					FROM #__categories as c, #__sections as s
+					WHERE c.section = s.id  ) 
+					ORDER BY frontcatid" />
+	   <param type="spacer" default="PAGE_TITLE"/>
+	   <param name="pagetitle" type="radio" default="0" label="PAGE_TITLE_LABEL" description="PAGE_TITLE_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="titletext" type="text" width="4" default="" label="TITLE_TEXT_LABEL" description="TITLE_TEXT_DESC"/>
+	   <param name="titlesep" type="text" width="4" default="|" label="TITLE_SEP_LABEL" description="TITLE_SEP_DESC"/>
+	   <param name="titlepos" type="radio" default="1" label="TITLE_POS_LABEL" description="TITLE_POS_DESC">
+		   <option value="1">Before</option>
+		   <option value="0">After</option>
+	   </param>
+	  </params>
+	  <params group="keywords" addpath="/plugins/system/addkeywords/elements">
+	   <param type="spacer" default="KEY_GENERATION"/>
+	   <param name="dokeys" type="radio" default="1" label="KEY_GEN" description="KEY_GEN_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="doemptykeys" type="radio" default="0" label="EMPTY_KEYS" description="EMPTY_KEYS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="preservekeys" type="radio" default="0" label="PRESERVE_KEYS" description="PRESERVE_KEYS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="usetitle" type="radio" default="1" label="KEYS_USE_TITLE" description="KEYS_USE_TITLE_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="addauthor" type="radio" default="0" label="ADD_AUTHOR" description="ADD_AUTHOR_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="addsectcat" type="radio" default="0" label="ADD_SECTCAT" description="ADD_SECTCAT_DESC">
+		   <option value="0">No</option>
+		   <option value="section">Section only</option>
+		   <option value="category">Category only</option>
+   		   <option value="both">Both</option>
+	   </param>
+	   <param name="lengthofword" type="text" width="4" default="3" label="MIN_LENGTH" description="MIN_LENGTH_DESC"/>
+   	   <param name="keycount" type="text" width="4" default="20" label="NUM_KEYS" description="NUM_KEYS_DESC"/>
+   	   <param name="whitelistonly" type="radio" default="0" label="WHITELIST_ONLY" description="WHITELIST_ONLY_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+       <param name="blacklist" type="textarea" cols="40" rows="20" default="a, about, above, across, after, afterwards, again, against, all, almost, alone, along, already, also, although, always, am, among, amongst, amoungst, amount, an, and, another, any, anyhow, anyone, anything, anyway, anywhere, are, around, as, at, back, be, became, because, become, becomes, becoming, been, before, beforehand, behind, being, below, beside, besides, between, beyond, bill, both, bottom, but, by, call, can, cannot, cant, co, computer, con, could, couldnt, cry, de, describe, detail, dis, do, done, down, due, during, each, eg, eight, either, eleven, else, elsewhere, empty, enough, etc, even, ever, every, everyone, everything, everywhere, except, few, fifteen, fify, fill, find, fire, first, five, for, former, formerly, forty, found, four, from, front, full, further, get, give, go, had, has, hasnt, have, he, hence, her, here, hereafter, hereby, herein, hereupon, hers, herself, him, himself, his, how, however, http, hundred, i, ie, if, in, inc, indeed, interest, into, is, it, its, itself, keep, last, latter, latterly, least, less, ltd, made, many, may, me, meanwhile, might, mill, mine, more, moreover, most, mostly, move, much, must, my, myself, name, namely, neither, never, nevertheless, next, nine, no, nobody, none, noone, nor, not, nothing, now, nowhere, of, off, often, on, once, one, only, onto, or, org, other, others, otherwise, our, ours, ourselves, out, over, own, part, per, perhaps, please, put, rather, re, same, see, seem, seemed, seeming, seems, serious, several, she, should, show, side, since, sincere, six, sixty, so, some, somehow, someone, something, sometime, sometimes, somewhere, still, such, system, take, ten, than, that, the, their, them, themselves, then, thence, there, thereafter, thereby, therefore, therein, thereupon, these, they, thick, thin, third, this, those, though, three, through, throughout, thru, thus, to, together, too, top, toward, towards, twelve, twenty, two, un, under, until, up, upon, us, very, via, was, we, well, were, what, whatever, when, whence, whenever, where, whereafter, whereas, whereby, wherein, whereupon, wherever, whether, which, while, whither, who, whoever, whole, whom, whose, why, will, with, within, without, would, www, yet, you, your, yours, yourself, yourselves, s, say, said, says, the" label="BLACK_LABEL" description="BLACK_DESC"/>
+       <param name="whitelist" type="textarea" cols="40" rows="20" default="" label="WHITE_LABEL" description="WHITE_DESC"/>
+       <param name="whitewordweighting" type="text" width="4" default="5" label="WHITEWORDWEIGHTING" description="WHITEWORDWEIGHTING_DESC"/>
+       <param name="multiwordwhitelist" type="textarea" cols="40" rows="20" default="" label="MULTIWORDWHITE_LABEL" description="MULTIWORDWHITE_DESC"/>
+       <param name="multiwordweighting" type="text" width="4" default="5" label="MULTIWORDWEIGHTING" description="MULTIWORDWEIGHTING_DESC"/>
+      </params>
+      <params group="description">
+       <param type="spacer" default="DESC_GENERATION"/>
+	   <param name="dodesc" type="radio" default="1" label="DESC_GEN" description="DESC_GEN_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="doemptydesc" type="radio" default="0" label="EMPTY_DESC" description="EMPTY_DESC_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="preservedesc" type="radio" default="0" label="PRESERVE_DESC" description="PRESERVE_DESC_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="descprimary" type="radio" default="sentence" label="PRIMARY" description="PRIMARY_DESC">
+	   	   <option value="sentence">Sentences</option>
+		   <option value="word">Words</option>
+		   <option value="char">Characters</option>
+	   </param>
+	   <param name="descsentcount" type="text" width="4" default="2" label="NUM_SENT" description="NUM_SENT_DESC"/>
+	   <param name="descwordcount" type="text" width="4" default="20" label="NUM_WORDS" description="NUM_WORDS_DESC"/>
+	   <param name="desccharcount" type="text" width="4" default="150" label="NUM_CHARS" description="NUM_CHARS_DESC"/>
+	   <param name="dotdotdot" type="radio" default="1" label="DOTDOTDOT" description="DOTDOTDOT_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	  </params>
+	  <params group="tagsandrel">
+   	   <param type="spacer" default="TAGS"/>
+	   <param name="tags" type="radio" default="1" label="TAG_LABEL" description="TAG_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+   	   <param name="numtags" type="text" width="4" default="10" label="NUM_TAGS" description="NUM_TAGS_DESC"/>
+	   <param name="fronttag" type="radio" default="1" label="FRONTTAG_LABEL" description="FRONTTAG_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="blogtag" type="radio" default="1" label="BLOGTAG_LABEL" description="BLOGTAG_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="tagfieldset" type="radio" default="1" label="TAG_FIELDSET_LABEL" description="TAG_FIELDSET_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="tagtitle" type="text" width="20" default="Tags" label="TAG_TITLE" description="TAG_TITLE_DESC"/>
+	   <param name="searchtype" type="text" width="10" default="exact" label="SEARCH_TYPE" description="SEARCH_TYPE_DESC"/>
+	   <param name="ulstyle" type="text" width="20" default="margin:0;padding:0;" label="UL_STYLE" description="UL_STYLE_DESC"/>
+	   <param name="listyle" type="text" width="20" default="display:inline;list-style-type:none;padding: 0 0.5em;" label="LI_STYLE" description="LI_STYLE_DESC"/>
+	   <param type="spacer" default=" "/>
+	   <param type="spacer" default="FRONTEND_EDITING"/>
+       <param name="addtag" type="radio" default="0" label="FRONTEND_EDITING_LABEL" description="FRONTEND_EDITING_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="addtagusers" type="usergroup" default="25" label="FRONTEND_EDITING_USERS" description="FRONTEND_EDITING_USERS_DESC" />
+	   <param type="spacer" default=" "/>
+   	   <param type="spacer" default="RELATED_ITEMS"/>
+   	   <param name="relateditems" type="radio" default="0" label="RELATED_ITEMS_LABEL" description="RELATED_ITEMS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="modfieldset" type="radio" default="1" label="MOD_FIELDSET_LABEL" description="MOD_FIELDSET_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="modtitle" type="text" width="20" default="Related Articles" label="MOD_TITLE" description="MOD_TITLE_DESC"/>
+	   <param name="modname" type="text" width="20" default="ak_related" label="MOD_NAME" description="MOD_NAME_DESC"/>
+	   <param name="modstyle" type="list" default="none" label="MODSTYLE" description="MODSTYLE_DESC">
+		   <option value="table">table</option>
+		   <option value="horz">horz</option>
+		   <option value="none">none</option>
+		   <option value="xhtml">xhtml</option>
+		   <option value="rounded">rounded</option>
+		   <option value="outline">outline</option>
+	   </param>
+   	   <param type="spacer" default=" "/>
+   	   <param type="spacer" default="FRONT_EXCLUSIONS"/>
+   	   <param name="frontmenuid" type="akmenuitems" default="" label="FRONT_MENU_ID"
+			multiple="YES" size="10" description="FRONT_MENU_ID_DESC"
+			query="(SELECT id AS value, name as frontmenuid FROM #__menu) 
+					ORDER BY frontmenuid" />
+	   <param name="frontsecid" type="aksql" default="" label="FRONT_SECT_ID"
+			multiple="YES" description="FRONT_SECT_ID_DESC"
+			query="(SELECT '' AS value, '-None-' as frontsecid)
+					UNION
+					(SELECT '0' AS value, '-Uncategorised-' as frontsecid)
+					UNION
+					(SELECT id AS value, title as frontsecid FROM #__sections) 
+					ORDER BY frontsecid" />
+		<param name="frontcatid" type="aksql" default="" label="FRONT_CAT_ID"
+			multiple="YES" description="FRONT_CAT_ID_DESC"
+			query="(SELECT '' AS value, '-None-' as frontcatid)
+					UNION
+					(SELECT '0' AS value, '-Uncategorised-' as frontcatid)
+					UNION
+					(SELECT c.id AS value, CONCAT(s.title, ' / ', c.title) as frontcatid
+					FROM #__categories as c, #__sections as s
+					WHERE c.section = s.id  ) 
+					ORDER BY frontcatid" />
+   	   <param type="spacer" default=" "/>
+   	  </params>
+   	  <params group="pagetitle">
+       <param type="spacer" default="PAGE_TITLE"/>
+	   <param name="pagetitle" type="radio" default="0" label="PAGE_TITLE_LABEL" description="PAGE_TITLE_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="titletext" type="text" width="4" default="" label="TITLE_TEXT_LABEL" description="TITLE_TEXT_DESC"/>
+	   <param name="titlesep" type="text" width="4" default="|" label="TITLE_SEP_LABEL" description="TITLE_SEP_DESC"/>
+	   <param name="titlepos" type="radio" default="1" label="TITLE_POS_LABEL" description="TITLE_POS_DESC">
+		   <option value="1">Before</option>
+		   <option value="0">After</option>
+	   </param>
+	  </params>
+	  <params group="advanced">
+	   <param type="spacer" default="PROCESSPLUGINS"/>
+	   <param name="processplugins" type="radio" default="1" label="PROCESSPLUGINS_LABEL" description="PROCESSPLUGINS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param type="spacer" default=" "/>
+	   <param type="spacer" default="EXCLUSIONS"/>
+	   <param name="aksections" type="aksql" default="" label="EXCLUDED_SECTIONS"
+			multiple="YES" description="EXCLUDED_SECTIONS_DESC"
+			query="(SELECT '' AS value, '-None-' as aksections)
+					UNION
+					(SELECT '0' AS value, '-Uncategorised-' as aksections)
+					UNION
+					(SELECT id AS value, title as aksections FROM #__sections) 
+					ORDER BY aksections" />
+		<param name="akcategories" type="aksql" default="" label="EXCLUDED_CATEGORIES"
+			multiple="YES" description="EXCLUDED_CATEGORIES_DESC"
+			query="(SELECT '' AS value, '-None-' as akcategories)
+					UNION
+					(SELECT '0' AS value, '-Uncategorised-' as akcategories)
+					UNION
+					(SELECT c.id AS value, CONCAT(s.title, ' / ', c.title) as akcategories
+					FROM #__categories as c, #__sections as s
+					WHERE c.section = s.id  ) 
+					ORDER BY akcategories" />
+   	   <param type="spacer" default=" "/>
+	   <param type="spacer" default="REGEN"/>
+	   <param name="regenerateall" type="radio" default="0" label="REGEN_ALL" description="REGEN_ALL_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="regenerateallarchived" type="radio" default="0" label="REGEN_ARC" description="REGEN_ARC_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param type="spacer" default=" "/>
+	   <param type="spacer" default="MENU_META"/>
+	   <param name="menumeta" type="radio" default="1" label="MENU_META_LABEL" description="MENU_META_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param name="exclview" type="text" width="8" default="article" label="EXCL_VIEW" description="EXCL_VIEW_DESC"/>
+   	   <param type="spacer" default=" "/>
+	   <param type="spacer" default="OLD_PHP"/>
+	   <param name="oldphp" type="radio" default="0" label="OLD_PHP_LABEL" description="OLD_PHP_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	   <param type="spacer" default=" "/>
+	   <param type="spacer" default="NEW_PARAMS"/>
+	   <param name="newparams" type="radio" default="0" label="NEW_PARAMS_LABEL" description="NEW_PARAMS_DESC">
+		   <option value="1">Yes</option>
+		   <option value="0">No</option>
+	   </param>
+	  </params>
+</install>

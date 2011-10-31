@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 -- phpMyAdmin SQL Dump
 -- version 3.1.3.1
+=======
+﻿-- phpMyAdmin SQL Dump
+-- version 3.1.1
+>>>>>>> d819b72db841e7915fedb0205f79fe034e105b97
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
@@ -313,9 +318,6 @@ CREATE TABLE IF NOT EXISTS `jos_categories` (
 -- Dumping data for table `jos_categories`
 --
 
-INSERT INTO `jos_categories` (`id`, `parent_id`, `title`, `name`, `alias`, `image`, `section`, `image_position`, `description`, `published`, `checked_out`, `checked_out_time`, `editor`, `ordering`, `access`, `count`, `params`) VALUES
-(1, 0, 'computer', '', 'computer', '', '2', 'left', '<p>sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhggggsagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg sagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhggggsagdf ghk jlj''; ghkghf k gjnghkkf fghgjgh dfhdfhgggg</p>', 1, 0, '0000-00-00 00:00:00', NULL, 1, 0, 0, ''),
-(2, 0, 'advertisement', '', 'advertisement', '', '3', 'left', '<p>sdfsgd fdh fh d  fdggggggghdfg</p>', 1, 0, '0000-00-00 00:00:00', NULL, 1, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1145,7 +1147,7 @@ CREATE TABLE IF NOT EXISTS `jos_sections` (
   `scope` varchar(50) NOT NULL DEFAULT '',
   `image_position` varchar(30) NOT NULL DEFAULT '',
   `description` text NOT NULL,
-  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT '1',
   `checked_out` int(11) unsigned NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `ordering` int(11) NOT NULL DEFAULT '0',
@@ -1155,14 +1157,22 @@ CREATE TABLE IF NOT EXISTS `jos_sections` (
   `status` varchar(20) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`id`),
   KEY `idx_scope` (`scope`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+=======
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+>>>>>>> d819b72db841e7915fedb0205f79fe034e105b97
 
 --
 -- Dumping data for table `jos_sections`
 --
 
 INSERT INTO `jos_sections` (`id`, `title`, `name`, `alias`, `image`, `scope`, `image_position`, `description`, `published`, `checked_out`, `checked_out_time`, `ordering`, `access`, `count`, `params`, `status`) VALUES
+<<<<<<< HEAD
 (1, 'Uncategorized', '', 'uncategorized', '', 'content', 'right', '<p>Uncategorized</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+=======
+(1, 'Uncategorized', '', 'uncategorized', '', 'content', 'right', '<p>Uncategorized</p>', 1, 62, '2011-10-29 11:00:21', 2, 0, 0, '', 'SY'),
+>>>>>>> d819b72db841e7915fedb0205f79fe034e105b97
 (2, 'Stocks', '', 'stocks', '', 'content', 'right', '<p>Stocks</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (3, 'Mutual Funds', '', 'mutual Funds', '', 'content', 'right', '<p>Mutual Funds</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (4, 'ETFs', '', 'ETFs', '', 'content', 'right', '<p>ETFs</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
@@ -1174,7 +1184,11 @@ INSERT INTO `jos_sections` (`id`, `title`, `name`, `alias`, `image`, `scope`, `i
 (10, 'Global Trends', '', 'Global Trends', '', 'content', 'right', '<p>Global Trends</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (11, 'Investment Basics', '', 'Investment Basics', '', 'content', 'right', '<p>Investment Basics</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (12, 'Technical Analysis', '', 'Technical Analysis', '', 'content', 'right', '<p>Technical Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+<<<<<<< HEAD
 (13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY');
+=======
+(13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+>>>>>>> d819b72db841e7915fedb0205f79fe034e105b97
 
 -- --------------------------------------------------------
 

@@ -78,6 +78,8 @@ class sections_html
 					<?php echo JHTML::_('grid.sort',   'Access', 'groupname', @$lists['order_Dir'], @$lists['order'] ); ?>
 				</th>
 				<th width="5%" nowrap="nowrap">
+					<?php echo JText::_( 'Type' ); ?>
+				</th>
 					<?php echo JText::_( 'Num Categories' ); ?>
 				</th>
 				<th width="5%" nowrap="nowrap">
@@ -103,7 +105,6 @@ class sections_html
 		$k = 0;
 		for ( $i=0, $n=count( $rows ); $i < $n; $i++ ) {
 			$row = &$rows[$i];
-
 			$link 		= 'index.php?option=com_sections&scope=content&task=edit&cid[]='. $row->id;
 
 			$access 	= JHTML::_('grid.access',   $row, $i );
@@ -115,7 +116,7 @@ class sections_html
 					<?php echo $page->getRowOffset( $i ); ?>
 				</td>
 				<td>
-					<?php echo $checked; ?>
+					<?php echo $checked;?>
 				</td>
 				<td>
 					<span class="editlinktip hasTip" title="<?php echo JText::_( 'Title' );?>::<?php echo htmlspecialchars($row->title); ?>">
@@ -141,7 +142,21 @@ class sections_html
 				</td>
 				<td align="center">
 					<?php echo $access;?>
+				</td>	
+                <td align="center">
+                
+              <input type="hidden" id="status<?php echo $row->id; ?>" value="<?php echo $row->status;?>">
+			  <?php 
+				if($row->status == "SY") {
+					echo "Administrator";
+				}else{
+					echo "Author";
+				}
+				
+			 ?>
+					<!--?php echo $row->status;?-->
 				</td>
+                	
 				<td align="center">
 					<?php echo $row->categories; ?>
 				</td>
@@ -174,7 +189,24 @@ class sections_html
 		<input type="hidden" name="filter_order_Dir" value="<?php echo $lists['order_Dir']; ?>" />
 		<?php echo JHTML::_( 'form.token' ); ?>
 		</form>
-		<?php
+         
+        
+         <script language="javascript" type="text/javascript">
+		 
+		function submitbutton(pressbutton) {
+			if (pressbutton == "remove") {
+				console.log(document.adminForm.boxchecked);
+				var a = document.getElementById("status"+document.adminForm.boxchecked.value).value;
+				if (a == "SY") {
+					alert("you cannot delete this element");
+					return;
+				}
+				
+			}
+			submitform( pressbutton );
+		}
+		</script>
+        <?php
 	}
 
 	/**

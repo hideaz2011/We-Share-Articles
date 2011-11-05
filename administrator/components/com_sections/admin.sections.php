@@ -388,6 +388,7 @@ function removeSections( $cid, $scope, $option )
 	if (!($rows = $db->loadObjectList())) {
 		echo "<script> alert('".$db->getErrorMsg(true)."'); window.history.go(-1); </script>\n";
 	}
+	
 
 	$name = array();
 	$err = array();
@@ -400,7 +401,7 @@ function removeSections( $cid, $scope, $option )
 			$err[]	= $row->title;
 		}
 	}
-
+	
 	if (count( $cid ))
 	{
 		$cids = implode( ',', $cid );

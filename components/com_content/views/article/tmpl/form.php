@@ -156,7 +156,7 @@ echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '
 		</label>
 	</td>
 	<td>
-	    <?php echo JHTML::_('calendar', $publish_up, 'publish_up', 'publish_up', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
+	    <?php echo JHTML::_('calendar', $publish_up, 'publish_up', 'publish_up', '%d %b %Y %H:%M:%S %p', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
 	</td>
 </tr>
 <tr>
@@ -166,7 +166,7 @@ echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '
 		</label>
 	</td>
 	<td>
-	    <?php echo JHTML::_('calendar', $publish_down, 'publish_down', 'publish_down', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
+	    <?php echo JHTML::_('calendar', $publish_down, 'publish_down', 'publish_down', '%d %b %Y %H:%M:%S %p', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
 	</td>
 </tr>
 <tr>

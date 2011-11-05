@@ -62,6 +62,14 @@ switch (strtolower($task))
 	case 'unpublish' :
 		ContentController::changeContent(0);
 		break;
+		
+	case 'aproved' :
+		ContentController::toggleFrontPage();
+		break;
+
+	/*case 'unaproved' :
+		ContentController::toggleFrontPage(1);
+		break;*/
 
 	case 'toggle_frontpage' :
 		ContentController::toggleFrontPage();

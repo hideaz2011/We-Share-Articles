@@ -52,7 +52,7 @@ class ContentView
 						<?php echo JText::_( 'Filter' ); ?>:
 						<input type="text" name="search" id="search" value="<?php echo htmlspecialchars($lists['search']);?>" class="text_area" onchange="document.adminForm.submit();" title="<?php echo JText::_( 'Filter by title or enter article ID' );?>"/>
 						<button onclick="this.form.submit();"><?php echo JText::_( 'Go' ); ?></button>
-						<button onclick="document.getElementById('search').value='';this.form.getElementById('filter_sectionid').value='-1';this.form.getElementById('catid').value='0';this.form.getElementById('filter_authorid').value='0';this.form.getElementById('filter_state').value='';this.form.submit();"><?php echo JText::_( 'Reset' ); ?></button>
+						<button onclick="document.getElementById('search').value='';this.form.getElementById('filter_sectionid').value='-1';this.form.getElementById('catid').value='0';this.form.getElementById('filter_authorid').value='0';this.form.getElementById('filter_state').value='';this.form.submit();this.form.getElementById('filter_frontpage').value='';this.form.submit();"><?php echo JText::_( 'Reset' ); ?></button>
 					</td>
 					<td nowrap="nowrap">
 						<?php
@@ -60,6 +60,7 @@ class ContentView
 						echo $lists['catid'];
 						echo $lists['authorid'];
 						echo $lists['state'];
+						echo $lists['frontpage'];
 						?>
 					</td>
 				</tr>
@@ -81,14 +82,14 @@ class ContentView
 						<?php echo JHTML::_('grid.sort',   'Published', 'c.state', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
 					<th nowrap="nowrap" width="1%">
-						<?php echo JHTML::_('grid.sort',   'Front Page', 'frontpage', @$lists['order_Dir'], @$lists['order'] ); ?>
+						<?php echo JHTML::_('grid.sort',   'Approved', 'frontpage', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
 					<th width="8%">
 						<?php echo JHTML::_('grid.sort',   'Order', 'c.ordering', @$lists['order_Dir'], @$lists['order'] ); ?>
 						<?php if ($ordering) echo JHTML::_('grid.order',  $rows ); ?>
 					</th>
 					<th width="7%">
-						<?php echo JHTML::_('grid.sort',   'Access', 'groupname', @$lists['order_Dir'], @$lists['order'] ); ?>
+						<?php echo JHTML::_('grid.sort',   'Tags', 'groupname', @$lists['order_Dir'], @$lists['order'] ); ?>
 					</th>
 					<th class="title" width="8%" nowrap="nowrap">
 						<?php echo JHTML::_('grid.sort',   'Section', 'mysection', @$lists['order_Dir'], @$lists['order'] ); ?>
@@ -222,7 +223,7 @@ class ContentView
 					}
 					?>
 					<td align="center">
-						<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i;?>','toggle_frontpage')" title="<?php echo ( $row->frontpage ) ? JText::_( 'Yes' ) : JText::_( 'No' );?>">
+						<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i;?>','toggle_frontpage')" title="<?php echo ( $row->frontpage ) ? JText::_( 'Approved' ) : JText::_( 'Un Approved' );?>">
 							<img src="images/<?php echo ( $row->frontpage ) ? 'tick.png' : ( $row->state != -1 ? 'publish_x.png' : 'disabled.png' );?>" width="16" height="16" border="0" alt="<?php echo ( $row->frontpage ) ? JText::_( 'Yes' ) : JText::_( 'No' );?>" /></a>
 					</td>
 					<td class="order">
@@ -231,8 +232,11 @@ class ContentView
 						<?php $disabled = $ordering ?  '' : 'disabled="disabled"'; ?>
 						<input type="text" name="order[]" size="5" value="<?php echo $row->ordering; ?>" <?php echo $disabled; ?> class="text_area" style="text-align: center" />
 					</td>
-					<td align="center">
+					<!--td align="center">
 						<?php echo $access;?>
+					</td-->
+                    <td align="center">
+						<?php echo $row->metakey;?>
 					</td>
 						<td align="center">
 							<a href="<?php echo $row->sect_link; ?>" title="<?php echo JText::_( 'Edit Section' ); ?>">
@@ -842,8 +846,7 @@ class ContentView
 			<td>
 				<?php echo $lists['sectionid']; ?>
 			</td>
-
-            <td>
+			<td>
 				<label>
 				<?php echo JText::_( 'Approved' ); ?>
 				</label>
@@ -862,7 +865,7 @@ class ContentView
 				<?php echo $lists['catid']; ?>
 			</td>
 		</tr-->
-		<tr>
+		<!--tr>
 			<td>
 				<label for="tags">
 					<?php echo JText::_( 'Tags' ); ?>
@@ -871,9 +874,10 @@ class ContentView
 			<td>
 				<input class="inputbox" type="text" name="tags" id="tags" size="40" maxlength="255" value="<?php echo $row->tags; ?>" />
 
-				<!--textarea rows="2" cols="22" name="tags" id="tags" value="<?php echo $row->title; ?> ">
-                </textarea-->
+				<textarea rows="2" cols="22" name="tags" id="tags" value="<?php echo $row->title; ?> ">
+                </textarea>
 			</td>
+         </tr-->
 		</table>
 		<?php
 	
@@ -945,7 +949,7 @@ class ContentView
 				if ( $row->created == $nullDate ) {
 					echo JText::_( 'New document' );
 				} else {
-					echo JHTML::_('date',  $row->created,  JText::_('DATE_FORMAT_LC2') );
+					echo JHTML::_('date',  $row->created,  JText::_('DATE_FORMAT_LC6') );
 				}
 				?>
 			</td>
@@ -959,7 +963,7 @@ class ContentView
 					if ( $row->modified == $nullDate ) {
 						echo JText::_( 'Not modified' );
 					} else {
-						echo JHTML::_('date',  $row->modified, JText::_('DATE_FORMAT_LC2'));
+						echo JHTML::_('date',  $row->modified, JText::_('DATE_FORMAT_LC6'));
 					}
 				?>
 			</td>

@@ -268,7 +268,47 @@ class JToolBarHelper
 
 		$bar->appendButton( 'Standard', 'unpublish', $alt, $task, true, false );
 	}
+	
+	
+	
+	function aproved($task = 'aproved', $alt = 'Aproved')
+	{
+		$bar = & JToolBar::getInstance('toolbar');
+		// Add an unpublish button
+		$bar->appendButton( 'Standard', 'aproved', $alt, $task, false, false );
+	}
 
+	/*function unaproved($task = 'unaproved', $alt = 'Unaproved')
+	{
+		$bar = & JToolBar::getInstance('toolbar');
+		// Add an unpublish button
+		$bar->appendButton( 'Standard', 'unaproved', $alt, $task, false, false );
+	}*/
+	
+	
+	
+	function aprovedList($task = 'aproved', $alt = 'Aproved(OR)Unaproved')
+	{
+		$bar = & JToolBar::getInstance('toolbar');
+		// Add an unpublish button (list)
+
+		$bar->appendButton( 'Standard', 'aproved', $alt, $task, true, false );
+	}
+
+	
+	
+	/*function unaprovedList($task = 'unaproved', $alt = 'Unaproved')
+	{
+		$bar = & JToolBar::getInstance('toolbar');
+		// Add an unpublish button (list)
+
+		$bar->appendButton( 'Standard', 'unaproved', $alt, $task, true, false );
+	}*/
+
+	
+	
+	
+	
 	/**
 	* Writes a common 'archive' button for a list of records
 	* @param string An override for the task

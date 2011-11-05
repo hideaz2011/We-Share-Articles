@@ -245,8 +245,12 @@ class mosCommonHTML
 	function selectState( $filter_state=NULL, $published='Published', $unpublished='Unpublished', $archived=NULL )
 	{
 		return JHTML::_('grid.state', $filter_state, $published, $unpublished, $archived);
-	}
 
+	}
+	function selectFrontpage( $filter_frontpage=NULL, $aproved='Aproved', $unaproved='Unaproved')
+	{
+		return JHTML::_('grid.frontpage', $filter_frontpage, $aproved, $aproved);
+	}
 	/**
  	 * Legacy function, use {@link JHTML::_('grid.order')} instead
  	 *

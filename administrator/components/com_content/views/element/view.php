@@ -168,6 +168,7 @@ class ContentViewElement extends JView
 		$filter_order		= $mainframe->getUserStateFromRequest('articleelement.filter_order',		'filter_order',		'',	'cmd');
 		$filter_order_Dir	= $mainframe->getUserStateFromRequest('articleelement.filter_order_Dir',	'filter_order_Dir',	'',	'word');
 		$filter_state		= $mainframe->getUserStateFromRequest('articleelement.filter_state',		'filter_state',		'',	'word');
+		$filter_frontpage		= $mainframe->getUserStateFromRequest('articleelement.filter_frontpage',		'filter_frontpage',		'',	'word');
 		$catid				= $mainframe->getUserStateFromRequest('articleelement.catid',				'catid',			0,	'int');
 		$filter_authorid	= $mainframe->getUserStateFromRequest('articleelement.filter_authorid',		'filter_authorid',	0,	'int');
 		$filter_sectionid	= $mainframe->getUserStateFromRequest('articleelement.filter_sectionid',	'filter_sectionid',	-1,	'int');

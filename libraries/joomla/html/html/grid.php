@@ -127,7 +127,7 @@ class JHTMLGrid
 		return $href;
 	}
 
-	function state( $filter_state='*', $published='Published', $unpublished='Unpublished', $archived=NULL, $trashed=NULL )
+	function state( $filter_state='*', $published='published', $unpublished='unpublished', $archived=NULL, $trashed=NULL )
 	{
 		$state[] = JHTML::_('select.option',  '', '- '. JText::_( 'Select State' ) .' -' );
 		//Jinx : Why is this used ?
@@ -145,6 +145,44 @@ class JHTMLGrid
 
 		return JHTML::_('select.genericlist',   $state, 'filter_state', 'class="inputbox" size="1" onchange="submitform( );"', 'value', 'text', $filter_state );
 	}
+
+	/*function aprovedstatus( &$row, $i, $imgY = 'tick.png', $imgX = 'publish_x.png', $prefix='' )
+	{
+		$img 	= $row->aprovedstatus ? $imgY : $imgX;
+		$task 	= $row->aprovedstatus ? 'unaproved' : 'aproved';
+		$alt 	= $row->aprovedstatus ? JText::_( 'Aproved' ) : JText::_( 'Unaproved' );
+		$action = $row->aprovedstatus ? JText::_( 'Unaproved Item' ) : JText::_( 'aproved item' );
+
+		$href = '
+		<a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $prefix.$task .'\')" title="'. $action .'">
+		<img src="images/'. $img .'" border="0" alt="'. $alt .'" /></a>'
+		;
+
+		return $href;
+	}*/
+
+
+	function frontpage( $filter_frontpage='*', $aproved='Approved', $unaproved='Unapproved' )
+	{
+		$frontpage[] = JHTML::_('select.option',  '', '- '. JText::_( 'Select Aproved Status' ) .' -' );
+		//Jinx : Why is this used ?
+		//$state[] = JHTML::_('select.option',  '*', JText::_( 'Any' ) );
+		$frontpage[] = JHTML::_('select.option',  'A', JText::_( $aproved ) );
+		$frontpage[] = JHTML::_('select.option',  'U', JText::_( $unaproved ) );
+
+		/*if ($archived) {
+			$frontpage[] = JHTML::_('select.option',  'A', JText::_( $archived ) );
+		}
+
+		if ($trashed) {
+			$frontpage[] = JHTML::_('select.option',  'T', JText::_( $trashed ) );
+		}*/
+
+		return JHTML::_('select.genericlist',   $frontpage, 'filter_frontpage', 'class="inputbox" size="1" onchange="submitform( );"', 'value', 'text', $filter_frontpage );
+	}
+
+
+
 
 	function order( $rows, $image='filesave.png', $task="saveorder" )
 	{

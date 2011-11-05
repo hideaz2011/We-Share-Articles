@@ -58,11 +58,13 @@ class ContentController extends JController
 		$filter_order		= $mainframe->getUserStateFromRequest( $context.'filter_order',		'filter_order',		'',	'cmd' );
 		$filter_order_Dir	= $mainframe->getUserStateFromRequest( $context.'filter_order_Dir',	'filter_order_Dir',	'',	'word' );
 		$filter_state		= $mainframe->getUserStateFromRequest( $context.'filter_state',		'filter_state',		'',	'word' );
+		$filter_frontpage		= $mainframe->getUserStateFromRequest( $context.'filter_frontpage',		'filter_frontpage',		'',	'word' );
 		$catid				= $mainframe->getUserStateFromRequest( $context.'catid',			'catid',			0,	'int' );
 		$filter_authorid	= $mainframe->getUserStateFromRequest( $context.'filter_authorid',	'filter_authorid',	0,	'int' );
 		
 		$filter_sectionid	= $mainframe->getUserStateFromRequest( $context.'filter_sectionid',	'filter_sectionid',	-1,	'int' );
 		$search				= $mainframe->getUserStateFromRequest( $context.'search',			'search',			'',	'string' );
+		
 		if (strpos($search, '"') !== false) {
 			$search = str_replace(array('=', '<'), '', $search);
 		}
@@ -76,10 +78,16 @@ class ContentController extends JController
 
 		//$where[] = "c.state >= 0";
 		$where[] = 'c.state != -2';
-
+		/*$where = array(
+		"c.state != -2", "f.content_id >= 0"
+		
+		);*/
+		
+		//$where[] = 'f.content_id != -2';
 		// ensure we have a valid value for filter_order
 		if (!in_array($filter_order, array('c.title', 'c.state', 'frontpage', 'c.ordering', 'groupname',
 									'section_name', 'cc.title', 'author', 'c.created', 'c.hits', 'c.id')))
+		
 		{
 			$filter_order = 'section_name';
 
@@ -119,6 +127,7 @@ class ContentController extends JController
 		if ($filter_state) {
 			if ($filter_state == 'P') {
 				$where[] = 'c.state = 1';
+				
 			} else {
 				if ($filter_state == 'U') {
 					$where[] = 'c.state = 0';
@@ -129,7 +138,15 @@ class ContentController extends JController
 				}
 			}
 		}
+		// Content frontpage filter
 		
+		if ($filter_frontpage) {
+			if ($filter_frontpage == 'A') {
+				$where[] = 'f.content_id = c.id';
+			} else if($filter_frontpage == 'U') {
+				$where[] = 'c.id not in(select content_id from #__content_frontpage)';
+			}
+		}
 		// Keyword filter
 		if ($search) {
 			$where[] = '(LOWER( c.title ) LIKE '.$db->Quote( '%'.$db->getEscaped( $search, true ).'%', false ) .
@@ -146,7 +163,11 @@ class ContentController extends JController
 				' LEFT JOIN #__sections AS s ON s.id = sectionid' .
 				$where;
 		$db->setQuery($query);
+		
 		$total = $db->loadResult();
+		
+		
+		
 
 		
 		// Create the pagination object
@@ -165,7 +186,7 @@ class ContentController extends JController
 				' LEFT JOIN #__content_frontpage AS f ON f.content_id = c.id' .
 				$where .
 				$order;
-			
+		
 		$db->setQuery($query, $pagination->limitstart, $pagination->limit);
 		$rows = $db->loadObjectList();
 			
@@ -233,21 +254,25 @@ class ContentController extends JController
 				' AND c.state <> -2' .
 				' GROUP BY u.id' .
 				' ORDER BY u.name, u.id';
+		
 		$authors[] = JHTML::_('select.option', '0', '- '.JText::_('Select Author').' -', 'created_by', 'name');
 		
 		$db->setQuery($query);
 				
 		$authors = array_merge($authors, $db->loadObjectList());
+			
 		
 		$lists['authorid'] = JHTML::_('select.genericlist',  $authors, 'filter_authorid', 'class="inputbox" size="1" onchange="document.adminForm.submit( );"', 'created_by', 'name', $filter_authorid);
-
+		
 		// state filter
 		$lists['state'] = JHTML::_('grid.state', $filter_state, 'Published', 'Unpublished', 'Archived');
-
+		// state frontpage
+		$lists['frontpage'] = JHTML::_('grid.frontpage', $filter_frontpage, 'Approved', 'Unapproved');
+		
 		// table ordering
 		$lists['order_Dir']	= $filter_order_Dir;
 		$lists['order']		= $filter_order;
-
+		
 		// search filter
 		$lists['search'] = $search;
 
@@ -341,6 +366,7 @@ class ContentController extends JController
 					' WHERE content_id = '. (int) $row->id;
 			$db->setQuery($query);
 			$row->frontpage = $db->loadResult();
+		
 			if (!$row->frontpage) {
 				$row->frontpage = 0;
 			}
@@ -386,13 +412,13 @@ class ContentController extends JController
 		$sections[] = JHTML::_('select.option', '-1', '- '.JText::_('Select Section').' -', 'id', 'title',true);
 		//$sections[] = JHTML::_('select.option', '0', JText::_('Uncategorized'), 'id', 'title');
 		
+		
 		$sections = array_merge($sections, $db->loadObjectList());
 		
 		$q = 'SELECT section_id from #__article_section where article_id='.(int) $row->id;
 		$db->setQuery($q);
 		$arr = $db->loadResultArray();
 		$lists['sectionid'] = JHTML::_('select.genericlist',  $sections, 'sectionid[]', 'class="inputbox" multiple="multiple" size="5"'.$javascript, 'id', 'title',$arr);
-		
 		//echo $sectionid;
 		//exit();
 	
@@ -473,7 +499,6 @@ class ContentController extends JController
 
 		// build the html radio buttons for frontpage
 		$lists['frontpage'] = JHTML::_('select.booleanlist', 'frontpage', '', $row->frontpage);
-
 		// build the html radio buttons for published
 		
 		//$lists['state'] = JHTML::_('select.booleanlist', 'state', '', $row->state);
@@ -499,7 +524,7 @@ class ContentController extends JController
 		$form->set('access', $row->access);
 		$form->set('created_by_alias', $row->created_by_alias);
 
-		$form->set('created', JHTML::_('date', $row->created, '%Y-%m-%d %H:%M:%S'));
+		//$form->set('created', JHTML::_('date', $row->created, '%Y-%m-%d %H:%M:%S'));
 		$form->set('publish_up', JHTML::_('date', $row->publish_up, '%Y-%m-%d %H:%M:%S'));
 		if (JHTML::_('date', $row->publish_down, '%Y') <= 1969 || $row->publish_down == $db->getNullDate()) {
 			$form->set('publish_down', JText::_('Never'));
@@ -877,6 +902,9 @@ class ContentController extends JController
 		$msg	= null;
 
 		JArrayHelper::toInteger($cid);
+		//echo "<pre>";
+		//print_r($cid);	
+		//exit();
 
 		if (count($cid) < 1) {
 			$msg = JText::_('Select an item to toggle');

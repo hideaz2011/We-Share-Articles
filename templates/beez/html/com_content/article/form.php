@@ -143,14 +143,14 @@ echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '
 		<label for="publish_up">
 			<?php echo JText::_( 'Start Publishing' ); ?>:
 		</label>
-        <?php echo JHTML::_('calendar', $publish_up, 'publish_up', 'publish_up', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
+        <?php echo JHTML::_('calendar', $publish_up, 'publish_up', 'publish_up', '%d %b %Y %H:%M:%S %p', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
 	</div>
 	<div class="wrap">&nbsp;</div>
 	<div>
 		<label for="publish_down">
 			<?php echo JText::_( 'Finish Publishing' ); ?>:
 		</label>
-        <?php echo JHTML::_('calendar', $publish_down, 'publish_down', 'publish_down', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
+        <?php echo JHTML::_('calendar', $publish_down, 'publish_down', 'publish_down', '%d %b %Y %H:%M:%S %p', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
 	</div>
 	<div class="wrap">&nbsp;</div>
 	<div>

@@ -110,6 +110,7 @@ function viewFrontPage( $option )
 
 	$where = array(
 		"c.state >= 0"
+		
 	);
 
 	// used by filter

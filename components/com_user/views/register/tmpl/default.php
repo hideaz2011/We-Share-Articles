@@ -72,6 +72,14 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	</td>
 </tr>
 <tr>
+<td height="40">
+<img src="./plugins/captcha/code.php" id="captcha">
+</td>
+<td><input type="text" class="required" name="Turing" value="" size="10">
+[ <a href="#" onclick=" document.getElementById('captcha').src = document.getElementById('captcha').src + '?' + (new Date()).getMilliseconds()">Refresh Image</a> ] [ <a href="/captcha/whatis.html" onClick="window.open('/captcha/whatis.html','_blank','width=400, height=300, left=' + (screen.width-450) + ', top=100');return false;">What's This?</a> ]
+</td>
+</tr>
+<tr>
 	<td colspan="2" height="40">
 		<?php echo JText::_( 'REGISTER_REQUIRED' ); ?>
 	</td>

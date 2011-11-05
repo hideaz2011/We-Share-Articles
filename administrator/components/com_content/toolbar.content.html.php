@@ -74,7 +74,7 @@ class TOOLBAR_content
 	function _DEFAULT()
 	{
 		global $filter_state;
-
+		
 		JToolBarHelper::title( JText::_( 'Article Manager' ), 'article.png' );
 		if ($filter_state == 'A' || $filter_state == NULL) {
 			JToolBarHelper::unarchiveList();
@@ -84,6 +84,8 @@ class TOOLBAR_content
 		}
 		JToolBarHelper::publishList();
 		JToolBarHelper::unpublishList();
+		JToolBarHelper::aprovedList();
+		//JToolBarHelper::unaprovedList();
 		JToolBarHelper::customX( 'movesect', 'move.png', 'move_f2.png', 'Move' );
 		//JToolBarHelper::customX( 'copy', 'copy.png', 'copy_f2.png', 'Copy' );
 		JToolBarHelper::trash();

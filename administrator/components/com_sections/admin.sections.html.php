@@ -80,6 +80,7 @@ class sections_html
 				<th width="5%" nowrap="nowrap">
 					<?php echo JText::_( 'Type' ); ?>
 				</th>
+                <th>
 					<?php echo JText::_( 'Num Categories' ); ?>
 				</th>
 				<th width="5%" nowrap="nowrap">
@@ -110,6 +111,7 @@ class sections_html
 			$access 	= JHTML::_('grid.access',   $row, $i );
 			$checked 	= JHTML::_('grid.checkedout',   $row, $i );
 			$published 	= JHTML::_('grid.published', $row, $i );
+			
 			?>
 			<tr class="<?php echo "row$k"; ?>">
 				<td align="center">
@@ -148,9 +150,7 @@ class sections_html
               <input type="hidden" id="status<?php echo $row->id; ?>" value="<?php echo $row->status;?>">
 			  <?php 
 				if($row->status == "SY") {
-					echo "Administrator";
-				}else{
-					echo "Author";
+					echo "Default";
 				}
 				
 			 ?>
@@ -193,17 +193,30 @@ class sections_html
         
          <script language="javascript" type="text/javascript">
 		 
+		 function getAllIdsChecked() {
+			 var cids = document.getElementsByName('cid[]');
+			 var l = cids.length;
+			 for (var d =0 ; d < l ;d++)  {
+				 if (cids[d].checked == true) {
+					var a = document.getElementById("status"+cids[d].value).value;
+					if (a == "SY") {
+						alert("It is a default section so cant delete");
+						return false;
+					}
+				 }
+			 }
+			 return true;
+		 }
+		 
 		function submitbutton(pressbutton) {
 			if (pressbutton == "remove") {
-				console.log(document.adminForm.boxchecked);
-				var a = document.getElementById("status"+document.adminForm.boxchecked.value).value;
-				if (a == "SY") {
-					alert("you cannot delete this element");
-					return;
+				if (getAllIdsChecked()) {
+					submitform( pressbutton );
 				}
-				
+			} else {
+				submitform( pressbutton );
 			}
-			submitform( pressbutton );
+			
 		}
 		</script>
         <?php

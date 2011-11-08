@@ -31,6 +31,15 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		$document->addScriptDeclaration( $langScript );
 		JHTML::_('script', 'openid.js');
 endif; ?>
+
+	<div id="toppanel">
+		<div id="panel">
+			<div class="content clearfix">
+			<div class="left">
+				<h1>The We Share Articles</h1>
+				<h2>A register/login solution</h2>		
+				<p class="grey">You are free to use this login and registration system in you sites!</p>
+            </div>    
 <form action="<?php echo JRoute::_( 'index.php', true, $params->get('usesecure')); ?>" method="post" name="login" id="form-login" >
 	<?php echo $params->get('pretext'); ?>
 	<fieldset class="input">
@@ -75,4 +84,22 @@ endif; ?>
 	<input type="hidden" name="return" value="<?php echo $return; ?>" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>
+</div>
+	<div class="tab">
+		<ul class="login">
+	    	<li class="left">&nbsp;</li>
+	        <li>Hello <?php echo $_SESSION['usr'] ? $_SESSION['usr'] : 'Guest';?>!</li>
+			<li class="sep">|</li>
+			<li id="toggle">
+				<a id="open" class="open" href="#"><?php echo $_SESSION['id']?'Open Panel':'Log In | Register';?></a>
+				<a id="close" style="display: none;" class="close" href="#">Close Panel</a>			
+			</li>
+	    	<li class="right">&nbsp;</li>
+		</ul> 
+	</div> <!-- / top -->
+	
+
+</div>
+
 <?php endif; ?>

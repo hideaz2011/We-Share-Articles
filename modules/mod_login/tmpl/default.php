@@ -96,7 +96,7 @@ endif; ?>
 				<a id="close" style="display: none;" class="close" href="#">Close Panel</a>			
 			</li>
 	    	<li class="right">&nbsp;</li>
-		</ul> 
+		</ul>
 	</div> <!-- / top -->
 	
 

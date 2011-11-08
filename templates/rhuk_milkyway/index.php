@@ -28,6 +28,20 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <?php if($this->direction == 'rtl') : ?>
 	<link href="<?php echo $this->baseurl ?>/templates/rhuk_milkyway/css/template_rtl.css" rel="stylesheet" type="text/css" />
 <?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="demo.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->baseurl ?>/templates/rhuk_milkyway/css/slide.css" media="screen" />
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    
+    <!-- PNG FIX for IE6 -->
+    <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
+    <!--[if lte IE 6]>
+        <script type="text/javascript" src="login_panel/js/pngfix/supersleight-min.js"></script>
+    <![endif]-->
+    
+    <script src="<?php echo $this->baseurl ?>/templates/rhuk_milkyway/js/slide.js" type="text/javascript"></script>
+    
+    <?php echo $script; ?>
 
 </head>
 <body id="page_bg" class="color_<?php echo $this->params->get('colorVariation'); ?> bg_<?php echo $this->params->get('backgroundVariation'); ?> width_<?php echo $this->params->get('widthStyle'); ?>">

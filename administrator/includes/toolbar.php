@@ -287,7 +287,7 @@ class JToolBarHelper
 	
 	
 	
-	function aprovedList($task = 'aproved', $alt = 'Aproved(OR)Unaproved')
+	function aprovedList($task = 'aproved', $alt = 'Approved/Unapproved')
 	{
 		$bar = & JToolBar::getInstance('toolbar');
 		// Add an unpublish button (list)

@@ -164,7 +164,7 @@ class JHTMLGrid
 
 	function frontpage( $filter_frontpage='*', $aproved='Approved', $unaproved='Unapproved' )
 	{
-		$frontpage[] = JHTML::_('select.option',  '', '- '. JText::_( 'Select Aproved Status' ) .' -' );
+		$frontpage[] = JHTML::_('select.option',  '', '- '. JText::_( 'Select Approved Status' ) .' -' );
 		//Jinx : Why is this used ?
 		//$state[] = JHTML::_('select.option',  '*', JText::_( 'Any' ) );
 		$frontpage[] = JHTML::_('select.option',  'A', JText::_( $aproved ) );

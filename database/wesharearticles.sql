@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.1.1
+-- version 3.1.3.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2011 at 07:56 AM
--- Server version: 5.1.46
--- PHP Version: 5.2.8
+-- Generation Time: Nov 11, 2011 at 07:41 AM
+-- Server version: 5.1.33
+-- PHP Version: 5.2.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `jos_articles_liked` (
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `viewer_id` (`viewer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_articles_liked`
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `jos_articles_ratings` (
   PRIMARY KEY (`id`),
   KEY `viewer_id` (`viewer_id`,`article_id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_articles_ratings`
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `jos_article_comments` (
   `created_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_article_comments`
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `jos_article_read` (
   PRIMARY KEY (`id`),
   KEY `viewer_id` (`viewer_id`,`article_id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_article_read`
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `jos_article_section` (
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `section_id` (`section_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_article_section`
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `jos_article_tags` (
   KEY `article_id_4` (`article_id`),
   KEY `article_id_5` (`article_id`),
   KEY `tag_id_3` (`tag_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_article_tags`
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `jos_author_articles` (
   PRIMARY KEY (`id`),
   KEY `author_id` (`author_id`,`article_id`),
   KEY `article_id` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_author_articles`
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `jos_author_rating` (
   KEY `rating` (`rating`),
   KEY `rating_2` (`rating`),
   KEY `author_id_2` (`author_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_author_rating`
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `jos_banner` (
   PRIMARY KEY (`bid`),
   KEY `viewbanner` (`showBanner`),
   KEY `idx_banner_catid` (`catid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_banner`
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `jos_bannerclient` (
   `checked_out_time` time DEFAULT NULL,
   `editor` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_bannerclient`
@@ -299,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `jos_categories` (
   KEY `cat_idx` (`section`,`published`,`access`),
   KEY `idx_access` (`access`),
   KEY `idx_checkout` (`checked_out`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_categories`
@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `jos_components` (
   `enabled` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `parent_option` (`parent`,`option`(32))
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `jos_components`
@@ -343,7 +343,7 @@ INSERT INTO `jos_components` (`id`, `name`, `link`, `menuid`, `parent`, `admin_m
 (16, 'Categories', '', 0, 1, 'option=com_categories&section=com_banner', 'Categories', '', 3, '', 1, '', 1),
 (17, 'Wrapper', 'option=com_wrapper', 0, 0, '', 'Wrapper', 'com_wrapper', 0, '', 1, '', 1),
 (18, 'Mail To', '', 0, 0, '', '', 'com_mailto', 0, '', 1, '', 1),
-(19, 'Media Manager', '', 0, 0, 'option=com_media', 'Media Manager', 'com_media', 0, '', 1, 'upload_extensions=bmp,csv,doc,epg,gif,ico,jpg,odg,odp,ods,odt,pdf,png,ppt,swf,txt,xcf,xls,BMP,CSV,DOC,EPG,GIF,ICO,JPG,ODG,ODP,ODS,ODT,PDF,PNG,PPT,SWF,TXT,XCF,XLS\nupload_maxsize=10000000\nfile_path=images\nimage_path=images/stories\nrestrict_uploads=1\ncheck_mime=1\nimage_extensions=bmp,gif,jpg,png\nignore_extensions=\nupload_mime=image/jpeg,image/gif,image/png,image/bmp,application/x-shockwave-flash,application/msword,application/excel,application/pdf,application/powerpoint,text/plain,application/x-zip\nupload_mime_illegal=text/html', 1),
+(19, 'Media Manager', '', 0, 0, 'option=com_media', 'Media Manager', 'com_media', 0, '', 1, 'upload_extensions=bmp,csv,doc,epg,gif,ico,jpg,odg,odp,ods,odt,pdf,png,ppt,swf,txt,xcf,xls,BMP,CSV,DOC,EPG,GIF,ICO,JPG,ODG,ODP,ODS,ODT,PDF,PNG,PPT,SWF,TXT,XCF,XLS\nupload_maxsize=10000000\nfile_path=images\nimage_path=images/stories\nrestrict_uploads=1\nallowed_media_usergroup=3\ncheck_mime=1\nimage_extensions=bmp,gif,jpg,png\nignore_extensions=\nupload_mime=image/jpeg,image/gif,image/png,image/bmp,application/x-shockwave-flash,application/msword,application/excel,application/pdf,application/powerpoint,text/plain,application/x-zip\nupload_mime_illegal=text/html\nenable_flash=0\n\n', 1),
 (20, 'Articles', 'option=com_content', 0, 0, '', '', 'com_content', 0, '', 1, 'show_noauth=1\nshow_title=1\nlink_titles=1\nshow_intro=1\nshow_section=1\nlink_section=1\nshow_author=1\nshow_create_date=1\nshow_modify_date=1\nshow_item_navigation=0\nshow_readmore=1\nshow_vote=1\nshow_icons=1\nshow_pdf_icon=1\nshow_print_icon=1\nshow_email_icon=1\nshow_hits=1\nfeed_summary=0\nfilter_groups=18|19\nfilter_type=WL\nfilter_tags=b,i,em\nfilter_attritbutes=href\n\n', 1),
 (21, 'Configuration Manager', '', 0, 0, '', 'Configuration', 'com_config', 0, '', 1, '', 1),
 (22, 'Installation Manager', '', 0, 0, '', 'Installer', 'com_installer', 0, '', 1, '', 1),
@@ -356,7 +356,8 @@ INSERT INTO `jos_components` (`id`, `name`, `link`, `menuid`, `parent`, `admin_m
 (30, 'Template Manager', '', 0, 0, '', 'Templates', 'com_templates', 0, '', 1, '', 1),
 (31, 'User Manager', '', 0, 0, '', 'Users', 'com_users', 0, '', 1, 'allowUserRegistration=1\nnew_usertype=Registered\nuseractivation=1\nfrontend_userparams=1\n\n', 1),
 (32, 'Cache Manager', '', 0, 0, '', 'Cache', 'com_cache', 0, '', 1, '', 1),
-(33, 'Control Panel', '', 0, 0, '', 'Control Panel', 'com_cpanel', 0, '', 1, '', 1);
+(33, 'Control Panel', '', 0, 0, '', 'Control Panel', 'com_cpanel', 0, '', 1, '', 1),
+(35, 'CKEditor', 'option=com_ckeditor', 0, 0, 'option=com_ckeditor', 'CKEditor', 'com_ckeditor', 0, 'components/com_ckeditor/images/ckeditor_ico16.png', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -393,7 +394,7 @@ CREATE TABLE IF NOT EXISTS `jos_contact_details` (
   `webpage` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_contact_details`
@@ -448,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `jos_content` (
   KEY `idx_state` (`state`),
   KEY `idx_catid` (`catid`),
   KEY `idx_createdby` (`created_by`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_content`
@@ -467,6 +468,12 @@ CREATE TABLE IF NOT EXISTS `jos_content_frontpage` (
   PRIMARY KEY (`content_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `jos_content_frontpage`
+--
+
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `jos_content_rating`
@@ -479,6 +486,17 @@ CREATE TABLE IF NOT EXISTS `jos_content_rating` (
   `lastip` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`content_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `jos_content_rating`
+--
+
+INSERT INTO `jos_content_rating` (`content_id`, `rating_sum`, `rating_count`, `lastip`) VALUES
+(2, 3, 1, '127.0.0.1'),
+(1, 3, 1, '127.0.0.1'),
+(7, 3, 1, '127.0.0.1');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `jos_core_acl_aro`
@@ -494,15 +512,17 @@ CREATE TABLE IF NOT EXISTS `jos_core_acl_aro` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jos_section_value_value_aro` (`section_value`(100),`value`(100)),
   KEY `jos_gacl_hidden_aro` (`hidden`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `jos_core_acl_aro`
 --
 
 INSERT INTO `jos_core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES
-(10, 'users', '62', 0, 'Administrator', 0);
-
+(10, 'users', '62', 0, 'Administrator', 0),
+(11, 'users', '63', 0, 'naren', 0),
+(12, 'users', '64', 0, 'dhanapal', 0),
+(13, 'users', '65', 0, 'dhanapal', 0);
 
 -- --------------------------------------------------------
 
@@ -520,7 +540,7 @@ CREATE TABLE IF NOT EXISTS `jos_core_acl_aro_groups` (
   PRIMARY KEY (`id`),
   KEY `jos_gacl_parent_id_aro_groups` (`parent_id`),
   KEY `jos_gacl_lft_rgt_aro_groups` (`lft`,`rgt`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `jos_core_acl_aro_groups`
@@ -572,7 +592,7 @@ CREATE TABLE IF NOT EXISTS `jos_core_acl_aro_sections` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jos_gacl_value_aro_sections` (`value`),
   KEY `jos_gacl_hidden_aro_sections` (`hidden`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `jos_core_acl_aro_sections`
@@ -690,7 +710,7 @@ CREATE TABLE IF NOT EXISTS `jos_menu` (
   PRIMARY KEY (`id`),
   KEY `componentid` (`componentid`,`menutype`,`published`,`access`),
   KEY `menutype` (`menutype`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `jos_menu`
@@ -712,7 +732,7 @@ CREATE TABLE IF NOT EXISTS `jos_menu_types` (
   `description` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `menutype` (`menutype`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `jos_menu_types`
@@ -739,7 +759,7 @@ CREATE TABLE IF NOT EXISTS `jos_messages` (
   `message` text NOT NULL,
   PRIMARY KEY (`message_id`),
   KEY `useridto_state` (`user_id_to`,`state`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_messages`
@@ -810,7 +830,7 @@ CREATE TABLE IF NOT EXISTS `jos_modules` (
   PRIMARY KEY (`id`),
   KEY `published` (`published`,`access`),
   KEY `newsfeeds` (`module`,`published`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `jos_modules`
@@ -831,7 +851,8 @@ INSERT INTO `jos_modules` (`id`, `title`, `content`, `ordering`, `position`, `ch
 (12, 'Admin Menu', '', 1, 'menu', 0, '0000-00-00 00:00:00', 1, 'mod_menu', 0, 2, 1, '', 0, 1, ''),
 (13, 'Admin SubMenu', '', 1, 'submenu', 0, '0000-00-00 00:00:00', 1, 'mod_submenu', 0, 2, 1, '', 0, 1, ''),
 (14, 'User Status', '', 1, 'status', 0, '0000-00-00 00:00:00', 1, 'mod_status', 0, 2, 1, '', 0, 1, ''),
-(15, 'Title', '', 1, 'title', 0, '0000-00-00 00:00:00', 1, 'mod_title', 0, 2, 1, '', 0, 1, '');
+(15, 'Title', '', 1, 'title', 0, '0000-00-00 00:00:00', 1, 'mod_title', 0, 2, 1, '', 0, 1, ''),
+(16, 'Log in Form', '', 1, 'top', 0, '0000-00-00 00:00:00', 1, 'mod_login', 0, 0, 1, 'cache=0\nmoduleclass_sfx=\npretext=\nposttext=\nlogin=\nlogout=\ngreeting=1\nname=0\nusesecure=0\n\n', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -850,7 +871,8 @@ CREATE TABLE IF NOT EXISTS `jos_modules_menu` (
 --
 
 INSERT INTO `jos_modules_menu` (`moduleid`, `menuid`) VALUES
-(1, 0);
+(1, 0),
+(16, 0);
 
 -- --------------------------------------------------------
 
@@ -875,7 +897,7 @@ CREATE TABLE IF NOT EXISTS `jos_newsfeeds` (
   PRIMARY KEY (`id`),
   KEY `published` (`published`),
   KEY `catid` (`catid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_newsfeeds`
@@ -903,14 +925,14 @@ CREATE TABLE IF NOT EXISTS `jos_plugins` (
   `params` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_folder` (`published`,`client_id`,`access`,`folder`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `jos_plugins`
 --
 
 INSERT INTO `jos_plugins` (`id`, `name`, `element`, `folder`, `access`, `ordering`, `published`, `iscore`, `client_id`, `checked_out`, `checked_out_time`, `params`) VALUES
-(1, 'Authentication - Joomla', 'joomla', 'authentication', 0, 1, 1, 1, 0, 0, '0000-00-00 00:00:00', ''),
+(1, 'Authentication - Joomla', 'joomla', 'authentication', 0, 1, 1, 1, 0, 62, '2011-10-31 12:31:46', ''),
 (2, 'Authentication - LDAP', 'ldap', 'authentication', 0, 2, 0, 1, 0, 0, '0000-00-00 00:00:00', 'host=\nport=389\nuse_ldapV3=0\nnegotiate_tls=0\nno_referrals=0\nauth_method=bind\nbase_dn=\nsearch_string=\nusers_dn=\nusername=\npassword=\nldap_fullname=fullName\nldap_email=mail\nldap_uid=uid\n\n'),
 (3, 'Authentication - GMail', 'gmail', 'authentication', 0, 4, 0, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (4, 'Authentication - OpenID', 'openid', 'authentication', 0, 3, 0, 0, 0, 0, '0000-00-00 00:00:00', ''),
@@ -929,9 +951,9 @@ INSERT INTO `jos_plugins` (`id`, `name`, `element`, `folder`, `access`, `orderin
 (17, 'Content - Page Navigation', 'pagenavigation', 'content', 0, 2, 1, 1, 0, 0, '0000-00-00 00:00:00', 'position=1\n\n'),
 (18, 'Editor - No Editor', 'none', 'editors', 0, 0, 1, 1, 0, 0, '0000-00-00 00:00:00', ''),
 (19, 'Editor - TinyMCE', 'tinymce', 'editors', 0, 0, 1, 1, 0, 0, '0000-00-00 00:00:00', 'mode=advanced\nskin=0\ncompressed=0\ncleanup_startup=0\ncleanup_save=2\nentity_encoding=raw\nlang_mode=0\nlang_code=en\ntext_direction=ltr\ncontent_css=1\ncontent_css_custom=\nrelative_urls=1\nnewlines=0\ninvalid_elements=applet\nextended_elements=\ntoolbar=top\ntoolbar_align=left\nhtml_height=550\nhtml_width=750\nelement_path=1\nfonts=1\npaste=1\nsearchreplace=1\ninsertdate=1\nformat_date=%Y-%m-%d\ninserttime=1\nformat_time=%H:%M:%S\ncolors=1\ntable=1\nsmilies=1\nmedia=1\nhr=1\ndirectionality=1\nfullscreen=1\nstyle=1\nlayer=1\nxhtmlxtras=1\nvisualchars=1\nnonbreaking=1\ntemplate=0\nadvimage=1\nadvlink=1\nautosave=1\ncontextmenu=1\ninlinepopups=1\nsafari=1\ncustom_plugin=\ncustom_button=\n\n'),
-(20, 'Editor - XStandard Lite 2.0', 'xstandard', 'editors', 0, 0, 0, 1, 0, 0, '0000-00-00 00:00:00', ''),
-(21, 'Editor Button - Image', 'image', 'editors-xtd', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
-(22, 'Editor Button - Pagebreak', 'pagebreak', 'editors-xtd', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
+(20, 'Editor - XStandard Lite 2.0', 'xstandard', 'editors', 0, 0, 1, 1, 0, 0, '0000-00-00 00:00:00', ''),
+(21, 'Editor Button - Image', 'image', 'editors-xtd', 0, 0, 0, 0, 0, 0, '0000-00-00 00:00:00', ''),
+(22, 'Editor Button - Pagebreak', 'pagebreak', 'editors-xtd', 0, 0, 0, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (23, 'Editor Button - Readmore', 'readmore', 'editors-xtd', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (24, 'XML-RPC - Joomla', 'joomla', 'xmlrpc', 0, 7, 0, 1, 0, 0, '0000-00-00 00:00:00', ''),
 (25, 'XML-RPC - Blogger API', 'blogger', 'xmlrpc', 0, 7, 0, 1, 0, 0, '0000-00-00 00:00:00', 'catid=1\nsectionid=0\n\n'),
@@ -942,7 +964,9 @@ INSERT INTO `jos_plugins` (`id`, `name`, `element`, `folder`, `access`, `orderin
 (31, 'System - Log', 'log', 'system', 0, 5, 0, 1, 0, 0, '0000-00-00 00:00:00', ''),
 (32, 'System - Remember Me', 'remember', 'system', 0, 6, 1, 1, 0, 0, '0000-00-00 00:00:00', ''),
 (33, 'System - Backlink', 'backlink', 'system', 0, 7, 0, 1, 0, 0, '0000-00-00 00:00:00', ''),
-(34, 'System - Mootools Upgrade', 'mtupgrade', 'system', 0, 8, 0, 1, 0, 0, '0000-00-00 00:00:00', '');
+(34, 'System - Mootools Upgrade', 'mtupgrade', 'system', 0, 8, 0, 1, 0, 0, '0000-00-00 00:00:00', ''),
+(35, 'Editor - Artof Editor', 'artofeditor', 'editors', 0, 0, 0, 0, 0, 0, '0000-00-00 00:00:00', 'language=en\ntoolbar=Full\ntoolbar_ft=Full\nskin=v2\nbgcolor=#6B6868\n'),
+(36, 'Editor - CKEditor', 'ckeditor', 'editors', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', 'language=en\r\ntoolbar_frontEnd=Basic\r\ntoolbar=Full\r\nBasic_ToolBar=Bold, Italic, ;, NumberedList, BulletedList, ;, Link, Unlink\r\nAdvanced_ToolBar=Source,;,Save,NewPage,Preview,;,Templates,;,Cut,Copy,Paste,PasteText,PasteFromWord,;,Print,SpellChecker,Scayt,;,Undo,Redo,;,Find,Replace,;,SelectAll,RemoveFormat,;,/,Bold,Italic,Underline,Strike,;,Subscript,Superscript,;,NumberedList,BulletedList,;,Outdent,Indent,Blockquote,;,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,;,BidiLtr,BidiRtl,;,Link,Unlink,Anchor,;,Image,Flash,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,/,Styles,;,Format,;,Font,;,FontSize,TextColor,BGColor,;,Maximize,ShowBlocks,;,ReadMore,;,About\r\nskin=kama\r\nenterMode=1\r\nshiftEnterMode=2\r\nstyle=\r\ntemplate=\r\ncss=\r\ntemplateCss=0\r\nckfinder=1\r\nskinfm=light\r\nusergroup_access=25');
 
 -- --------------------------------------------------------
 
@@ -961,7 +985,7 @@ CREATE TABLE IF NOT EXISTS `jos_polls` (
   `access` int(11) NOT NULL DEFAULT '0',
   `lag` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_polls`
@@ -981,7 +1005,7 @@ CREATE TABLE IF NOT EXISTS `jos_poll_data` (
   `hits` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `pollid` (`pollid`,`text`(1))
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_poll_data`
@@ -1001,7 +1025,7 @@ CREATE TABLE IF NOT EXISTS `jos_poll_date` (
   `poll_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `poll_id` (`poll_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_poll_date`
@@ -1040,35 +1064,35 @@ CREATE TABLE IF NOT EXISTS `jos_sections` (
   `scope` varchar(50) NOT NULL DEFAULT '',
   `image_position` varchar(30) NOT NULL DEFAULT '',
   `description` text NOT NULL,
-  `published` tinyint(1) NOT NULL DEFAULT '1',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
   `checked_out` int(11) unsigned NOT NULL DEFAULT '0',
   `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `ordering` int(11) NOT NULL DEFAULT '0',
   `access` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `count` int(11) NOT NULL DEFAULT '0',
   `params` text NOT NULL,
-  `status` varchar(20) NOT NULL DEFAULT 'A',
+  `status` varchar(25) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`id`),
   KEY `idx_scope` (`scope`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `jos_sections`
 --
 
 INSERT INTO `jos_sections` (`id`, `title`, `name`, `alias`, `image`, `scope`, `image_position`, `description`, `published`, `checked_out`, `checked_out_time`, `ordering`, `access`, `count`, `params`, `status`) VALUES
-(1, 'Uncategorized', '', 'uncategorized', '', 'content', 'right', '<p>Uncategorized</p>', 1, 62, '2011-10-29 11:00:21', 2, 0, 0, '', 'SY'),
-(2, 'Stocks', '', 'stocks', '', 'content', 'right', '<p>Stocks</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(1, 'Uncategorized', '', 'uncategorized', '', 'content', 'right', '<p>Uncategorized</p>', 1, 62, '2011-11-05 12:00:28', 2, 0, 0, '', 'SY'),
+(2, 'Stocks', '', 'stocks', '', 'content', 'right', '<p>Stocks</p>', 1, 62, '2011-11-05 12:01:29', 2, 0, 0, '', 'SY'),
 (3, 'Mutual Funds', '', 'mutual Funds', '', 'content', 'right', '<p>Mutual Funds</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (4, 'ETFs', '', 'ETFs', '', 'content', 'right', '<p>ETFs</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (5, 'IPO', '', 'IPO', '', 'content', 'right', '<p>IPO</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (6, 'Gold & Silver', '', 'Gold & Silver', '', 'content', 'right', '<p>Gold & Silver</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(7, 'Futures & Options', '', 'Futures & Options', '', 'content', 'right', '<p>Futures & Options</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(7, 'Futures & Options', '', 'Futures & Options', '', 'content', 'right', '<p>Futures & Options</p>', 1, 62, '2011-11-11 07:36:37', 2, 0, 0, '', 'SY'),
 (8, 'Forex', '', 'Forex', '', 'content', 'right', '<p>Forex</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (9, 'Commodities', '', 'Commodities', '', 'content', 'right', '<p>Commodities</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (10, 'Global Trends', '', 'Global Trends', '', 'content', 'right', '<p>Global Trends</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (11, 'Investment Basics', '', 'Investment Basics', '', 'content', 'right', '<p>Investment Basics</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(12, 'Technical Analysis', '', 'Technical Analysis', '', 'content', 'right', '<p>Technical Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(12, 'Technical Analysis', '', 'Technical Analysis', '', 'content', 'right', '<p>Technical Analysis</p>', 1, 62, '2011-11-05 09:54:05', 2, 0, 0, '', 'SY'),
 (13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY');
 
 -- --------------------------------------------------------
@@ -1093,7 +1117,16 @@ CREATE TABLE IF NOT EXISTS `jos_session` (
   KEY `time` (`time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `jos_session`
+--
 
+INSERT INTO `jos_session` (`username`, `time`, `session_id`, `guest`, `userid`, `usertype`, `gid`, `client_id`, `data`) VALUES
+('admin', '1320997271', 'acda4825728dcb728c8125df156fd1b8', 0, 62, 'Super Administrator', 25, 1, '__default|a:8:{s:22:"session.client.browser";s:67:"Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2";s:15:"session.counter";i:25;s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:5:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}s:11:"application";a:1:{s:4:"data";O:8:"stdClass":1:{s:4:"lang";s:0:"";}}s:10:"com_cpanel";a:1:{s:4:"data";O:8:"stdClass":1:{s:9:"mtupgrade";O:8:"stdClass":1:{s:7:"checked";b:1;}}}s:11:"com_content";a:1:{s:4:"data";O:8:"stdClass":8:{s:23:"viewcontentfilter_order";s:12:"section_name";s:27:"viewcontentfilter_order_Dir";s:0:"";s:23:"viewcontentfilter_state";s:0:"";s:27:"viewcontentfilter_frontpage";s:1:"A";s:26:"viewcontentfilter_authorid";i:0;s:27:"viewcontentfilter_sectionid";s:2:"-1";s:17:"viewcontentsearch";s:0:"";s:21:"viewcontentlimitstart";i:0;}}s:6:"global";a:1:{s:4:"data";O:8:"stdClass":1:{s:4:"list";O:8:"stdClass":1:{s:5:"limit";s:2:"20";}}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";s:2:"62";s:4:"name";s:13:"Administrator";s:8:"username";s:5:"admin";s:5:"email";s:25:"admin@wesharearticles.com";s:8:"password";s:65:"cd17f4d39c0e8822b20a084f613349c9:JwwytvmDw2Y1VtFx5jgo3oJPM9C7N03H";s:14:"password_clear";s:0:"";s:8:"usertype";s:19:"Super Administrator";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:3:"gid";s:2:"25";s:12:"registerDate";s:19:"2011-10-08 10:40:04";s:13:"lastvisitDate";s:19:"2011-11-11 07:10:51";s:10:"activation";s:0:"";s:6:"params";s:0:"";s:3:"aid";i:2;s:5:"guest";i:0;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:82:"D:\\xampp\\htdocs\\dhanapal\\We-Share-Articles\\libraries\\joomla\\html\\parameter\\element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"737dbbfb9c0dbc6d0a14e8af3dc05a2d";s:19:"session.timer.start";i:1320996876;s:18:"session.timer.last";i:1320997270;s:17:"session.timer.now";i:1320997271;}'),
+('', '1320996891', 'febb2846ddf221d2c72cd3ebbc8745db', 1, 0, '', 0, 0, '__default|a:9:{s:15:"session.counter";i:1;s:19:"session.timer.start";i:1320996891;s:18:"session.timer.last";i:1320996891;s:17:"session.timer.now";i:1320996891;s:22:"session.client.browser";s:67:"Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2";s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:1:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:8:"usertype";N;s:5:"block";N;s:9:"sendEmail";i:0;s:3:"gid";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:3:"aid";i:0;s:5:"guest";i:1;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:82:"D:\\xampp\\htdocs\\dhanapal\\We-Share-Articles\\libraries\\joomla\\html\\parameter\\element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:16:"com_mailto.links";a:3:{s:40:"ae879c46fb19c86cbfd12024fd0b8b96d5377a78";O:8:"stdClass":2:{s:4:"link";s:97:"http://localhost/dhanapal/We-Share-Articles/index.php?option=com_content&view=article&id=6:dgdgsf";s:6:"expiry";i:1320996891;}s:40:"d1a226f30aa521505cd3f30447bdc5e975254604";O:8:"stdClass":2:{s:4:"link";s:97:"http://localhost/dhanapal/We-Share-Articles/index.php?option=com_content&view=article&id=7:maries";s:6:"expiry";i:1320996891;}s:40:"04360334b7a5a2f21b6595721ef49e118a74b74a";O:8:"stdClass":2:{s:4:"link";s:100:"http://localhost/dhanapal/We-Share-Articles/index.php?option=com_content&view=article&id=8:webdesign";s:6:"expiry";i:1320996891;}}s:13:"session.token";s:32:"f194882646b9490a00b0a0d57d40e5bf";}'),
+('', '1320996876', '7a9232e9d624a7c2e60dd345ccbcf133', 1, 0, '', 0, 1, '__default|a:5:{s:22:"session.client.browser";s:67:"Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2";s:15:"session.counter";i:1;s:8:"registry";O:9:"JRegistry":3:{s:17:"_defaultNameSpace";s:7:"session";s:9:"_registry";a:1:{s:7:"session";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:4:"user";O:5:"JUser":19:{s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:8:"usertype";N;s:5:"block";N;s:9:"sendEmail";i:0;s:3:"gid";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:3:"aid";i:0;s:5:"guest";i:1;s:7:"_params";O:10:"JParameter":7:{s:4:"_raw";s:0:"";s:4:"_xml";N;s:9:"_elements";a:0:{}s:12:"_elementPath";a:1:{i:0;s:82:"D:\\xampp\\htdocs\\dhanapal\\We-Share-Articles\\libraries\\joomla\\html\\parameter\\element";}s:17:"_defaultNameSpace";s:8:"_default";s:9:"_registry";a:1:{s:8:"_default";a:1:{s:4:"data";O:8:"stdClass":0:{}}}s:7:"_errors";a:0:{}}s:9:"_errorMsg";N;s:7:"_errors";a:0:{}}s:13:"session.token";s:32:"737dbbfb9c0dbc6d0a14e8af3dc05a2d";}');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `jos_stats_agents`
@@ -1123,7 +1156,7 @@ CREATE TABLE IF NOT EXISTS `jos_subscribed_section` (
   PRIMARY KEY (`id`),
   KEY `viewer_id` (`viewer_id`,`section_id`),
   KEY `section_id` (`section_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_subscribed_section`
@@ -1141,12 +1174,21 @@ CREATE TABLE IF NOT EXISTS `jos_tags` (
   `tagname` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tagname` (`tagname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `jos_tags`
 --
 
+INSERT INTO `jos_tags` (`id`, `tagname`) VALUES
+(2, ''),
+(4, 'cvxcv'),
+(9, 'dfds'),
+(8, 'dgfg'),
+(3, 'gngh'),
+(1, 'History'),
+(6, 'vgxzfdgdszds'),
+(10, 'xzcc');
 
 -- --------------------------------------------------------
 
@@ -1166,7 +1208,7 @@ CREATE TABLE IF NOT EXISTS `jos_templates_menu` (
 --
 
 INSERT INTO `jos_templates_menu` (`template`, `menuid`, `client_id`) VALUES
-('rhuk_milkyway', 0, 0),
+('wesharearticles', 0, 0),
 ('khepri', 0, 1);
 
 -- --------------------------------------------------------
@@ -1200,14 +1242,14 @@ CREATE TABLE IF NOT EXISTS `jos_users` (
   KEY `gid_block` (`gid`,`block`),
   KEY `username` (`username`),
   KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
 
 --
 -- Dumping data for table `jos_users`
 --
 
 INSERT INTO `jos_users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `image`, `biography`, `website`, `isfeatured`, `isNewsletterSubscribed`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
-(62, 'Administrator', 'admin', 'admin@wesharearticles.com', 'cd17f4d39c0e8822b20a084f613349c9:JwwytvmDw2Y1VtFx5jgo3oJPM9C7N03H', 'Super Administrator', 0, 1, '', '', '', 0, 0, 25, '2011-10-08 10:40:04', '2011-10-16 07:50:33', '', '');
+(62, 'Administrator', 'admin', 'admin@wesharearticles.com', 'cd17f4d39c0e8822b20a084f613349c9:JwwytvmDw2Y1VtFx5jgo3oJPM9C7N03H', 'Super Administrator', 0, 1, '', '', '', 0, 0, 25, '2011-10-08 10:40:04', '2011-11-11 07:34:36', '', '');
 
 -- --------------------------------------------------------
 
@@ -1234,7 +1276,7 @@ CREATE TABLE IF NOT EXISTS `jos_weblinks` (
   `params` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`,`published`,`archived`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `jos_weblinks`

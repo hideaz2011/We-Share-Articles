@@ -64,9 +64,9 @@ endif; ?>
 	
 	<?php if(JPluginHelper::isEnabled('system', 'remember')) : ?>
 	<p id="form-login-remember">
-		<input id="modlgn_remember" type="checkbox" name="remember" class="inputbox" value="yes" alt="Remember Me" /> 
-        <label id="modlgn_remember"><?php echo JText::_('Remember me') ?></label>
- 	</p>
+		<input id="modlgn_remember" type="checkbox" name="remember" class="inputbox" value="yes" alt="Remember Me" />
+  	</p>
+   <p id="remember"><?php echo JText::_('Remember me') ?></p>
 	
 	<?php endif; ?>
 	</fieldset>
@@ -139,7 +139,7 @@ initTabs('dhtmlgoodies_tabView1',Array('Login','Register'),0,426,188,Array(true,
 		<ul class="login">
 	    	<li class="left">&nbsp;</li>
 	        <li id="toggle">
-				<a id="open" class="open" href="#"><?php echo $_SESSION['id']?'Open Panel':'Log In';?></a>
+				<a id="open" class="open" href="#"><?php echo $_SESSION['id']?'Open Panel':'LogIn';?></a>
 				<a id="close" style="display: none;" class="close" href="#">Close</a>			
 			</li>
 	    	<li class="right">&nbsp;</li>

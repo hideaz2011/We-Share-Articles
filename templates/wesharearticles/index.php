@@ -189,6 +189,6 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	</div>
 </div>
 <jdoc:include type="modules" name="debug" />
-
+</div>
 </body>
 </html>

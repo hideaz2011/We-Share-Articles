@@ -1,0 +1,84 @@
+	.dhtmlgoodies_tabPane{
+		height:28px;	/* Height of tabs */
+		border-bottom:1px solid #919b9c;
+		background-color:#215C84;
+	}
+	.dhtmlgoodies_aTab{
+		background:#FFFFFF;
+		border-left:1px solid #919b9c;
+		border-right:1px solid #919b9c;
+		border-bottom:1px solid #919b9c;
+		font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+		padding:5px;
+				
+		
+	}
+	#dhtmlgoodies_tabView1{
+		margin-left:27px;
+	}
+	.dhtmlgoodies_tabPane DIV{
+		float:left;
+		height:auto;	/* Height of tabs */
+		padding-left:3px;
+		vertical-align:middle;
+		background-repeat:no-repeat;
+		background-position:bottom left;
+		cursor:pointer;
+		position:relative;
+		bottom:-1px;
+		margin-left:0px;
+		margin-right:0px;
+	}
+	.dhtmlgoodies_tabPane .tabActive{
+		background-image:url('../images/fal-login-Bg-Top.png');
+		height:28px;
+		width:96px;
+		margin-left:0px;
+		margin-right:0px;	
+		z-index:10;	
+	}
+	.dhtmlgoodies_tabPane .tabInactive{
+		background-image:url('../images/fal-register-Bg-Top.png');
+		height:28px;
+		width:96px;
+		margin-left:0px;
+		margin-right:0px;
+		z-index:1;
+	}
+	
+	
+	.dhtmlgoodies_tabPane span{
+		font-family:"trebuchet MS";
+		font-size:16px;
+		padding-left:10px;
+		padding-top:5px;		
+		line-height:21px;
+		float:left;
+		color:#FFFFFF;
+		font-weight:bold;
+		text-align:center;
+	}
+	
+	.dhtmlgoodies_tabPane .tabActive span{
+		padding-bottom:1px;
+		line-height:20px;
+		color:#215C84;
+		font-family:"trebuchet MS";
+		font-weight:bold;
+		font-size:16px;
+		vertical-align:middle;
+		text-align:center;
+	}
+	
+	.dhtmlgoodies_tabPane img{
+		float:left;
+	}
+
+/*::-webkit-input-placeholder {
+   
+  font-family:Trebuchet MS;
+}
+
+:-moz-placeholder {
+   font-family:Trebuchet MS;
+}*/

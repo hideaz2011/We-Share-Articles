@@ -39,8 +39,11 @@ class TOOLBAR_content
 		}
 		
 		JToolBarHelper::apply();
-		JToolBarHelper::deleteList();
 		
+		if ( $edit ){
+			JToolBarHelper::deleteList();
+		}
+	
 		if ( $edit ) {
 			// for existing articles the button is renamed `close`
 			JToolBarHelper::cancel( 'cancel', 'Close' );
@@ -50,6 +53,8 @@ class TOOLBAR_content
 		JToolBarHelper::help( 'screen.content.edit' );
 		
 	}
+	
+	
 /*
 	function _ARCHIVE()
 	{

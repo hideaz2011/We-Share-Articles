@@ -537,11 +537,25 @@ class ContentController extends JController
 		// Advanced Group
 		$form->loadINI($row->attribs);
 
-		// Metadata Group
-		$form->set('description', $row->metadesc);
-		$form->set('keywords', $row->metakey);
+		
 		$form->loadINI($row->metadata);
-
+		$form->set('description', $row->metadesc);
+	
+		
+		//$test = split(",",$row->metakey);
+		
+		//$imp = implode(",",$postvalues[meta][keywords]);
+		//$form->loadINI($row->metakey);
+		//$mkey = (intval($row->metakey) ? intval($row->metakey) : $metakey[]);
+		//$mkey[] = $row->metakey;
+		$imp = split(",",$row->metakey);
+		
+		
+		//print_r($imp);
+		//exit();
+		$form->set('keywords', implode(",",$imp) );
+		//$form->set('keywords', $imp);
+		
 		ContentView::editContent($row, $contentSection, $lists, $sectioncategories, $option, $form);
 	
 			
@@ -652,7 +666,9 @@ class ContentController extends JController
 			$row->attribs = implode("\n", $txt);
 		}
 
-		// Get metadata string
+		// multi select key words
+		$imp = implode(",",$postvalues[meta][keywords]);
+		//end
 		$metadata = JRequest::getVar( 'meta', null, 'post', 'array');
 		if (is_array($metadata))
 		{
@@ -661,7 +677,7 @@ class ContentController extends JController
 				if ($k == 'description') {
 					$row->metadesc = $v;
 				} elseif ($k == 'keywords') {
-					$row->metakey = $v;
+					$row->metakey = $imp;
 				} else {
 					$txt[] = "$k=$v";
 				}

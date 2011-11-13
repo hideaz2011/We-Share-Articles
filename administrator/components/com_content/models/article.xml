@@ -90,16 +90,7 @@
 	</params>
 	<params group="metadata">
 		<param name="description" type="textarea" rows="5" cols="30" default="" label="Description" description="METADESC" />
-		<param name="keywords[]" type="metakey" default="" label="Meta Keywords" description="Global Meta Keywords" />
-		<!--param name="keywords" type="metakey" default="" multiple="multiple" label="Meta Keywords" description="Select one or more items from the list.  You can use Ctrl-click to select more than one item."-->
-		<!--param name="keywords" type="list" default="" label="Meta Keywords" description="Global Meta Keywords">
-			<option value="">Use Global</option>
-			<option value="0">No</option>
-			<option value="1">Yes</option>
-		</param-->
-		
-		<!--param name="keywords" type="keywords" default="" label="Meta Keywords" description="DETAILAUTHOR" /-->
-		<!--param name="keywords" type="textarea" rows="5" cols="30" default="" label="Meta Keywords" description="METAKEYS" /-->
+		<param name="keywords" type="textarea" rows="5" cols="30" default="" label="Keywords" description="METAKEYS" />
 		<param name="robots" type="text" size="20" default="" label="Robots" description="METAROBOTS" />
 		<param name="author" type="text" size="20" default="" label="Author" description="METAAUTHOR" />
 	</params>

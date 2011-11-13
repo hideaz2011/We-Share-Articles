@@ -112,7 +112,8 @@ class ContentController extends JController
 		// Section filter
 		
 		if ($filter_sectionid >= 0) {
-			$where[] = 'c.sectionid = ' . (int) $filter_sectionid;
+			//$where[] = 'c.sectionid = ' . (int) $filter_sectionid;
+			$where[] = 'c.id = ars.article_id AND ars.section_id = '. (int) $filter_sectionid;
 			
 		}
 		// Category filter
@@ -121,7 +122,8 @@ class ContentController extends JController
 		}
 		// Author filter
 		if ($filter_authorid > 0) {
-			$where[] = 's.created_by = ' . (int) $filter_authorid;
+			//$where[] = 's.created_by = ' . (int) $filter_authorid;
+			$where[] = 'c.created_by = ' . (int) $filter_authorid;
 		}
 		// Content state filter
 		if ($filter_state) {
@@ -176,14 +178,15 @@ class ContentController extends JController
 
 		// Get the articles
 		
-		$query = 'SELECT c.*, g.name AS groupname, cc.title AS name, u.name AS editor, f.content_id AS frontpage, s.title AS section_name, v.name AS author' .
-				' FROM #__content AS c' .
+		$query = 'SELECT DISTINCT c.*, g.name AS groupname, cc.title AS name, u.name AS editor, f.content_id AS frontpage, s.title AS section_name, v.name AS author' .
+				' FROM  #__content AS c' .
 				' LEFT JOIN #__categories AS cc ON cc.id = c.catid' .
 				' LEFT JOIN #__sections AS s ON s.id = c.sectionid' .
 				' LEFT JOIN #__groups AS g ON g.id = c.access' .
 				' LEFT JOIN #__users AS u ON u.id = c.checked_out' .
 				' LEFT JOIN #__users AS v ON v.id = c.created_by' .
 				' LEFT JOIN #__content_frontpage AS f ON f.content_id = c.id' .
+				' LEFT JOIN #__article_section AS ars ON c.id = ars.article_id' .
 				$where .
 				$order;
 		
@@ -234,13 +237,12 @@ class ContentController extends JController
 		$query = 'SELECT id, title FROM #__sections';
 		$db->setQuery($query);
 		$sctns = $db->loadObjectList();
-		
 		$sec_options[-1] = JHTML::_('select.option', -1, "-Select Section-");
 		for($s=0;$s<count($sctns);$s++) {
 			$sec_options[$s] = JHTML::_('select.option', $sctns[$s]->id, $sctns[$s]->title);	
 		}
 
-		$lists['sectionid'] = JHTML::_('select.genericlist', $sec_options, 'filter_sectionid', 'class="inputbox" onchange="document.adminForm.submit();" ');
+		$lists['sectionid'] = JHTML::_('select.genericlist', $sec_options, 'filter_sectionid', 'class="inputbox" onchange="document.adminForm.submit();" ','value','text',$filter_sectionid);
 	
 		//$lists['sectionid'] = JHTML::_('list.section', 'filter_sectionid', $filter_sectionid, $javascript);
 		
@@ -248,7 +250,7 @@ class ContentController extends JController
 		// get list of Authors for dropdown filter
 		$query = 'SELECT c.created_by, u.name' .
 				' FROM #__content AS c' .
-				' INNER JOIN #__sections AS s ON s.id = c.sectionid' .
+				/*' INNER JOIN #__sections AS s ON s.id = c.sectionid' .*/
 				' LEFT JOIN #__users AS u ON u.id = c.created_by' .
 				' WHERE c.state <> -1' .
 				' AND c.state <> -2' .

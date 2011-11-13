@@ -158,32 +158,7 @@ class JHTMLList
 
 		return $users;
 	}
-	
-	
-	/**
-	* Select list of active users
-	*/
-	function metakey( $name, $active = NULL, $javascript = NULL, $order = 'name' )
-	{
-		$config =& JFactory::getConfig();
-		$metakey = $config->getValue('config.MetaKeys');
-		
-		$mk = split(",",$metakey);
-		
-		$mkarray[] = JHTML::_('select.option', '0', '- '.JText::_('Select keyword').' -');
-		
-		for ($s=0;$s < count($mk);$s++) {
-			$mkarray[$s+1] = JHTML::_('select.option', $mk[$s], JText::_($mk[$s]));
-		}
-		
-			
 
-		$mkey = JHTML::_('select.genericlist',$mkarray, $name, 'class="inputbox" multiple="multiple" size="5"'. $javascript, 'value', 'text', $active );
-		
-		return $mkey;
-		
-	}
-	
 	/**
 	* Select list of positions - generally used for location of images
 	*/

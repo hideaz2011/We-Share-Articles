@@ -1,21 +1,35 @@
 	.dhtmlgoodies_tabPane{
-		height:28px;	/* Height of tabs */
+		height:24px;	/* Height of tabs */
 		border-bottom:1px solid #919b9c;
 		background-color:#215C84;
 	}
 	.dhtmlgoodies_aTab{
-		background:#FFFFFF;
+		/*background:#FFFFFF;
 		border-left:1px solid #919b9c;
 		border-right:1px solid #919b9c;
-		border-bottom:1px solid #919b9c;
+		border-bottom:1px solid #919b9c;*/
 		font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
-		padding:5px;
-				
-		
 	}
+	
+	#panelinnerdiv {
+	background:transparent;
+	width:400px;
+	margin-left:15px;
+	height:226px;
+ }
 	#dhtmlgoodies_tabView1{
-		margin-left:27px;
-	}
+      background-color:#FFFFFF;
+    }
+	/*#dhtmlgoodies_tabView1 {
+    background: url('../images/white-bg-bottom-r.png') no-repeat scroll right top transparent;
+    content: url('../images/white-bg-bottom-l.png');
+    display: block;
+}
+	#dhtmlgoodies_tabView1 {
+    background: url('../images/white-bg-top-r.png') no-repeat scroll right top transparent;
+    display: block;
+}*/
+	
 	.dhtmlgoodies_tabPane DIV{
 		float:left;
 		height:auto;	/* Height of tabs */
@@ -30,17 +44,17 @@
 		margin-right:0px;
 	}
 	.dhtmlgoodies_tabPane .tabActive{
-		background-image:url('../images/fal-login-Bg-Top.png');
-		height:28px;
-		width:96px;
+		background-image:url('../images/login-Bg-Top.png');
+		height:24px;
+		width:78px;
 		margin-left:0px;
 		margin-right:0px;	
 		z-index:10;	
 	}
 	.dhtmlgoodies_tabPane .tabInactive{
-		background-image:url('../images/fal-register-Bg-Top.png');
-		height:28px;
-		width:96px;
+		background-image:url('../images/register-Bg-Top.png');
+		height:24px;
+		width:78px;
 		margin-left:0px;
 		margin-right:0px;
 		z-index:1;
@@ -49,14 +63,15 @@
 	
 	.dhtmlgoodies_tabPane span{
 		font-family:"trebuchet MS";
-		font-size:16px;
+		font-size:14px;
 		padding-left:10px;
-		padding-top:5px;		
+		padding-top:3px;		
 		line-height:21px;
 		float:left;
 		color:#FFFFFF;
 		font-weight:bold;
 		text-align:center;
+		margin-bottom:2px;
 	}
 	
 	.dhtmlgoodies_tabPane .tabActive span{
@@ -65,20 +80,13 @@
 		color:#215C84;
 		font-family:"trebuchet MS";
 		font-weight:bold;
-		font-size:16px;
+		font-size:14px;
 		vertical-align:middle;
 		text-align:center;
 	}
 	
 	.dhtmlgoodies_tabPane img{
 		float:left;
+		display:none;
 	}
 
-/*::-webkit-input-placeholder {
-   
-  font-family:Trebuchet MS;
-}
-
-:-moz-placeholder {
-   font-family:Trebuchet MS;
-}*/

@@ -20,7 +20,7 @@ body {
 	color: #333;
 }
 
-a:link, a:visited {
+/*a:link, a:visited {
 	text-decoration: none;
 	font-weight: normal;
 }
@@ -28,9 +28,9 @@ a:link, a:visited {
 a:hover {
 	text-decoration: underline;
 	font-weight: normal;
-}
+}*/
 
-input.button { cursor: pointer;}
+input.button { cursor: hand;}
 
 p { margin-top: 0; margin-bottom: 5px; }
 
@@ -47,6 +47,22 @@ img { border: 0 none; }
 div.center {
   text-align: center;
 }
+/*#wrapper{
+	 background: none repeat scroll 0 0 #215C84;
+	 height:260px;
+}
+#wrapper:after {
+    background: url("../images/Bg-R-bottom.png") no-repeat scroll right top transparent;
+    content: url("../images/Bg-L-bottom.png");
+    display: block;
+}
+
+#wrapper:before {
+    background: url("../images/Bg-R-Top.png") no-repeat scroll right top transparent;
+    content: url("../images/Bg-L-top.png");
+    display: block;
+}*/
+
 
 div#wrapper {
 	margin-left: auto;
@@ -72,23 +88,19 @@ div#header_l {
 
 div#header_r {
 	height: 90px;
-	padding-left: 370px;
-	padding-right: 30px;
-	padding-top: 25px;
+	/*padding-top: 25px;*/
 	overflow: hidden;
 	text-align: left;
 }
 
 div#logo {
+	margin-top:10px;
 	position: absolute;
 	left: 0;
 	top: 0;
 	float: left;
-	width: 298px;
-	height: 75px;
-	background: url(../images/mw_joomla_logo.png) 0 0 no-repeat;
-	margin-left: 30px;
-	margin-top: 25px;
+	/*background: url(../images/we-shere-logo.png) 0 0 no-repeat;*/
+	height:152px;
 }
 
 div#newsflash {
@@ -738,9 +750,7 @@ span.description {
 /* Frontend Editing*/
 fieldset {
 	border: 1px solid #ccc;
-	margin-top: 15px;
-	padding: 15px;
-}
+	}
 
 legend {
 	margin: 0;

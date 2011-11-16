@@ -2,9 +2,9 @@
 #page_bg {
 	background: #fff;
 }
-
+/*
 div#wrapper {
-		background: #f7f7f7 url(../images/white/mw_shadow_l.png) 0 0 repeat-y;
+		background:  url(../images/white/mw_shadow_l.png) 0 0 repeat-y;
 }
 
 div#wrapper_r {
@@ -22,7 +22,7 @@ div#header_l {
 
 div#header_r {
 	background: url(../images/white/mw_header_t_r.png) 100% 0 no-repeat;
-}
+}*/
 
 div#footer {
 	background: #f7f7f7 url(../images/white/mw_footer_b.png) 0 100% repeat-x;

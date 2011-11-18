@@ -122,7 +122,7 @@ Owner of DHTMLgoodies.com
 			//this.className='inactiveTabOver';
 			var img = this.getElementsByTagName('IMG')[0];
 			if(img.src.indexOf('tab_')<=0)img = this.getElementsByTagName('IMG')[1];
-			img.src = burl+'/templates/wesharearticles/images/tab_right_over.gif';
+			//img.src = burl+'/templates/wesharearticles/images/tab_right_over.gif';
 		}
 
 	}

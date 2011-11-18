@@ -23,14 +23,14 @@ Version: 1.0
 .clearfix {display: block;}
 
 /* Panel Tab/button */
-.tab {
+#tab {
   	height: 42px;
 	position: relative;
     top: 0;
     z-index: 999;
 }
 
-.tab ul.login {
+#tab ul.login {
 	display: block;
 	position: relative;
   	float: right;
@@ -43,7 +43,7 @@ Version: 1.0
 	right: 50px;
   }
 
-.tab ul.login li.left {
+#tab ul.login li.left {
   	background: url(../images/L---buttons.png) no-repeat left 0;
   	height: 26px;
 	width: 33px;
@@ -53,7 +53,7 @@ Version: 1.0
 	float: left;
 }
 
-.tab ul.login li.right {
+#tab ul.login li.right {
   	background: url(../images/R---buttons.png) no-repeat left 0;
   	height: 26px;
 	width: 34px;
@@ -63,7 +63,7 @@ Version: 1.0
 	float: left;
 }
 
-.tab ul.login li {
+#tab ul.login li {
  	text-align: left;
   	display: block;
 	float: left;
@@ -71,7 +71,7 @@ Version: 1.0
 	background: url(../images/C---buttons.png) repeat-x 0 0;
 }
 
-.tab ul.login li a {
+#tab ul.login li a {
 	color: #FFFFFF;
 	text-decoration:none;
 	font-family:"trebuchet MS";
@@ -79,13 +79,13 @@ Version: 1.0
 	font-size:16px;
 }
 
-.tab ul.login li a:hover {
+#tab ul.login li a:hover {
 	color: #15ADFF;
 }
 
-.tab .sep {color:#414141}
+#tab .sep {color:#414141}
 
-.tab a.open, .tab a.close {
+#tab a.open, #tab a.close {
 	height: 20px;
 	line-height: 20px !important;
 	padding-left: 25px !important;
@@ -95,60 +95,88 @@ Version: 1.0
 	top: 3px;
 }
 
-.tab a.open {background: url(../images/login-aap-logn.png) no-repeat left 0;}
-.tab a.close {background: url(../images/login-aap-eru.png) no-repeat left 0;}
+
+
+#tab a.open:link, #tab a.open:visited, #tab a.open:hover, #tab a.open:active, #tab a.open:focus, #tab a.close:link, 
+#tab a.close:visited, #tab a.close:hover, #tab a.close:focus, #tab a.close:active {outline:none;}      
+      
+
+
+#tab a.open {background: url(../images/login-aap-logn.png) no-repeat left 0;}
+#tab a.close {background: url(../images/login-aap-eru.png) no-repeat left 0;}
 
 /* sliding panel */
 #toppanel {
     position: absolute;   /*Panel will overlap  content */
     /*position: relative;*/   /*Panel will "push" the content down */
-   /*top: 17px;
-	right:18px;*/
-    width: 480px;
-	height:286px;
+    height:286px;
     z-index: 999;
-    margin-left: auto;
+    margin-left:0px!important;
     margin-right: auto;
+	font-family:"Trebuchet MS";
 	
 }
 
 #panel {
-	height: 260px;
+	/*background: none repeat scroll 0 0 #215C84;*/
 	position: relative;
 	z-index: 3;
 	display: none;
 	font-family:"Trebuchet MS";
-	/*padding-left:50px;*/
+	
 }
 
 #panelTL{
 	background:url(../images/0-Bg-L-Top.png) no-repeat 0 0 transparent;
-	
+	height:260px;
 	
 }
 #panelTR{
 	background:url(../images/0-Bg-R-Top.png) no-repeat 100% 0 transparent;
 	height:260px;
-	width:480px;
-
 }
 #panelBL{
 	background:url(../images/0-Bg-L-bottom.png) no-repeat 0 100% transparent;
 	height:260px;
-	width:480px;
 	
 	}
 #panelBR{
 	background:url(../images/0-Bg-R-bottom.png) no-repeat 100% 100% transparent;
 	height:260px;
-	width:480px;
+	
 }
 
+.span-24 {
+	margin:0 !important;
+}
+#space{
+	margin-top:5px;
+	
 
-#remember{
-	margin-top:2px;
+}
+#modlgn_remember{
+	width:0px !important;
+}
+#lostyourpassword{
+	font-size:10px;
+	text-decoration:underline;
+	 margin-bottom: 2px;
+}
+#lostyourpassword a{
+	color:black;
+}
+.rememberme{
+	margin-top: 2px;
+    position: absolute;
+	font-size:10px;
 }
 
+#ortext{
+	font-size:18px;
+	font-weight:bold;
+	text-align:center;
+	margin-top:35px;
+}
 
 #panel h1 {
 	font-size: 1.6em;
@@ -165,172 +193,112 @@ Version: 1.0
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:bold;
 }
-#form-login-lostpassword{
-	text-align:center;
-	margin-left:95px;
-}
-#form-login-lostpassword a{
-	color:black;
-	text-decoration:underline;
-	font-size:10px;
-	font-weight:bold;
-}
-#form-login-lostpassword a:hover{
-	color:blue!important;
-	text-decoration:none!important;
+.login{
+	margin-left:-15px;
+	float:left;
 
-}
-#username{
-	width:200px;
-}
-#form-login-username{
-	float:left;
-	margin-left:47px;
-}
-#form-login-password{
-	float:left;
-	margin-left:10px;
-}
-#form-login-remember{
- margin-left:47px;
- float:left;
- 
 }
 
 .inputbox{
 	background-color:#F2F2F2;
 	border:2px solid #747474;
-	padding-left:5px;
 	font-family:"Trebuchet MS";
-	
+	width: 102px;
+	padding-left:5px;
+	font-size: 12px
 	}
 #submit {
     background: url("../images/go-bottun.png") no-repeat scroll 0 0 transparent;
-    border: medium none;
+    border:none;
     font-family: trebuchet MS;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    height: 34px;
-    margin-left: 10px;
-    margin-top: -3px;
-    padding-left: 2.5px;
-}
-
-
-#loginlogo{
-	float:left;
-	height:80px;
-	width:410px;
-	text-align:center;
-	margin-top:10px;
-}
-#orlogin{
+    height: 30px;
+	width:31px;
+	margin-top:-5px;
+	cursor: hand;
+	}
 	
-	font-size:20px;
-	font-family:trebuchet ms;
-	font-weight:bold;
-	color:black;
-	width:320px;
-	
-}
-#loginimg{
-	background:url(../images/login-icon.png) no-repeat 0 0;
-	width:80px;
+ #loginimg{
 	height:80px;
 	float:right;
-	margin-top: -40px;
-	margin-right: 20px;
-}
-#facebookimg{
-		background:url(../images/login-white-facebook-bottun.png) no-repeat 0 0;
-		width:203px;
-		height:35px;
-		float:left;
-		padding-left:10px;
-		margin-left:47px;
-		margin-top:-25px;
-		vertical-align:middle;
-}
-#faceimg{
-	background:url(../images/F-logo.png) no-repeat 0 0;
-	height:27px;
-	float:left;
-	width:27px;
-	margin-top:3px;
 	
-}	
-#facetext{
+}
+#faceimgdiv{
+	background:url(../images/login-white-facebook-bottun.png) no-repeat 0 0;
+	height:100px;
 	font-family:trebuchet ms;
 	font-weight:bold;
-	font-size:16px;
+	font-size:14px;
 	color:#FFFFFF;
-	float:left;
-	margin-left:10px;
-	margin-top:8px;
-
+	position:relative;
+	margin-left:0px;
+	padding-top:7px;
+	
 }
-#facetext a{
+.facetext{
+	font-family:trebuchet ms;
+	font-weight:bold;
+	font-size:14px;
+	color:#FFFFFF;
+	position:relative;
+	margin-top:-25px;	
+}
+.facelink{
 	color:#FFFFFF;
 	text-decoration:none;
 }
-#Registerform{
+/*Register*/
+	.reg{
+	margin-left:-15px;
 	float:left;
-	width:400px;
-}
-#Registerform ul{
-	float:left;
-	width:240px;
-}
-#Registerform ul li{
-	float:left;
-	list-style-type:none;
 	margin-top:10px;
-}
-
-#regimg{
-	background:url(../images/Register-icon.png) no-repeat 0 0;
-	height:97px;
-	width:73px;
-	float:right;
-	margin-top:50px;
-	margin-right:30px;
-}
-#Register{
-		background:url(../images/register-bottun.png) no-repeat 0 0;
-		width:156px;
-		height:32px;
-		float:left;
-		margin-left:38px;
-		margin-top:-10px;
-		vertical-align:middle;
-}
-#regsimg{
-	background:url(../images/register-bottun-icon.png) no-repeat 0 0;
-	height:25px;
-	float:right;
-	width:25px;
-	margin-right:3px;
-	margin-top:3.5px;
-	}	
-#regstext{
-	font-family:trebuchet ms;
-	font-weight:bold;
-	font-size:16px;
-	color:#FFFFFF;
-	float:left;
-	margin-left:12px;
-	margin-top:10px;
+	}
+	#register{
+	 float:left;
+	}
+	#modlgn_emailid  {
+		width:182px;
+		
+	}
 	
+	#imgdiv {
+		background:url(../images/register-bottun.png) no-repeat 0 0;
+		height:100px;
+		padding-top:5px;
+		padding-left:9px;
+		color: #215C84;
+		font-family: trebuchet ms;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	#imgdiv a{
+		text-decoration:none;
+		color: #215C84;
+	}
+	
+	
+	#regimgdiv{
+		padding-top:33px;
+	}
 
-}
+	.regstext{
+		color: #215C84;
+		font-family: trebuchet ms;
+		font-size: 12px;
+		font-weight: bold;
+		margin-left: -100px;
+		margin-top: 5px;
+		position: absolute;
+	}
 
 
-.tab a {
+#tab a {
 	text-decoration: none;
 	color: #15ADFF;
 }
 
-.tab a:hover {
+#tab a:hover {
 	color: white;
 }
 
@@ -340,7 +308,6 @@ Version: 1.0
 }
 
 #panel .content {
-	width: 480px;
 	margin: 0 auto;
 	padding-top: 15px;
 	text-align: left;

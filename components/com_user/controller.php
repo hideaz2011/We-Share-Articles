@@ -496,7 +496,81 @@ class UserController extends JController
 		$subject 	= html_entity_decode($subject, ENT_QUOTES);
 
 		if ( $useractivation == 1 ){
-			$message = sprintf ( JText::_( 'SEND_MSG_ACTIVATE' ), $name, $sitename, $siteURL."index.php?option=com_user&task=activate&activation=".$user->get('activation'), $siteURL, $username, $password);
+			
+			//$message = sprintf ( JText::_( 'SEND_MSG_ACTIVATE' ), $name, $sitename, $siteURL."index.php?option=com_user&task=activate&activation=".$user->get('activation'), $siteURL, $username, $password);
+	
+	
+	
+	$urlvalue = $siteURL."index.php?option=com_user&task=activate&activation=".$user->get('activation');		
+			
+			$message = <<<FOOBAR
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+	<head>
+	</head>
+
+	<body>
+
+    	<div class="center" style="margin-left:auto;margin-right: auto;border:1px double grey;border-width:5px;width:711px;height:753px;" >
+
+        	<div class="center1" style="margin-left:auto;margin-right: auto;width:565px;height:440px;">
+
+        		<div id="logodiv">
+
+                    <div class="logo" style=" margin-top:10px;height:101px;width:220px;float:left;margin-left:29.1px;"><img src="http://hideaz.com/naren/images/myimg/we-share-logo.png" /></div>
+
+                    <div class="logo1" style="margin-top:15px;width:216px;height:107px;float:right;"><img src="http://hideaz.com/naren/images/myimg/e-mail1.png" /></div>
+
+                    <div class="logo2" style="height:39px;width:565px;float:left;"><img src="http://hideaz.com/naren/images/myimg/e-mail2.png" /></div>
+
+                </div>
+
+             	<div class="textdiv" style="float:left;margin-left:35px;">
+
+                	<div class="text1" style="margin-top:10px;color:#0071BC;font-weight:bold;font-family:"Lucida Sans";font-size:16px;">Dear $name,</div>
+
+                    <div class="text2" style="margin-top:10px;font-family:"Lucida Sans";font-size:12px;">Thanks for joining our <span style="color:#FF002A;">$sitename</span> community. Use the below given account credentials to login in your account.</div>
+
+                    <div class="text2" style="margin-top:10px;font-family:"Lucida Sans";font-size:12px;">Username: <span style="color:#FF002A;">$username</span><br/>
+
+                    Password: <span style="color:#FF002A;">$password</span></div>
+
+                    <div class="text2" style="margin-top:10px;font-family:"Lucida Sans";font-size:12px;">To login your account, go to the below link.<br/>
+
+                    <a class="alink" style="color:#29ABE2;" href="$urlvalue">$urlvalue</a></div>
+
+                    <div class="text2" style="margin-top:10px;font-family:"Lucida Sans";font-size:12px;">Have Fun Stocking!!!</div>
+
+                    <div class="text2" style="margin-top:10px;font-family:"Lucida Sans";font-size:12px;">Thanks<br/>We Share Team<br/><a class="alink" style="color:#29ABE2;" href="$siteURL">$siteURL</a></div>
+
+                </div>
+
+            </div>
+
+            	<div class="logo3" style="margin-top:2px;margin-right:-15px;width:239px;height:324px;float:right;"><img src="http://hideaz.com/naren/images/myimg/e-mail.png" /></div> 
+
+        </div>
+
+	</body>
+
+</html>
+
+
+
+
+
+FOOBAR;
+			
+			
+			
+			
+			
+			
 		} else {
 			$message = sprintf ( JText::_( 'SEND_MSG' ), $name, $sitename, $siteURL);
 		}
@@ -516,7 +590,7 @@ class UserController extends JController
 			$mailfrom = $rows[0]->email;
 		}
 
-		JUtility::sendMail($mailfrom, $fromname, $email, $subject, $message);
+		JUtility::sendMail($mailfrom, $fromname, $email, $subject, $message,1);
 
 		// Send notification to all administrators
 		$subject2 = sprintf ( JText::_( 'Account details for' ), $name, $sitename);

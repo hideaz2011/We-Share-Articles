@@ -19,7 +19,9 @@ body {
 	font-size: 12px;
 	color: #333;
 }
-
+#page_bg{
+	background-color:#006699;
+}
 /*a:link, a:visited {
 	text-decoration: none;
 	font-weight: normal;
@@ -47,6 +49,59 @@ img { border: 0 none; }
 div.center {
   text-align: center;
 }
+
+#wrapper {
+	/*background-color:#FFFFFF;*/
+	width: auto;
+	margin:auto;
+	height:800px;
+}
+
+#wrapper div {
+	/*text-align: left;*/
+}
+
+#wrapper_t {
+	/*background: url(../images/mw_content_t.png) 0 0 repeat-x;*/
+	
+}
+
+#wrapper_tl {
+	background: url(../images/mw_content_t_l.png) 0 0 no-repeat;
+}
+
+#wrapper_tr {
+	height: 32px;
+	overflow: hidden;
+	background: url(../images/mw_content_t_r.png) 100% 0 no-repeat;
+}
+
+#wrapper_m {
+	/*border-left: 2px solid #FFFFFF;
+	border-right: 2px solid #FFFFFF;*/
+	width: auto;
+	height:733px;
+	z-index:0;
+	
+	
+}
+
+#wrapper_b {
+	
+	/*background: url(../images/mw_content_b.png) 0 100% repeat-x;*/
+}
+
+#wrapper_bl {
+	background: url(../images/mw_content_b_l.png) 0 100% no-repeat;
+	
+}
+
+#wrapper_br {
+	height: 35px;
+	background: url(../images/mw_content_b_r.png) 100% 100% no-repeat;
+	
+}
+
 /*#wrapper{
 	 background: none repeat scroll 0 0 #215C84;
 	 height:260px;
@@ -82,8 +137,9 @@ body.width_fmax div#wrapper {
 	max-width: 1050px;
 }
 
-div#header_l {
+div#header {
 	position: relative;
+	
 }
 
 div#header_r {
@@ -185,50 +241,7 @@ form#searchForm td {
 	padding: 0;
 }
 
-#whitebox {
-	margin: 0 21px 0px 21px;
-	background: #fff;
-	width: auto;
-}
 
-#whitebox div {
-	text-align: left;
-}
-
-#whitebox_t {
-	background: #fff url(../images/mw_content_t.png) 0 0 repeat-x;
-}
-
-#whitebox_tl {
-	background: url(../images/mw_content_t_l.png) 0 0 no-repeat;
-}
-
-#whitebox_tr {
-	height: 10px;
-	overflow: hidden;
-	background: url(../images/mw_content_t_r.png) 100% 0 no-repeat;
-}
-
-#whitebox_m {
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	width: auto;
-	padding: 1px 8px;
-}
-
-#whitebox_b {
-	margin-top: -5px;
-	background: url(../images/mw_content_b.png) 0 100% repeat-x;
-}
-
-#whitebox_bl {
-	background: url(../images/mw_content_b_l.png) 0 100% no-repeat;
-}
-
-#whitebox_br {
-	height: 13px;
-	background: url(../images/mw_content_b_r.png) 100% 100% no-repeat;
-}
 
 /* horizontal pill menu */
 table.pill {

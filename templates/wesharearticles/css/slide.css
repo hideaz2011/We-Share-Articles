@@ -22,6 +22,9 @@ Version: 1.0
 .clearfix {height: 1%;}
 .clearfix {display: block;}
 
+
+input::-moz-focus-inner { border: 0; }
+
 /* Panel Tab/button */
 #tab {
   	height: 42px;
@@ -109,12 +112,11 @@ Version: 1.0
 #toppanel {
     position: absolute;   /*Panel will overlap  content */
     /*position: relative;*/   /*Panel will "push" the content down */
-    height:286px;
+    height:auto;
     z-index: 999;
-    margin-left:0px!important;
+    margin-left:520px;
     margin-right: auto;
-	font-family:"Trebuchet MS";
-	
+ 	font-family:"Trebuchet MS";
 }
 
 #panel {
@@ -151,12 +153,8 @@ Version: 1.0
 }
 #space{
 	margin-top:5px;
-	
+}
 
-}
-#modlgn_remember{
-	width:0px !important;
-}
 #lostyourpassword{
 	font-size:10px;
 	text-decoration:underline;
@@ -165,7 +163,7 @@ Version: 1.0
 #lostyourpassword a{
 	color:black;
 }
-.rememberme{
+.modlgn_remember{
 	margin-top: 2px;
     position: absolute;
 	font-size:10px;
@@ -198,6 +196,9 @@ Version: 1.0
 	float:left;
 
 }
+.placeholder{
+   color: #ACA899;
+}
 
 .inputbox{
 	background-color:#F2F2F2;
@@ -207,6 +208,13 @@ Version: 1.0
 	padding-left:5px;
 	font-size: 12px
 	}
+
+.invalid {
+	border-bottom:2px solid red;
+	border-right:2px solid red;
+	
+}
+
 #submit {
     background: url("../images/go-bottun.png") no-repeat scroll 0 0 transparent;
     border:none;
@@ -214,9 +222,10 @@ Version: 1.0
     font-size: 16px;
     font-weight: bold;
     height: 30px;
-	width:31px;
-	margin-top:-5px;
-	cursor: hand;
+	width:30px;
+	margin-top:-3px;
+	cursor:pointer;
+	outline:none;
 	}
 	
  #loginimg{
@@ -226,77 +235,67 @@ Version: 1.0
 }
 #faceimgdiv{
 	background:url(../images/login-white-facebook-bottun.png) no-repeat 0 0;
-	height:100px;
+	height:35px;
 	font-family:trebuchet ms;
 	font-weight:bold;
 	font-size:14px;
 	color:#FFFFFF;
 	position:relative;
 	margin-left:0px;
-	padding-top:7px;
+	padding-top:9px;
 	
 }
-.facetext{
-	font-family:trebuchet ms;
-	font-weight:bold;
-	font-size:14px;
-	color:#FFFFFF;
-	position:relative;
-	margin-top:-25px;	
-}
+
 .facelink{
 	color:#FFFFFF;
 	text-decoration:none;
+	outline:none;
 }
+
 /*Register*/
 	.reg{
 	margin-left:-15px;
 	float:left;
 	margin-top:10px;
 	}
-	#register{
-	 float:left;
-	}
-	#modlgn_emailid  {
+	
+	#email{
 		width:182px;
-		
 	}
 	
 	#imgdiv {
 		background:url(../images/register-bottun.png) no-repeat 0 0;
-		height:100px;
-		padding-top:5px;
-		padding-left:9px;
+		height:24px;
+		width:110px;
 		color: #215C84;
 		font-family: trebuchet ms;
 		font-size: 12px;
 		font-weight: bold;
+		border:none;
+		position:relative;
+		cursor: pointer;
+		outline:none;
 	}
-	#imgdiv a{
+	.regtext a, a:hover,a:active{
 		text-decoration:none;
 		color: #215C84;
+		outline:none;
+		
 	}
-	
+	.regtext{
+		margin-left:-14px;
+		outline:none;
+		
+	}
 	
 	#regimgdiv{
 		padding-top:33px;
 	}
 
-	.regstext{
-		color: #215C84;
-		font-family: trebuchet ms;
-		font-size: 12px;
-		font-weight: bold;
-		margin-left: -100px;
-		margin-top: 5px;
-		position: absolute;
-	}
-
-
-#tab a {
+	#tab a {
 	text-decoration: none;
 	color: #15ADFF;
-}
+	}
 
 #tab a:hover {
 	color: white;

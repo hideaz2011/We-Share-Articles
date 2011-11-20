@@ -16,33 +16,14 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" >
 <head>
 <jdoc:include type="head" />
-
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/system.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/general.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/template.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/<?php echo $this->params->get('colorVariation'); ?>.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/<?php echo $this->params->get('backgroundVariation'); ?>_bg.css" type="text/css" />
-<!--[if lte IE 6]>
-<link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/ieonly.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-<?php if($this->direction == 'rtl') : ?>
-	<link href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/template_rtl.css" rel="stylesheet" type="text/css" />
-<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="demo.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/slide.css" media="screen" />
-    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/tab-view.css" type="text/css" media="screen">
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/tab-view.css" type="text/css" media="screen">
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/blueprint/screen.css" type="text/css" media="screen">
-    
-	<script type="text/javascript" src="<?php echo $this->baseurl ?>/templates/wesharearticles/js/ajax.js"></script>
-    <script>
-		var burl = "<?php echo $this->baseurl ?>";
-	</script>
-    
+	 <script type="text/javascript" src="<?php echo $this->baseurl ?>/media/system/js/validate.js"></script>		
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+     
+    <script type="text/javascript" src="<?php echo $this->baseurl ?>/templates/wesharearticles/js/ajax.js"></script>
+   	<script type="text/javascript" src="<?php echo $this->baseurl ?>/templates/wesharearticles/js/slide.js"></script>
 	<script type="text/javascript" src="<?php echo $this->baseurl ?>/templates/wesharearticles/js/tab-view.js"></script>
+    <script type="text/javascript" src="<?php echo $this->baseurl ?>/templates/wesharearticles/js/jquery.placeholder.js"></script>
     
-    
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     
     <!-- PNG FIX for IE6 -->
     <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
@@ -50,8 +31,25 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
         <script type="text/javascript" src="login_panel/js/pngfix/supersleight-min.js"></script>
     <![endif]-->
     
-    <script src="<?php echo $this->baseurl ?>/templates/wesharearticles/js/slide.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/system.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/general.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/template.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/<?php echo $this->params->get('colorVariation'); ?>.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/<?php echo $this->params->get('backgroundVariation'); ?>_bg.css" type="text/css" />
+    <!--[if lte IE 6]>
+    <link href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/ieonly.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <?php if($this->direction == 'rtl') : ?>
+        <link href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/template_rtl.css" rel="stylesheet" type="text/css" />
+    <?php endif; ?>
     
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/slide.css" media="screen" />
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/tab-view.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/blueprint/screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/wesharearticles/css/blueprint/ie.css" type="text/css" media="screen">
+
+	
     <?php echo $script; ?>
 
 </head>
@@ -59,17 +57,134 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <a name="up" id="up"></a>
     <div class="container showgrid">
           <div id="wrapper" class="span-24 last">
-            <div id="wrapper_r" class="span-24 last">
-                <div id="header" class="span-24 last">
-                    <div id="header_l" class="span-24 last">
-                        <div id="header_r" class="span-24">
-                        	<div id="logo" class="prepend-1 span-9"><img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/we-shere-logo.png" /></div>
-                              <jdoc:include type="modules" name="top" />
-                              </div>
-                         </div>
-                    </div>
+				<div id="wrapper_t" class="span-24 last">
+					<div id="wrapper_tl" class="span-24 last">
+						<div id="wrapper_tr" class="span-24 last">
+                        	<jdoc:include type="modules" name="top" />
+                        </div>
+                        
+					</div>
+				</div>
+				
+				<div id="wrapper_m" class="span-24 last">
+                	<div id="header" class="span-24 last">
+                    			<div id="logo" class="prepend-1 span-9"><img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/we-shere-logo.png" /></div>
+                     </div>
+                     	<div id="tabarea">
+				<div id="tabarea_l">
+					<div id="tabarea_r">
+						<div id="tabmenu">
+						<table cellpadding="0" cellspacing="0" class="pill">
+							<tr>
+								<td class="pill_l">&nbsp;</td>
+								<td class="pill_m">
+								<div id="pillmenu">
+									<jdoc:include type="modules" name="user3" />
+								</div>
+								</td>
+								<td class="pill_r">&nbsp;</td>
+							</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="search">
+				<jdoc:include type="modules" name="user4" />
+			</div>
+
+			<div id="pathway">
+				<jdoc:include type="modules" name="breadcrumb" />
+			</div>
+
+			<div class="clr"></div>
+
+			<div id="whitebox">
+				<div id="whitebox_t">
+					<div id="whitebox_tl">
+						<div id="whitebox_tr"></div>
+					</div>
+				</div>
+
+				<div id="whitebox_m">
+					<div id="area">
+									<jdoc:include type="message" />
+
+						<div id="leftcolumn">
+						<?php if($this->countModules('left')) : ?>
+							<jdoc:include type="modules" name="left" style="rounded" />
+						<?php endif; ?>
+						</div>
+
+						<?php if($this->countModules('left')) : ?>
+						<div id="maincolumn">
+						<?php else: ?>
+						<div id="maincolumn_full">
+						<?php endif; ?>
+							<?php if($this->countModules('user1 or user2')) : ?>
+								<table class="nopad user1user2">
+									<tr valign="top">
+										<?php if($this->countModules('user1')) : ?>
+											<td>
+												<jdoc:include type="modules" name="user1" style="xhtml" />
+											</td>
+										<?php endif; ?>
+										<?php if($this->countModules('user1 and user2')) : ?>
+											<td class="greyline">&nbsp;</td>
+										<?php endif; ?>
+										<?php if($this->countModules('user2')) : ?>
+											<td>
+												<jdoc:include type="modules" name="user2" style="xhtml" />
+											</td>
+										<?php endif; ?>
+									</tr>
+								</table>
+
+								<div id="maindivider"></div>
+							<?php endif; ?>
+
+							<table class="nopad">
+								<tr valign="top">
+									<td>
+										<jdoc:include type="component" />
+										<jdoc:include type="modules" name="footer" style="xhtml"/>
+									</td>
+									<?php if($this->countModules('right') and JRequest::getCmd('layout') != 'form') : ?>
+										<td class="greyline">&nbsp;</td>
+										<td width="170">
+											<jdoc:include type="modules" name="right" style="xhtml"/>
+										</td>
+									<?php endif; ?>
+								</tr>
+							</table>
+
+						</div>
+						<div class="clr"></div>
+					</div>
+					<div class="clr"></div>
+				</div>
+
+				<div id="whitebox_b">
+					<div id="whitebox_bl">
+						<div id="whitebox_br"></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="footerspacer"></div>
+		</div>
+
+                   
                 </div>
-            </div>
-       </div>
-</body>
+                
+                <div id="wrapper_b" class="span-24 last">
+					<div id="wrapper_bl" class="span-24 last">
+						<div id="wrapper_br" class="span-24 last"></div>
+					</div>
+				</div>
+                
+          </div>      
+    </div>    
+ </body>
 </html>

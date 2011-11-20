@@ -1,19 +1,19 @@
-$(document).ready(function() {
-	
+var d = jQuery.noConflict();
+d(document).ready(function() {
 	// Expand Panel
-	$("#open").click(function(){
-		$("div#panel").slideDown("slow");
+	d("#open").click(function(){
+		d("div#panel").slideDown("slow");
 	
 	});	
 	
 	// Collapse Panel
-	$("#close").click(function(){
-		$("div#panel").slideUp("slow");	
+	d("#close").click(function(){
+		d("div#panel").slideUp("slow");	
 	});		
 	
 	// Switch buttons from "Log In | Register" to "Close Panel" on click
-	$("#toggle a").click(function () {
-		$("#toggle a").toggle();
+	d("#toggle a").click(function () {
+		d("#toggle a").toggle();
 	});		
 		
 });

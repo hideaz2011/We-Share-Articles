@@ -24,7 +24,7 @@ Owner of DHTMLgoodies.com
 
 ************************************************************************************************************/
 
-	//var textPadding = 3; // Padding at the left of tab text - bigger value gives you wider tabs
+	var textPadding =15; // Padding at the left of tab text - bigger value gives you wider tabs
 	var strictDocType = true;
 	var tabView_maxNumberOfTabs = 6;	// Maximum number of tabs
 
@@ -40,8 +40,7 @@ Owner of DHTMLgoodies.com
 	var tabView_countTabs = new Array();
 	var tabViewHeight = new Array();
 	var tabDivCounter = 0;
-	var closeImageHeight = 8;	// Pixel height of close buttons
-	var closeImageWidth = 8;	// Pixel height of close buttons
+	
 
 
 	function setPadding(obj,padding){
@@ -83,25 +82,25 @@ Owner of DHTMLgoodies.com
 		var parentObj = thisObj.parentNode;
 		var aTab = parentObj.getElementsByTagName('DIV')[0];
 		countObjects = 0;
-		var startPos = 2;
+		/*var startPos = 2;*/
 		var previousObjectActive = false;
 		while(aTab){
 			if(aTab.tagName=='DIV'){
 				if(previousObjectActive){
 					previousObjectActive = false;
-					startPos-=2;
+					/*startPos-=2;*/
 				}
 				if(aTab==thisObj){
-					startPos-=2;
+					/*startPos-=2;*/
 					previousObjectActive=true;
 					setPadding(aTab,textPadding+1);
 				}else{
 					setPadding(aTab,textPadding);
 				}
 
-				aTab.style.left = startPos + 'px';
+				/*aTab.style.left = startPos + 'px';
 				countObjects++;
-				startPos+=2;
+				startPos+=2;*/
 			}
 			aTab = aTab.nextSibling;
 		}
@@ -137,15 +136,7 @@ Owner of DHTMLgoodies.com
 
 	}
 
-	function hoverTabViewCloseButton()
-	{
-		//this.src = this.src.replace('close.gif','close_over.gif');
-	}
-
-	function stopHoverTabViewCloseButton()
-	{
-		//this.src = this.src.replace('close_over.gif','close.gif');
-	}
+	
 
 	function initTabs(mainContainerID,tabTitles,activeTab,width,height,closeButtonArray,additionalTab)
 	{
@@ -225,8 +216,8 @@ Owner of DHTMLgoodies.com
 			if((navigatorVersion && navigatorVersion<6) || (MSIE && !strictDocType)){
 				img.style.styleFloat = 'none';
 				img.style.position = 'relative';
-				img.style.top = '4px'
-				span.style.paddingTop = '4px';
+				//img.style.top = '4px'
+				//span.style.paddingTop = '4px';
 				aTab.style.cursor = 'hand';
 			}	// End IE5.x FIX
 			aTab.appendChild(img);

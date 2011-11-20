@@ -1,13 +1,10 @@
 	.dhtmlgoodies_tabPane{
 		height:24px;	/* Height of tabs */
-		border-bottom:1px solid #919b9c;
+		border-bottom:1px solid #215C84;
 		background-color:#215C84;
 	}
 	.dhtmlgoodies_aTab{
-		/*background:#FFFFFF;
-		border-left:1px solid #919b9c;
-		border-right:1px solid #919b9c;
-		border-bottom:1px solid #919b9c;*/
+		
 		font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
 	}
 	
@@ -15,49 +12,74 @@
 	background:transparent;
 	width:400px;
 	margin-left:15px;
-	height:226px;
- }
+	height:232px;
+ 	}
+	
+	
 	#dhtmlgoodies_tabView1{
-      background-color:#FFFFFF;
-    }
-	/*#dhtmlgoodies_tabView1 {
-    background: url('../images/white-bg-bottom-r.png') no-repeat scroll right top transparent;
-    content: url('../images/white-bg-bottom-l.png');
-    display: block;
-}
-	#dhtmlgoodies_tabView1 {
-    background: url('../images/white-bg-top-r.png') no-repeat scroll right top transparent;
-    display: block;
-}*/
+	height:230px;
+	background-color:#FFFFFF;
+	}
+	
+	/* 
+	
+	#dhtmlgoodies_tabView1:after{
+		background: url("../images/white-bg-bottom-r.png") no-repeat scroll right top transparent;
+		content: url("../images/white-bg-bottom-l.png");
+		display: block;
+	}
+	
+	#dhtmlgoodies_tabView1:before {
+		background: url("../images/white-bg-top-r.png") no-repeat scroll right top transparent;
+		content: url("../images/Bg-L-top.png");
+		display: block;
+	}*/
+	#divtop {
+		/*background-color: #6699CC;*/
+		background-image: url("../images/white-bg-top-r.png");
+		background-repeat: no-repeat;
+		background-position: right top;
+		margin: 0px;
+		
+	}
+	
+	#divbottom {
+		background-image: url("../images/white-bg-bottom-r.png");
+		background-repeat: no-repeat;
+		background-position: 100% 0%;
+		height:30px;
+		margin-top:-20px;
+		
+	}
 	
 	.dhtmlgoodies_tabPane DIV{
 		float:left;
 		height:auto;	/* Height of tabs */
-		padding-left:3px;
-		vertical-align:middle;
+		
 		background-repeat:no-repeat;
 		background-position:bottom left;
 		cursor:pointer;
 		position:relative;
 		bottom:-1px;
-		margin-left:0px;
 		margin-right:0px;
-	}
+		}
 	.dhtmlgoodies_tabPane .tabActive{
 		background-image:url('../images/login-Bg-Top.png');
 		height:24px;
-		width:78px;
+		width:80px;
 		margin-left:0px;
 		margin-right:0px;	
-		z-index:10;	
+		z-index:10;
+			
 	}
 	.dhtmlgoodies_tabPane .tabInactive{
 		background-image:url('../images/register-Bg-Top.png');
 		height:24px;
-		width:78px;
+		width:80px;
 		margin-left:0px;
 		margin-right:0px;
 		z-index:1;
+		
 	}
 	
 	
@@ -81,7 +103,6 @@
 		font-family:"trebuchet MS";
 		font-weight:bold;
 		font-size:14px;
-		vertical-align:middle;
 		text-align:center;
 	}
 	

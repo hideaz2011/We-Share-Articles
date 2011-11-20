@@ -36,14 +36,14 @@ class JTableUser extends JTable
 	 *
 	 * @var string
 	 */
-	var $name			= null;
+	/*var $name			= null;*/
 
 	/**
 	 * The login name
 	 *
 	 * @var string
 	 */
-	var $username		= null;
+	/*var $username		= null;*/
 
 	/**
 	 * The email
@@ -137,7 +137,8 @@ class JTableUser extends JTable
 	{
 		jimport('joomla.mail.helper');
 
-		// Validate user information
+		$this->username=$this->email;
+		/*// Validate user information
 		if (trim( $this->name ) == '') {
 			$this->setError( JText::_( 'Please enter your name.' ) );
 			return false;
@@ -151,7 +152,7 @@ class JTableUser extends JTable
 		if (preg_match( "#[<>\"'%;()&]#i", $this->username) || strlen(utf8_decode($this->username )) < 2) {
 			$this->setError( JText::sprintf( 'VALID_AZ09', JText::_( 'Username' ), 2 ) );
 			return false;
-		}
+		}*/
 
 		if ((trim($this->email) == "") || ! JMailHelper::isEmailAddress($this->email) ) {
 			$this->setError( JText::_( 'WARNREG_MAIL' ) );
@@ -164,7 +165,7 @@ class JTableUser extends JTable
 			$this->registerDate = $now->toMySQL();
 		}
 
-
+		/*
 		// check for existing username
 		$query = 'SELECT id'
 		. ' FROM #__users '
@@ -177,7 +178,7 @@ class JTableUser extends JTable
 			$this->setError(  JText::_('WARNREG_INUSE'));
 			return false;
 		}
-
+		*/
 
 		// check for existing email
 		$query = 'SELECT id'

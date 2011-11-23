@@ -1093,8 +1093,8 @@ INSERT INTO `jos_sections` (`id`, `title`, `name`, `alias`, `image`, `scope`, `i
 (10, 'Global Trends', '', 'Global Trends', '', 'content', 'right', '<p>Global Trends</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (11, 'Investment Basics', '', 'Investment Basics', '', 'content', 'right', '<p>Investment Basics</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
 (12, 'Technical Analysis', '', 'Technical Analysis', '', 'content', 'right', '<p>Technical Analysis</p>', 1, 62, '2011-11-05 09:54:05', 2, 0, 0, '', 'SY'),
-(13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY');
-
+(13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(14, 'Featured', '', 'Featured', '', 'content', 'right', '<p>Featured</p>', 1, 0, '0000-00-00 00:00:00', 14, 0, 0, '', 'SY');
 -- --------------------------------------------------------
 
 --

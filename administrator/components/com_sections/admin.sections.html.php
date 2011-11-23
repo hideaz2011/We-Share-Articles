@@ -74,22 +74,11 @@ class sections_html
 					<?php echo JHTML::_('grid.sort',   'Order', 's.ordering', @$lists['order_Dir'], @$lists['order'] ); ?>
 					<?php if ($ordering) echo JHTML::_('grid.order',  $rows ); ?>
 				</th>
-				<th width="10%">
-					<?php echo JHTML::_('grid.sort',   'Access', 'groupname', @$lists['order_Dir'], @$lists['order'] ); ?>
-				</th>
+				
 				<th width="5%" nowrap="nowrap">
 					<?php echo JText::_( 'Type' ); ?>
 				</th>
-                <th>
-					<?php echo JText::_( 'Num Categories' ); ?>
-				</th>
-				<th width="5%" nowrap="nowrap">
-					<?php echo JText::_( 'Num Active' ); ?>
-				</th>
-				<th width="5%" nowrap="nowrap">
-					<?php echo JText::_( 'Num Trash' ); ?>
-				</th>
-				<th width="1%" nowrap="nowrap">
+                <th width="1%" nowrap="nowrap">
 					<?php echo JHTML::_('grid.sort',   'ID', 's.id', @$lists['order_Dir'], @$lists['order'] ); ?>
 				</th>
 			</tr>
@@ -143,9 +132,6 @@ class sections_html
 					<input type="text" name="order[]" size="5" value="<?php echo $row->ordering; ?>" <?php echo $disabled ?> class="text_area" style="text-align: center" />
 				</td>
 				<td align="center">
-					<?php echo $access;?>
-				</td>	
-                <td align="center">
                 
               <input type="hidden" id="status<?php echo $row->id; ?>" value="<?php echo $row->status;?>">
 			  <?php 
@@ -154,18 +140,9 @@ class sections_html
 				}
 				
 			 ?>
-					<!--?php echo $row->status;?-->
+					
 				</td>
-                	
-				<td align="center">
-					<?php echo $row->categories; ?>
-				</td>
-				<td align="center">
-					<?php echo $row->active; ?>
-				</td>
-				<td align="center">
-					<?php echo $row->trash; ?>
-				</td>
+                
 				<td align="center">
 					<?php echo $row->id; ?>
 				</td>

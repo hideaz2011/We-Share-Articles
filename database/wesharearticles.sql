@@ -1081,19 +1081,19 @@ CREATE TABLE IF NOT EXISTS `jos_sections` (
 --
 
 INSERT INTO `jos_sections` (`id`, `title`, `name`, `alias`, `image`, `scope`, `image_position`, `description`, `published`, `checked_out`, `checked_out_time`, `ordering`, `access`, `count`, `params`, `status`) VALUES
-(1, 'Uncategorized', '', 'uncategorized', '', 'content', 'right', '<p>Uncategorized</p>', 1, 62, '2011-11-05 12:00:28', 2, 0, 0, '', 'SY'),
+(1, 'Uncategorized', '', 'uncategorized', '', 'content', 'right', '<p>Uncategorized</p>', 1, 62, '2011-11-05 12:00:28', 1, 0, 0, '', 'SY'),
 (2, 'Stocks', '', 'stocks', '', 'content', 'right', '<p>Stocks</p>', 1, 62, '2011-11-05 12:01:29', 2, 0, 0, '', 'SY'),
-(3, 'Mutual Funds', '', 'mutual Funds', '', 'content', 'right', '<p>Mutual Funds</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(4, 'ETFs', '', 'ETFs', '', 'content', 'right', '<p>ETFs</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(5, 'IPO', '', 'IPO', '', 'content', 'right', '<p>IPO</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(6, 'Gold & Silver', '', 'Gold & Silver', '', 'content', 'right', '<p>Gold & Silver</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(7, 'Futures & Options', '', 'Futures & Options', '', 'content', 'right', '<p>Futures & Options</p>', 1, 62, '2011-11-11 07:36:37', 2, 0, 0, '', 'SY'),
-(8, 'Forex', '', 'Forex', '', 'content', 'right', '<p>Forex</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(9, 'Commodities', '', 'Commodities', '', 'content', 'right', '<p>Commodities</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(10, 'Global Trends', '', 'Global Trends', '', 'content', 'right', '<p>Global Trends</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(11, 'Investment Basics', '', 'Investment Basics', '', 'content', 'right', '<p>Investment Basics</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
-(12, 'Technical Analysis', '', 'Technical Analysis', '', 'content', 'right', '<p>Technical Analysis</p>', 1, 62, '2011-11-05 09:54:05', 2, 0, 0, '', 'SY'),
-(13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 2, 0, 0, '', 'SY'),
+(3, 'Mutual Funds', '', 'mutual Funds', '', 'content', 'right', '<p>Mutual Funds</p>', 1, 0, '0000-00-00 00:00:00', 3, 0, 0, '', 'SY'),
+(4, 'ETFs', '', 'ETFs', '', 'content', 'right', '<p>ETFs</p>', 1, 0, '0000-00-00 00:00:00', 4, 0, 0, '', 'SY'),
+(5, 'IPO', '', 'IPO', '', 'content', 'right', '<p>IPO</p>', 1, 0, '0000-00-00 00:00:00', 5, 0, 0, '', 'SY'),
+(6, 'Gold & Silver', '', 'Gold & Silver', '', 'content', 'right', '<p>Gold & Silver</p>', 1, 0, '0000-00-00 00:00:00', 6, 0, 0, '', 'SY'),
+(7, 'Futures & Options', '', 'Futures & Options', '', 'content', 'right', '<p>Futures & Options</p>', 1, 62, '2011-11-11 07:36:37', 7, 0, 0, '', 'SY'),
+(8, 'Forex', '', 'Forex', '', 'content', 'right', '<p>Forex</p>', 1, 0, '0000-00-00 00:00:00', 8, 0, 0, '', 'SY'),
+(9, 'Commodities', '', 'Commodities', '', 'content', 'right', '<p>Commodities</p>', 1, 0, '0000-00-00 00:00:00', 9, 0, 0, '', 'SY'),
+(10, 'Global Trends', '', 'Global Trends', '', 'content', 'right', '<p>Global Trends</p>', 1, 0, '0000-00-00 00:00:00', 10, 0, 0, '', 'SY'),
+(11, 'Investment Basics', '', 'Investment Basics', '', 'content', 'right', '<p>Investment Basics</p>', 1, 0, '0000-00-00 00:00:00', 11, 0, 0, '', 'SY'),
+(12, 'Technical Analysis', '', 'Technical Analysis', '', 'content', 'right', '<p>Technical Analysis</p>', 1, 62, '2011-11-05 09:54:05', 12, 0, 0, '', 'SY'),
+(13, 'Fundamental Analysis', '', 'Fundamental Analysis', '', 'content', 'right', '<p>Fundamental Analysis</p>', 1, 0, '0000-00-00 00:00:00', 13, 0, 0, '', 'SY'),
 (14, 'Featured', '', 'Featured', '', 'content', 'right', '<p>Featured</p>', 1, 0, '0000-00-00 00:00:00', 14, 0, 0, '', 'SY');
 -- --------------------------------------------------------
 

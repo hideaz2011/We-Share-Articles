@@ -771,7 +771,10 @@ class ContentView
 					alt = "alt=\""+alt+"\" ";
 				}
 
-				var tag = "<hr class=\"system-pagebreak\" "+title+" "+alt+"/>";
+				var tag;
+				tag = "<hr class=\"system-pagebreak\" "+title+" "+alt+"\n\n\n\n\n/>";
+                		tag += '<center><b>Pagebreak</b></center>\n';
+				tag += "<hr class=\"system-pagebreak\" "+title+" "+alt+"\n\n\n\n\n/>";
 
 				window.parent.jInsertEditorText(tag, '<?php echo $eName; ?>');
 				window.parent.document.getElementById('sbox-window').close();

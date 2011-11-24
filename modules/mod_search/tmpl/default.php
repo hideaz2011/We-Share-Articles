@@ -1,10 +1,21 @@
 <?php // no direct access
 defined('_JEXEC') or die('Restricted access'); ?>
-<form action="index.php" method="post">
-	<div class="search<?php echo $params->get('moduleclass_sfx') ?>">
-		<?php
-		    $output = '<input name="searchword" id="mod_search_searchword" maxlength="'.$maxlength.'" alt="'.$button_text.'" class="inputbox'.$moduleclass_sfx.'" type="text" size="'.$width.'" value="'.$text.'"  onblur="if(this.value==\'\') this.value=\''.$text.'\';" onfocus="if(this.value==\''.$text.'\') this.value=\'\';" />';
 
+<script type="text/javascript">
+	function submitform()
+	{
+		document.forms["myform"].submit();
+	}
+</script>
+
+<form action="index.php" method="post" id="myform">
+	
+    <div class="search<?php echo $params->get('moduleclass_sfx') ?> prepend-1 span-14">
+		
+		
+		<?php
+		    $output = '<input name="searchword" id="mod_search_searchword" maxlength="'.$maxlength.'" alt="'.$button_text.'" class="input'.$moduleclass_sfx.'" type="text" size="'.$width.'" value="'.$text.'"  onblur="if(this.value==\'\') this.value=\''.$text.'\';" onfocus="if(this.value==\''.$text.'\') this.value=\'\';" />';
+			 
 			if ($button) :
 			    if ($imagebutton) :
 			        $button = '<input type="image" value="'.$button_text.'" class="button'.$moduleclass_sfx.'" src="'.$img.'" onclick="this.form.searchword.focus();"/>';
@@ -36,7 +47,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 			echo $output;
 		?>
-	</div>
+    </div>
+<div id="gobutton" class="span-1 last" onclick="submitform()">&nbsp;</div>    
+    
 	<input type="hidden" name="task"   value="search" />
 	<input type="hidden" name="option" value="com_search" />
 	<input type="hidden" name="Itemid" value="<?php echo $mitemid; ?>" />

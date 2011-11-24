@@ -21,9 +21,9 @@ $button			 = $params->get('button', '');
 $imagebutton	 = $params->get('imagebutton', '');
 $button_pos		 = $params->get('button_pos', 'left');
 $button_text	 = $params->get('button_text', JText::_('Search'));
-$width			 = intval($params->get('width', 20));
-$maxlength		 = $width > 20 ? $width : 20;
-$text			 = $params->get('text', JText::_('search...'));
+$width			 = intval($params->get('width', 150));
+$maxlength		 = $width > 150 ? $width : 150;
+$text			 = $params->get('text', JText::_('Search Articles...'));
 $set_Itemid		 = intval($params->get('set_itemid', 0));
 $moduleclass_sfx = $params->get('moduleclass_sfx', '');
 

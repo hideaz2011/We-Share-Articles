@@ -133,8 +133,18 @@ endif; ?>
                                                         </div>
                                                         
                                                         <div id="confirmpassword" class="prepend-1 span-6 last ">
-                                                        	<input class="inputbox required validate-passverify reg" type="password" id="password2" name="password2" size="40" value="" placeholder="<?php echo JText::_( 'Confirm Password' );?> />
+                                                        	<input class="inputbox required validate-passverify reg" type="password" id="password2" name="password2" size="40" value="" placeholder="<?php echo JText::_( 'Confirm Password' );?>"/>
                                                         </div>
+                                                        <!--div id="captcha" class="prepend-1 span-6 last reg">
+                                                            
+															<?php 
+                                                            global $mainframe;
+                                                            $mainframe->triggerEvent('onCaptchaDisplay');
+                                                            ?>
+                                                            
+                                                        </div-->    
+                                                        
+
                                                         <div class="prepend-1 span-6">
                                                         	<div class="span-4 reg"><button id="imgdiv" class="button validate" type="submit"><span class="regtext"><?php echo JText::_('Register Now'); ?></span></button></div>
                                                         </div>
@@ -165,7 +175,7 @@ endif; ?>
            </div>             
         </div>    
      </div>
-                        <div id="tab" class="prepend-6 span-5 append-1 last">
+                        <div id="tab" class="span-5 append-1 last">
                              <ul class="login">
                                  <li class="left">&nbsp;</li>
                                  <li id="toggle">
@@ -182,5 +192,5 @@ endif; ?>
          
 </div>   
 			<script>
-                jQuery('input[placeholder], textarea[placeholder]').placeholder();
+                d('input[placeholder], textarea[placeholder]').placeholder();
      		</script> 

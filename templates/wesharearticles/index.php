@@ -56,11 +56,23 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <body id="page_bg" class="color_<?php echo $this->params->get('colorVariation'); ?> bg_<?php echo $this->params->get('backgroundVariation'); ?> width_<?php echo $this->params->get('widthStyle'); ?>">
 <a name="up" id="up"></a>
     <div class="container showgrid">
-          <div id="wrapper" class="span-24 last">
+           <div id="wrapper" class="span-24 last">
 				<div id="wrapper_t" class="span-24 last">
 					<div id="wrapper_tl" class="span-24 last">
 						<div id="wrapper_tr" class="span-24 last">
-                        	<jdoc:include type="modules" name="top" />
+                        	<div id="wrapper_tr" class="span-24 last">
+                            	<jdoc:include type="modules" name="top" />
+                            </div>
+                            <div id="submitarticle" class="span-19">
+                            	<div id="article" class="prepend-15 span-1">
+                                	<img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/sus-button-icon.png" />
+                                </div>
+                                
+                                <div id="article1" class="span-3 last">
+                            		<span class="articleimg"><a href="#">Submit an article</a></span>
+                            	</div>
+                           </div>   
+                            
                         </div>
                         
 					</div>
@@ -68,123 +80,99 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 				
 				<div id="wrapper_m" class="span-24 last">
                 	<div id="header" class="span-24 last">
-                    			<div id="logo" class="prepend-1 span-9"><img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/we-shere-logo.png" /></div>
+                    			<div id="logo" class="prepend-1 span-9 last"><img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/we-shere-logo.png" /></div>
                      </div>
-                     	<div id="tabarea">
-				<div id="tabarea_l">
-					<div id="tabarea_r">
-						<div id="tabmenu">
-						<table cellpadding="0" cellspacing="0" class="pill">
-							<tr>
-								<td class="pill_l">&nbsp;</td>
-								<td class="pill_m">
-								<div id="pillmenu">
-									<jdoc:include type="modules" name="user3" />
-								</div>
-								</td>
-								<td class="pill_r">&nbsp;</td>
-							</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
+                     <div id="tabarea" class="span-24">
+                     	<div id="tabarea_l" class="span-1">&nbsp;</div>
+                         	 <div id="pillmenu" class="span-6">
+                              <jdoc:include type="modules" name="user3" />
+                             </div>
+                             <div id="searchbox" class="prepend-1 span-15">
+                               <jdoc:include type="modules" name="user4" />
+                             </div>
+                        <div id="tabarea_r" class="span-1 last">&nbsp;</div>
+                    </div>
+					                  
 
-			<div id="search">
-				<jdoc:include type="modules" name="user4" />
-			</div>
+                    <div id="pathway" class="span-24 last">
+                        <jdoc:include type="modules" name="breadcrumb" />
+                    </div>
 
-			<div id="pathway">
-				<jdoc:include type="modules" name="breadcrumb" />
-			</div>
-
-			<div class="clr"></div>
-
-			<div id="whitebox">
-				<div id="whitebox_t">
-					<div id="whitebox_tl">
-						<div id="whitebox_tr"></div>
-					</div>
-				</div>
-
-				<div id="whitebox_m">
-					<div id="area">
-									<jdoc:include type="message" />
-
-						<div id="leftcolumn">
-						<?php if($this->countModules('left')) : ?>
-							<jdoc:include type="modules" name="left" style="rounded" />
-						<?php endif; ?>
-						</div>
-
-						<?php if($this->countModules('left')) : ?>
-						<div id="maincolumn">
-						<?php else: ?>
-						<div id="maincolumn_full">
-						<?php endif; ?>
-							<?php if($this->countModules('user1 or user2')) : ?>
-								<table class="nopad user1user2">
-									<tr valign="top">
-										<?php if($this->countModules('user1')) : ?>
-											<td>
-												<jdoc:include type="modules" name="user1" style="xhtml" />
-											</td>
-										<?php endif; ?>
-										<?php if($this->countModules('user1 and user2')) : ?>
-											<td class="greyline">&nbsp;</td>
-										<?php endif; ?>
-										<?php if($this->countModules('user2')) : ?>
-											<td>
-												<jdoc:include type="modules" name="user2" style="xhtml" />
-											</td>
-										<?php endif; ?>
-									</tr>
-								</table>
-
-								<div id="maindivider"></div>
-							<?php endif; ?>
-
-							<table class="nopad">
-								<tr valign="top">
-									<td>
-										<jdoc:include type="component" />
-										<jdoc:include type="modules" name="footer" style="xhtml"/>
-									</td>
-									<?php if($this->countModules('right') and JRequest::getCmd('layout') != 'form') : ?>
-										<td class="greyline">&nbsp;</td>
-										<td width="170">
-											<jdoc:include type="modules" name="right" style="xhtml"/>
-										</td>
-									<?php endif; ?>
-								</tr>
-							</table>
-
-						</div>
-						<div class="clr"></div>
-					</div>
 					<div class="clr"></div>
-				</div>
 
-				<div id="whitebox_b">
-					<div id="whitebox_bl">
-						<div id="whitebox_br"></div>
-					</div>
-				</div>
-			</div>
-
-			<div id="footerspacer"></div>
-		</div>
+                        <div id="whitebox_m" class="span-24 last">
+                            <div id="area" class="span-24 last">
+                                            <jdoc:include type="message" />
+        
+                                <div id="leftcolumn" class="span-5">
+                                <?php if($this->countModules('left')) : ?>
+                                    <jdoc:include type="modules" name="left" style="rounded" />
+                                <?php endif; ?>
+                                </div>
+        
+                                <?php if($this->countModules('left')) : ?>
+                                <div id="maincolumn" class="prepnd-5 span-19">
+                                <?php else: ?>
+                                <div id="maincolumn_full" class="prepnd-5 span-19">
+                                <?php endif; ?>
+                                    <?php if($this->countModules('user1 or user2')) : ?>
+                                        <table class="nopad user1user2">
+                                            <tr valign="top">
+                                                <?php if($this->countModules('user1')) : ?>
+                                                    <td>
+                                                        <jdoc:include type="modules" name="user1" style="xhtml" />
+                                                    </td>
+                                                <?php endif; ?>
+                                                <?php if($this->countModules('user1 and user2')) : ?>
+                                                    <td class="greyline">&nbsp;</td>
+                                                <?php endif; ?>
+                                                <?php if($this->countModules('user2')) : ?>
+                                                    <td>
+                                                        <jdoc:include type="modules" name="user2" style="xhtml" />
+                                                    </td>
+                                                <?php endif; ?>
+                                            </tr>
+                                        </table>
+        
+                                        <div id="maindivider"></div>
+                                    <?php endif; ?>
+        
+                                    <table class="nopad class="prepnd-4 span-19">
+                                        <tr valign="top" class="prepnd-4 span-19">
+                                            <td>
+                                                <jdoc:include type="component" />
+                                                <jdoc:include type="modules" name="footer" style="xhtml"/>
+                                            </td>
+                                            <?php if($this->countModules('right') and JRequest::getCmd('layout') != 'form') : ?>
+                                                <td class="greyline">&nbsp;</td>
+                                                <td width="170">
+                                                    <jdoc:include type="modules" name="right" style="xhtml"/>
+                                                </td>
+                                            <?php endif; ?>
+                                        </tr>
+                                    </table>
+        
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+        
+                        
+        
+                    <div id="footerspacer" class="span-24 last"></div>
+                </div>
 
                    
-                </div>
+                
                 
                 <div id="wrapper_b" class="span-24 last">
 					<div id="wrapper_bl" class="span-24 last">
 						<div id="wrapper_br" class="span-24 last"></div>
 					</div>
 				</div>
-                
+                </div>
           </div>      
-    </div>    
- </body>
+    </div>
+   </body>
 </html>

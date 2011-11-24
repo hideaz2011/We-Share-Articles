@@ -50,11 +50,24 @@ div.center {
   text-align: center;
 }
 
+.container {
+    height: 800px;
+    margin-top:35px;
+    /*width: 970px;*/
+	width:950px;
+	height:auto;
+	background-color:#FFFFFF;
+	
+}
 #wrapper {
-	/*background-color:#FFFFFF;*/
-	width: auto;
+	background-color:#FFFFFF;
+	width: 950px;
 	margin:auto;
-	height:800px;
+	height:auto;
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
+	
 }
 
 #wrapper div {
@@ -79,15 +92,16 @@ div.center {
 #wrapper_m {
 	/*border-left: 2px solid #FFFFFF;
 	border-right: 2px solid #FFFFFF;*/
-	width: auto;
-	height:733px;
+	width: 950px;
+	height:auto;
+	
 	z-index:0;
 	
 	
 }
 
 #wrapper_b {
-	
+	background-color:#FFFFFF;
 	/*background: url(../images/mw_content_b.png) 0 100% repeat-x;*/
 }
 
@@ -102,85 +116,73 @@ div.center {
 	
 }
 
-/*#wrapper{
-	 background: none repeat scroll 0 0 #215C84;
-	 height:260px;
-}
-#wrapper:after {
-    background: url("../images/Bg-R-bottom.png") no-repeat scroll right top transparent;
-    content: url("../images/Bg-L-bottom.png");
-    display: block;
-}
-
-#wrapper:before {
-    background: url("../images/Bg-R-Top.png") no-repeat scroll right top transparent;
-    content: url("../images/Bg-L-top.png");
-    display: block;
-}*/
-
-
-div#wrapper {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-body.width_medium div#wrapper {
-	width: 950px;
-}
-
-body.width_small div#wrapper {
-	width: 773px;
-}
-
-body.width_fmax div#wrapper {
-	min-width: 750px;
-	max-width: 1050px;
-}
-
 div#header {
 	position: relative;
 	
 }
 
-div#header_r {
-	height: 90px;
-	/*padding-top: 25px;*/
-	overflow: hidden;
-	text-align: left;
+#submitarticle{
+	 margin-top:-29px;
 }
 
+#article{
+	height:25px;
+	margin-left:10px;
+	margin-top:1px;
+
+}
+#article1{
+	margin-left:-12px;
+}
+
+.articleimg{
+	background: url(../images/sus-button.png) 0 0 no-repeat;
+	height:25px;
+	padding-left: 10px;
+    padding-top: 5px;
+    position: absolute;
+    width: 111px;
+	color:#004472;
+	font-weight:bold;
+}
+.articleimg a{
+	color:#004472;
+	font-weight:bold;
+	text-decoration:none;
+	cursor:pointer!important;
+}
 div#logo {
-	margin-top:10px;
-	position: absolute;
 	left: 0;
 	top: 0;
 	float: left;
-	/*background: url(../images/we-shere-logo.png) 0 0 no-repeat;*/
 	height:152px;
 }
 
-div#newsflash {
-	width: auto;
-	margin-left: 350px;
-	margin-right: 30px;
-	border: 1px solid #00f;
-}
+
 
 div#tabarea {
-	background: #f7f7f7 url(../images/mw_header_b.png) 0 0 repeat-x;
-	margin: 0 11px;
-
+	background: none repeat scroll 0 0 #003366;
+    height: 37px;
+   	opacity: 0.7;
+    filter: alpha(opacity=70);
+	width:956px;
+   	
 }
 
 div#tabarea_l {
-	background: url(../images/mw_header_l_b.png) 0 0 no-repeat;
-	padding-left: 32px;
+	background: url(../images/search-bar-L.png) 0 0 no-repeat;
+	height:45px;
+	margin-left:-6px;
+    margin-top:-4px;
+	position:relative;
 }
 
 div#tabarea_r {
-	height: 42px;
-	background: url(../images/mw_header_r_b.png) 100% 0 no-repeat;
-	padding-right: 1px;
+	background: url(../images/search-bar-R.png) 100% 0 no-repeat;
+	height:45px;
+	margin-top: -4px;
+	margin-left: 12px;
+	position:relative;
 }
 
 div#footer_r {
@@ -212,15 +214,35 @@ div#footerspacer {
 }
 
 #search {
-	float: right;
+	/*float: right;
 	width:320px;
 	margin-top: -20px;
 	margin-right: 30px;
 	height: 40px;
 	overflow: hidden;
-	text-align:right;
+	text-align:right;*/
+}
+.search{
+	background: url(../images/search-bax.png) no-repeat;
+	height:27px;
+	margin-top:5px;
+}
+#mod_search_searchword {
+    border: medium none;
+    margin-top: 4px;
+}
+div.search input {
+	width: 430px;
 }
 
+#gobutton{
+	background: url(../images/search-go-button.png) right no-repeat;
+	cursor: pointer;
+    height: 26px;
+    margin-left: 560px;
+    margin-top: -28px;
+    width: 24px;
+}
 form#searchForm input {
 	vertical-align: middle;
 }
@@ -233,9 +255,7 @@ form#searchForm td {
 	padding:0;
 }
 
-#mod_search_searchword {
-	padding-left: 3px;
-}
+
 
 #area {
 	padding: 0;
@@ -249,7 +269,7 @@ table.pill {
   margin-right: auto;
   padding: 0;
 }
-
+/*
 td.pill_l {
   background: url(../images/mw_menu_cap_l.png) no-repeat;
   width:  20px;
@@ -268,32 +288,58 @@ td.pill_r {
   background: url(../images/mw_menu_cap_r.png) no-repeat;
   width:  19px;
   height: 32px;
-}
+}*/
 
 #pillmenu {
-  white-space: nowrap;
-  height: 32px;
-  float: left;
+    float: left;
+    /*padding-left: 50px;*/
+    padding-top: 2px;
 }
-
-#pillmenu ul {
-  margin: 0;
-  padding: 0;
-  list-style:none;
-}
-
-#pillmenu li {
+#pillmenu #current{
+	background: url(../images/white-leyn.png) right no-repeat;
 	float: left;
-	background: url(../images/mw_menu_separator.png) top right no-repeat;
+    height: 16px;
+    height: 20px;
+    margin-top: 9px;
+}
+#pillmenu ul {
+	float: left;
+	background: url(../images/Home-icon.png) left no-repeat;
 	margin: 0;
 	padding: 0;
+	height:32px;
+    list-style:none;
 }
 
+#pillmenu .item1{
+	width: 105px;
+}
+
+#pillmenu .item2{
+	float: left;
+	background: url(../images/cent-icon.png)  no-repeat;
+	margin-left:20px;
+	padding: 0;
+	height:32px;
+	width: 100px;
+	margin-top:1px;
+}
+#pillmenu #current span{
+	margin-top:-8px;
+}
+#pillmenu span{
+	float:right;
+	font-size:18px;
+	color:#FFFFFF;
+	padding-left: 12px;
+    padding-top: 7px;
+	font-family:"Times New Roman";
+}
 #pillmenu a {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: bold;
-	float:left;
+  float:left;
   display:block;
   height: 24px;
   line-height: 24px;
@@ -318,8 +364,6 @@ td.pill_r {
 
 #maincolumn,
 #maincolumn_full {
-	margin-left: 20%;
-	padding-left: 15px;
 	width: 75%;
 }
 
@@ -365,7 +409,15 @@ span.pathway {
 
 /* headers */
 div.componentheading {
-  padding-left: 0px;
+    background: url(../images/R--Artcles-icon.png) left no-repeat;
+	height:26px;
+	margin-left: 3px;
+	padding-left:28px;
+	padding-top:10px;
+	color:#4B5E84;
+	font-size:24px;
+	font-weight:bold;
+	font-family:"Lucida Sans", "Lucida Grande", sans-serif;
 }
 
 h1 {
@@ -666,11 +718,8 @@ table.adminform textarea {
   color: #000099;
 }
 
-div.search input {
-	width: 145px;
-	border: 1px solid #ccc;
-	margin: 15px 0 10px 0;
-}
+
+
 
 form#form-login fieldset { border: 0 none; margin: 0em; padding: 0.2em;}
 form#form-login ul { padding-left: 20px; }

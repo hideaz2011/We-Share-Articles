@@ -31,6 +31,7 @@ input::-moz-focus-inner { border: 0; }
 	position: relative;
     top: 0;
     z-index: 999;
+	margin-left: 240px;
 }
 
 #tab ul.login {
@@ -385,3 +386,6 @@ input::-moz-focus-inner { border: 0; }
 	text-decoration: underline;
 }
 
+#captcha{
+	height:150px!important;
+}

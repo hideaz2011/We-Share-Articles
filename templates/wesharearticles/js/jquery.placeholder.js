@@ -4,7 +4,7 @@
 * Copyright 2010, Daniel Stocks (http://webcloud.se)
 * Released under the MIT, BSD, and GPL Licenses.
 */
-(function($) {
+(function(d) {
     function Placeholder(input) {
         this.input = input;
         if (input.attr('type') == 'password') {
@@ -69,7 +69,7 @@
         }
     };
     var NATIVE_SUPPORT = !!("placeholder" in document.createElement( "input" ));
-    $.fn.placeholder = function() {
+    d.fn.placeholder = function() {
         return NATIVE_SUPPORT ? this : this.each(function() {
             var input = $(this);
             var placeholder = new Placeholder(input);
@@ -103,4 +103,4 @@
             }
         });
     }
-})(jQuery);
+})(d);

@@ -100,6 +100,10 @@ textarea:focus { background-color: #ffd }
 	font-size: 22px; font-weight: bold; color: #fff; line-height: 44px;
 	padding-left: 180px;
 }
+/*
+.title th{
+	width:500px;
+}*/
 
 #border-top .version {
 	display: block; float: right;

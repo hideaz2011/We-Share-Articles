@@ -9,7 +9,10 @@ defined('_JEXEC') or die('Restricted access');
 <script type="text/javascript">
 <!--
 	Window.onDomReady(function(){
-		document.formvalidator.setHandler('passverify', function (value) { return ($('password').value == value); }	);
+		document.formvalidator.setHandler('passverify', function (value) { return ($('password').value == value);
+		
+		 }	);
+		
 	});
 // -->
 </script>

@@ -1,7 +1,7 @@
 <?php
 class JConfig {
-	var $offline = '1';
-	var $editor = 'tinymce';
+	var $offline = '0';
+	var $editor = 'jckeditor';
 	var $list_limit = '20';
 	var $helpurl = 'http://help.joomla.org';
 	var $debug = '0';
@@ -52,7 +52,7 @@ class JConfig {
 	var $password = '';
 	var $sitename = 'wesharearticles';
 	var $MetaDesc = 'Joomla! - the dynamic portal engine and content management system';
-	var $MetaKeys = 'joomla, Joomla';
+	var $MetaKeys = 'joomla,Joomla,dhanapal';
 	var $offline_message = 'This site is down for maintenance. Please check back again soon.';
 }
 ?>

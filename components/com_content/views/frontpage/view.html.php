@@ -92,11 +92,10 @@ class ContentViewFrontpage extends ContentView
 		$document->setTitle( $params->get( 'page_title' ) );
 
 		jimport('joomla.html.pagination');
+	
 		$this->pagination = new JPagination($total, $limitstart, $limit - $links);
-
 		$this->assign('total',			$total);
-
-		$this->assignRef('user',		$user);
+    	$this->assignRef('user',		$user);
 		$this->assignRef('access',		$access);
 		$this->assignRef('params',		$params);
 		$this->assignRef('items',		$items);

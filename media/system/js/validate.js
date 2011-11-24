@@ -27,12 +27,12 @@ var JFormValidator = new Class({
 		this.custom		= Object();
 
 		// Default handlers
-		this.setHandler('username',
+		/*this.setHandler('username',
 			function (value) {
 				regex = new RegExp("[\<|\>|\"|\'|\%|\;|\(|\)|\&]", "i");
 				return !regex.test(value);
 			}
-		);
+		);*/
 
 		this.setHandler('password',
 			function (value) {
@@ -150,7 +150,7 @@ var JFormValidator = new Class({
 			el.addClass('invalid');
 			if (el.labelref) {
 				$(el.labelref).addClass('invalid');
-			}
+			 }
 		} else {
 			el.removeClass('invalid');
 			if (el.labelref) {

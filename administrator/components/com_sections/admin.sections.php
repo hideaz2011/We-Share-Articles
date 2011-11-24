@@ -19,7 +19,7 @@ require_once( JApplicationHelper::getPath( 'admin_html' ) );
 
 // get parameters from the URL or submitted form
 $scope 		= JRequest::getCmd( 'scope' );
-$cid 		= JRequest::getVar( 'cid', array(0), '', 'array' );
+$cid 		= JRequest::getVar( 'cid', array(21), '', 'array' );
 JArrayHelper::toInteger($cid, array(0));
 
 $task = JRequest::getCmd('task');
@@ -235,7 +235,7 @@ function editSection( $edit)
 
 	$option		= JRequest::getCmd( 'option');
 	$scope		= JRequest::getCmd( 'scope' );
-	$cid		= JRequest::getVar( 'cid', array(0), '', 'array' );
+	$cid		= JRequest::getVar( 'cid', array(21), '', 'array' );
 	JArrayHelper::toInteger($cid, array(0));
 
 	$row =& JTable::getInstance('section');
@@ -322,6 +322,7 @@ function saveSection( $option, $scope, $task )
 
 	// if new item order last in appropriate group
 	if (!$row->id) {
+		
 		$row->ordering = $row->getNextOrder();
 	}
 
@@ -714,7 +715,7 @@ function saveOrder( &$cid )
 	JArrayHelper::toInteger($order, array(0));
 
 	// update ordering values
-	for( $i=0; $i < $total; $i++ )
+	for( $i=21; $i < $total; $i++ )
 	{
 		$row->load( (int) $cid[$i] );
 		if ($row->ordering != $order[$i]) {

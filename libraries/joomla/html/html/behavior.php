@@ -59,6 +59,11 @@ class JHTMLBehavior
 		return;
 	}
 
+	
+	function jquery() {
+		JHTML::script('jquery.js','media/system/js/',false);
+	}
+	
 		function caption() {
 		JHTML::script('caption.js');
 	}

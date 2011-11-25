@@ -56,11 +56,10 @@ div.center {
     /*width: 970px;*/
 	width:950px;
 	height:auto;
-	background-color:#FFFFFF;
+	/*background-color:#FFFFFF;*/
 	
 }
 #wrapper {
-	background-color:#FFFFFF;
 	width: 950px;
 	margin:auto;
 	height:auto;
@@ -101,7 +100,7 @@ div.center {
 }
 
 #wrapper_b {
-	background-color:#FFFFFF;
+	
 	/*background: url(../images/mw_content_b.png) 0 100% repeat-x;*/
 }
 

@@ -62,6 +62,7 @@ class plgButtonReadmore extends JPlugin
 					alert('$present');
 					return false;
 				} else {
+					jInsertEditorText('<center><b>Read More</b><center>', editor);
 					jInsertEditorText('<hr id=\"system-readmore\" />', editor);
 				}
 			}

@@ -172,7 +172,7 @@ endif; ?>
            </div>             
         </div>    
      </div>
-                        <div id="tab" class="prepend-6 span-5 append-1 last">
+                        <div id="tab" class="span-5 append-1 last">
                              <ul class="login">
                                  <li class="left">&nbsp;</li>
                                  <li id="toggle">

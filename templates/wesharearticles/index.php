@@ -58,26 +58,23 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
     <div class="container showgrid">
            <div id="wrapper" class="span-24 last">
 				<div id="wrapper_t" class="span-24 last">
-					<div id="wrapper_tl" class="span-24 last">
-						<div id="wrapper_tr" class="span-24 last">
-                        	<div id="wrapper_tr" class="span-24 last">
+                   <div id="wrapper_tl" class="span-24 last">
+                      <div id="wrapper_tr" class="span-24 last">
+                        <div id="wrapper_top" class="span-24 last">
                             	<jdoc:include type="modules" name="top" />
-                            </div>
-                            <div id="submitarticle" class="span-19">
-                            	<div id="article" class="prepend-15 span-1">
-                                	<img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/sus-button-icon.png" />
-                                </div>
-                                
-                                <div id="article1" class="span-3 last">
-                            		<span class="articleimg"><a href="#">Submit an article</a></span>
-                            	</div>
-                           </div>   
-                            
                         </div>
-                        
-					</div>
-				</div>
-				
+                        <div id="submitarticle" class="span-19">
+                            	  <div id="article" class="prepend-15 span-1">
+                                	<img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/sus-button-icon.png" />
+                                  </div>
+                                
+                                  <div id="article1" class="span-3 last">
+                            		<span class="articleimg"><a href="#">Submit an article</a></span>
+                            	 </div>
+                       </div>   
+                  </div>
+     			</div>
+		</div>
 				<div id="wrapper_m" class="span-24 last">
                 	<div id="header" class="span-24 last">
                     			<div id="logo" class="prepend-1 span-9 last"><img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/we-shere-logo.png" /></div>
@@ -111,7 +108,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
                                 </div>
         
                                 <?php if($this->countModules('left')) : ?>
-                                <div id="maincolumn" class="prepnd-5 span-19">
+                                <div id="maincolumn" class="span-19 main">
                                 <?php else: ?>
                                 <div id="maincolumn_full" class="prepnd-5 span-19">
                                 <?php endif; ?>
@@ -136,11 +133,12 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
         
                                         <div id="maindivider"></div>
                                     <?php endif; ?>
-        
-                                    <table class="nopad class="prepnd-4 span-19">
-                                        <tr valign="top" class="prepnd-4 span-19">
+        								
+                                    <table class="nopad class="span-19">
+                                        <tr valign="top" class="span-19">
+                                            
                                             <td>
-                                                <jdoc:include type="component" />
+                                               <jdoc:include type="component" />
                                                 <jdoc:include type="modules" name="footer" style="xhtml"/>
                                             </td>
                                             <?php if($this->countModules('right') and JRequest::getCmd('layout') != 'form') : ?>
@@ -171,8 +169,10 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 						<div id="wrapper_br" class="span-24 last"></div>
 					</div>
 				</div>
-                </div>
-          </div>      
-    </div>
+                
+            </div>
+          </div>     
+    
+   
    </body>
 </html>

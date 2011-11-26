@@ -11,8 +11,31 @@
 	<description>DESCSECTIONS</description>
 	<files>
 	<filename module="mod_sections">mod_sections.php</filename>
+	<filename module="mod_sections_ext">helper.php</filename>
+    <filename module="mod_sections_ext">style1.css</filename>
+    <filename module="mod_sections_ext">style2.css</filename>
+    <filename module="mod_sections_ext">style3.css</filename>
+    <filename module="mod_sections_ext">index.html</filename>
+    <filename module="mod_sections_ext">tmpl/default.php</filename>
+    <filename module="mod_sections_ext">tmpl/index.html</filename>
 	</files>
 	<params>
+	<param name="count" type="text" default="10" label="Count" description="The number of items to display (default is 10)" />
+        <param name="ordering" type="list" default="1" label="Ordering" description="Select how to order the sections.">
+			<option value="1">Joomla ordering</option>
+			<option value="2">Alphabetical A-Z</option>
+            <option value="3">Alphabetical Z-A</option>
+			<option value="4">Order By ID</option>
+		</param>
+		 <param name="display" type="radio" default="1" label="Layout" description="Select how to display the entries.">
+			<option value="1">blog</option>
+			<option value="2">table</option>
+		</param>
+        <param name="style" type="list" default="0" label="Style" description="Select a display style.">
+			<option value="1">Style 1</option>
+			<option value="2">Style 2</option>
+            <option value="3">Style 3</option>
+		</param>
 		<param name="count" type="text" default="5" label="Count" description="The number of items to display (default is 5)" />
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />

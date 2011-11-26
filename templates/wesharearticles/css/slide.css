@@ -146,6 +146,7 @@ input::-moz-focus-inner { border: 0; }
 #panelBR{
 	background:url(../images/0-Bg-R-bottom.png) no-repeat 100% 100% transparent;
 	height:260px;
+	width:430px;
 	
 }
 

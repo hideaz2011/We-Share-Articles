@@ -257,7 +257,7 @@ input::-moz-focus-inner { border: 0; }
 	.reg{
 	margin-left:-15px;
 	float:left;
-	margin-top:10px;
+	margin-top:7.75px;
 	}
 	
 	#email{
@@ -284,7 +284,7 @@ input::-moz-focus-inner { border: 0; }
 		
 	}
 	.regtext{
-		margin-left:-14px;
+		margin-left:-18px;
 		outline:none;
 		
 	}

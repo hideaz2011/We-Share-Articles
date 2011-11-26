@@ -3,15 +3,24 @@ defined('_JEXEC') or die('Restricted access');
 
 $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $this->user->authorize('com_content', 'edit', 'content', 'own'));
 ?>
+
 <?php if ($this->item->state == 0) : ?>
 <div class="system-unpublished">
 <?php endif; ?>
 
 <?php if ($canEdit || $this->item->params->get('show_title') || $this->item->params->get('show_pdf_icon') || $this->item->params->get('show_print_icon') || $this->item->params->get('show_email_icon')) : ?>
-<table class="contentpaneopen<?php echo $this->escape($this->item->params->get( 'pageclass_sfx' )); ?>">
+				<div id="firstarticle_T">
+                   <div id="firstarticle_TL">
+                      <div id="firstarticle_TR">
+                        &nbsp;
+                      </div>
+                   </div>
+                </div>  
+                <div id="firstarticle_M">
+<table class="contentpaneopen<?php echo $this->escape($this->item->params->get( 'pageclass_sfx' )); ?> ">
 <tr>
 	<?php if ($this->item->params->get('show_title')) : ?>
-	<td class="contentheading<?php echo $this->escape($this->item->params->get( 'pageclass_sfx' )); ?>" width="100%">
+	<td class="contentheading<?php echo $this->escape($this->item->params->get( 'pageclass_sfx' )); ?> main span-14" width="100%">
 		<?php if ($this->item->params->get('link_titles') && $this->item->readmore_link != '') : ?>
 		<a href="<?php echo $this->item->readmore_link; ?>" class="contentpagetitle<?php echo $this->escape($this->item->params->get( 'pageclass_sfx' )); ?>">
 			<?php echo $this->escape($this->item->title); ?></a>
@@ -47,7 +56,7 @@ $canEdit	= ($this->user->authorize('com_content', 'edit', 'content', 'all') || $
 </tr>
 </table>
 <?php endif; ?>
-<span class="small"><?php echo "Number Of Views:" .$this->item->hits; ?></span>
+<!--span class="small"><?php echo "Number Of Views:" .$this->item->hits; ?></span-->
     
 <?php  if (!$this->item->params->get('show_intro')) :
 	echo $this->item->event->afterDisplayTitle;
@@ -59,10 +68,13 @@ endif; ?>
 
 if (($this->item->params->get('show_section') && $this->item->mysections) || ($this->item->params->get('show_category') && $this->item->catid)) : 
 ?>
+
 <tr>
-	<td>
+	
+    <td>
 		<?php// if ($this->item->params->get('show_section') && $this->item->mysections && isset($this->item->section)) : ?>
-		<span>
+		
+        <span class="span-10 art" id="sectionlink">
 			<?php if ($this->item->params->get('link_section')) : ?>
 				<?php echo '<a href="'.JRoute::_(ContentHelperRoute::getSectionRoute($this->item->sectionid)).'">'; ?>
 			<?php endif; ?>
@@ -87,18 +99,20 @@ if (($this->item->params->get('show_section') && $this->item->mysections) || ($t
 		</span>
 		<?php endif; ?>
 	</td>
-</tr>
+
 <?php endif; ?>
 
 <?php if (($this->item->params->get('show_author')) && ($this->item->author != "")) : ?>
-<tr>
-	<td width="70%"  valign="top" colspan="2">
-		<span class="small">
+
+	<td valign="top" colspan="2">
+		<span class="small prepend-2 span-5" id="author">
 			<?php JText::printf( 'Written by', ($this->escape($this->item->created_by_alias) ? $this->escape($this->item->created_by_alias) : $this->escape($this->item->author)) ); ?>
 		</span>
 		&nbsp;&nbsp;
 	</td>
-</tr>
+ </div>  
+</tr>    
+
 <?php endif; ?>
 
 <?php if ($this->item->params->get('show_create_date')) : ?>
@@ -156,3 +170,12 @@ if (($this->item->params->get('show_section') && $this->item->mysections) || ($t
 <?php endif; ?>
 <span class="article_separator">&nbsp;</span>
 <?php echo $this->item->event->afterDisplayContent; ?>
+</div>
+                        
+                        <div id="firstarticle_B">
+                               <div id="firstarticle_BL">
+                               
+                                   <div id="firstarticle_BR">&nbsp;
+                                   </div>
+                               </div> 
+                        </div>

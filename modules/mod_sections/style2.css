@@ -1,0 +1,18 @@
+@media all
+{
+
+.mod_sec li {
+  list-style-type: disc;
+  margin-left: 1.5em;
+  line-height: 2.75em;
+
+}
+
+
+.mod_sec li a {
+  display: block;
+  line-height: 2em;
+  height: auto;
+  width:300px; 
+}
+}

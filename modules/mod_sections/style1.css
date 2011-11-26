@@ -1,0 +1,33 @@
+@media all
+{
+
+.mod_sec li {
+  list-style-type: none;
+  margin-left: -20px;
+  padding-left: 3px;
+  width:200px;
+  height: auto;
+  line-height: 2.75em;
+}
+.mod_sec li:hover,.mod_sec li:active,.mod_sec li:focus {
+  background-color: #ddd;
+  background:url(../../images/arrow.png);
+  background-repeat:no-repeat;
+  background-position:right center;
+}
+
+.mod_sec li a {
+  width:auto;
+  display: block;
+  line-height: 2.75em;
+  height: auto; 
+}
+.mod_sec li a:hover, .mod_sec li a:active, .mod_sec li a:focus {
+  text-decoration: none;
+}
+
+
+
+
+
+}

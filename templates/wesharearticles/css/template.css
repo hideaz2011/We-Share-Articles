@@ -875,3 +875,7 @@ td.key {
 #component-contact table td {
 	padding: 2px 0;
 }
+#regmarg {
+   margin-top:63px;
+   margin-left:12px;
+}

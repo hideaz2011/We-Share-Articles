@@ -34,18 +34,22 @@ class modSectionsHelper
 		$nullDate	= $db->getNullDate();
 
 
-		$query = 'SELECT a.id AS id, a.title AS title, COUNT(b.id) as cnt' .
-			' FROM #__sections as a' .
-			' LEFT JOIN #__content as b ON a.id = b.sectionid' .
-			($access ? ' AND b.access <= '.(int) $gid : '') .
-			' AND ( b.publish_up = '.$db->Quote($nullDate).' OR b.publish_up <= '.$db->Quote($now).' )' .
-			' AND ( b.publish_down = '.$db->Quote($nullDate).' OR b.publish_down >= '.$db->Quote($now).' )' .
-			' WHERE a.scope = "content"' .
-			' AND a.published = 1' .
-			($access ? ' AND a.access <= '.(int) $gid : '') .
-			' GROUP BY a.id '.
-			' HAVING COUNT( b.id ) > 0' .
-			' ORDER BY a.ordering';
+	 $ordering = intval($params->get('ordering', 1));
+        if ($ordering == 1){ $order = 'ordering';}
+        if ($ordering == 2){ $order = 'title ASC';}
+        if ($ordering == 3){ $order = 'title DESC';}
+		if ($ordering == 4){ $order = 'id ASC';}
+
+        $display_empty = intval($params->get('display_empty', 0));
+        if ($display_empty == 0){ $disp_empty = 'HAVING COUNT( id ) > 0';}
+        if ($display_empty == 1){ $disp_empty = 'HAVING COUNT( id ) >= 0';}
+		$query = 'SELECT id, title' .
+			' FROM #__sections' .
+			' WHERE published = 1' .
+			($access ? ' AND access <= '.(int) $gid : '') .
+			' GROUP BY id '.
+			$disp_empty .
+			' ORDER BY '.$order;
 		$db->setQuery($query, 0, $count);
 		$rows = $db->loadObjectList();
 

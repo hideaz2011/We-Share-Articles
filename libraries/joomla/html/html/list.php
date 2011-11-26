@@ -132,6 +132,7 @@ class JHTMLList
 	*/
 	function users( $name, $active, $nouser = 0, $javascript = NULL, $order = 'name', $reg = 1 )
 	{
+		
 		$db =& JFactory::getDBO();
 
 		$and = '';
@@ -153,7 +154,7 @@ class JHTMLList
 		} else {
 			$users = $db->loadObjectList();
 		}
-
+		
 		$users = JHTML::_('select.genericlist',   $users, $name, 'class="inputbox" size="1" '. $javascript, 'value', 'text', $active );
 
 		return $users;
@@ -163,24 +164,34 @@ class JHTMLList
 	/**
 	* Select list of active users
 	*/
-	function metakey( $name, $active = NULL, $javascript = NULL, $order = 'name' )
-	{
+	function metakey( $name, $active, $javascript = NULL, $order = 'name' )
+	{	
+		//test
+		
 		$config =& JFactory::getConfig();
 		$metakey = $config->getValue('config.MetaKeys');
 		
 		$mk = split(",",$metakey);
+		
 		
 		$mkarray[] = JHTML::_('select.option', '0', '- '.JText::_('Select keyword').' -');
 		
 		for ($s=0;$s < count($mk);$s++) {
 			$mkarray[$s+1] = JHTML::_('select.option', $mk[$s], JText::_($mk[$s]));
 		}
+		//print_r(strcmp($active,"money,funds"));
+		//print_r($active);
+		$active = split(",",$active);
+		//print_r(gettype("joomla,naren,anusha"));
+		//$active = array("joomla","naren","anusha");
 		
-			
-
+		//exit();
+		
+		
 		$mkey = JHTML::_('select.genericlist',$mkarray, $name, 'class="inputbox" multiple="multiple" size="5"'. $javascript, 'value', 'text', $active );
 		
 		return $mkey;
+		
 		
 	}
 	

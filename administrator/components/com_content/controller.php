@@ -547,13 +547,12 @@ class ContentController extends JController
 		//$imp = implode(",",$postvalues[meta][keywords]);
 		//$form->loadINI($row->metakey);
 		//$mkey = (intval($row->metakey) ? intval($row->metakey) : $metakey[]);
-		//$mkey[] = $row->metakey;
-		$imp = split(",",$row->metakey);
-		
-		
+		//$mkey = $row->metakey;
+		//$imp = split(",",$row->metakey);
 		//print_r($imp);
 		//exit();
-		$form->set('keywords', implode(",",$imp) );
+		
+		$form->set('keywords', $row->metakey);
 		//$form->set('keywords', $imp);
 		
 		ContentView::editContent($row, $contentSection, $lists, $sectioncategories, $option, $form);
@@ -682,11 +681,16 @@ class ContentController extends JController
 					$txt[] = "$k=$v";
 				}
 			}
+			
 			$row->metadata = implode("\n", $txt);
+			
+
 		}
+		
 
 		// Prepare the content for saving to the database
 		ContentHelper::saveContentPrep( $row );
+		
 
 		// Make sure the data is valid
 		if (!$row->check()) {

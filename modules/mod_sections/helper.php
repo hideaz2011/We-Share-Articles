@@ -21,6 +21,11 @@ class modSectionsHelper
 	function getList(&$params)
 	{
 		global $mainframe;
+        $document = & JFactory::getDocument();
+        $LiveSite = JURI::base();
+
+        //$style = $params->get('style', 1);
+        $document->addCustomTag('<link rel="stylesheet" href="'.$LiveSite.'modules/mod_sections/style1.css" type="text/css" media="all"/>');
 
 		$db		=& JFactory::getDBO();
 		$user	=& JFactory::getUser();

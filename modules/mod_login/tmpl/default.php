@@ -64,13 +64,13 @@ endif; ?>
     
     
 
-	<div id="toppanel" class="span-11 last">
-		<div id="panel" class="span-11 last">
-        	<div id="panelBR"  class="span-11 last">
-            	<div id="panelBL"  class="span-11 last">
-               		<div id="panelTR"  class="span-11 last">
-                    	<div id="panelTL"  class="span-11 last">
-                           <div id="panelcont" class="content clearfix span-11 last" >
+	<div id="toppanel" class="span-11">
+		<div id="panel" class="span-11">
+        	<div id="panelBR"  class="span-11">
+            	<div id="panelBL"  class="span-11">
+               		<div id="panelTR"  class="span-11">
+                    	<div id="panelTL"  class="span-11">
+                           <div id="panelcont" class="content clearfix span-11" >
                            	  <div id="panelinnerdiv" class="span-11">
                                  	<div id="dhtmlgoodies_tabView1">
                                        <div class="dhtmlgoodies_aTab">
@@ -106,11 +106,6 @@ endif; ?>
                                                                 <div id="ortext" class="prepend-3 span-1 login">or</div>
                                                                 <div id="loginimg" class="prepend-3 span-3 last login"><img src="<?php echo JURI::base()?>/templates/wesharearticles/images/login-icon.png" /></div>
                                                             </div>
-                                                      
-                                                      
-                                                            <div class="login prepend-1 span-5 ">
-                                                                <div class="prepend-1 span-5 login" id="faceimgdiv"><a href="#" class="facelink">Login with facebook</a></div>
-                                                            </div>  
                                                             <?php echo $params->get('posttext'); ?>
                                                             <input type="hidden" name="option" value="com_user" />
                                                             <input type="hidden" name="task" value="login" />
@@ -172,7 +167,7 @@ endif; ?>
            </div>             
         </div>    
      </div>
-                        <div id="tab" class="span-5 append-1 last">
+                        <div id="tab" class="span-5 last">
                              <ul class="login">
                                  <li class="left">&nbsp;</li>
                                  <li id="toggle">

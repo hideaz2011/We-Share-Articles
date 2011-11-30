@@ -30,7 +30,6 @@ input::-moz-focus-inner { border: 0; }
   	height: 42px;
 	position: relative;
     top: 0;
-    z-index: 999;
 	margin-left: 240px;
 }
 
@@ -114,10 +113,11 @@ input::-moz-focus-inner { border: 0; }
     position: absolute;   /*Panel will overlap  content */
     /*position: relative;*/   /*Panel will "push" the content down */
     height:auto;
-    z-index: 999;
-    margin-left:520px;
+    z-index:1;
+    /*margin-left:520px;*/
     margin-right: auto;
  	font-family:"Trebuchet MS";
+	margin-top:-28px;
 }
 
 #panel {
@@ -146,7 +146,6 @@ input::-moz-focus-inner { border: 0; }
 #panelBR{
 	background:url(../images/0-Bg-R-bottom.png) no-repeat 100% 100% transparent;
 	height:260px;
-	width:430px;
 	
 }
 
@@ -235,18 +234,7 @@ input::-moz-focus-inner { border: 0; }
 	float:right;
 	
 }
-#faceimgdiv{
-	background:url(../images/login-white-facebook-bottun.png) no-repeat 0 0;
-	height:35px;
-	font-family:trebuchet ms;
-	font-weight:bold;
-	font-size:14px;
-	color:#FFFFFF;
-	position:relative;
-	margin-left:0px;
-	padding-top:9px;
-	
-}
+
 
 .facelink{
 	color:#FFFFFF;
@@ -394,3 +382,18 @@ input::-moz-focus-inner { border: 0; }
 	margin-top:160px;
 	position:absolute;
 }
+/*#fbLoginButton{
+	background:url(../images/login-white-facebook-bottun.png) no-repeat 0 0!important;
+	height:35px;
+	font-family:trebuchet ms;
+	font-weight:bold;
+	font-size:14px;
+	color:#FFFFFF;
+	position:absolute;
+	margin-left:0px;
+	padding-top:9px;
+	
+}*/
+/*.fb_button, .fb_button_rtl {
+	background:none;
+}*/

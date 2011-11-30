@@ -119,6 +119,11 @@ div#header {
 	
 }
 
+#submitarticle{
+	 margin-top:-29px;
+	 z-index:0;
+}
+
 #article{
 	height:25px;
 	margin-left:10px;
@@ -139,6 +144,9 @@ float:right;
     padding-top: 5px;
     position: absolute;
     width: 111px;
+	color:#004472;
+	font-weight:bold;
+	z-index: 0;
 }
 .articleimg a{
 	color:#004472;
@@ -947,4 +955,7 @@ td.key {
 #regmarg {
    margin-top:63px;
    margin-left:12px;
+}
+#seconddiv {
+	z-index:1000;
 }

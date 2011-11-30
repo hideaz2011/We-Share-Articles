@@ -1,7 +1,7 @@
 <?php
 class JConfig {
 	var $offline = '0';
-	var $editor = 'jckeditor';
+	var $editor = 'tinymce';
 	var $list_limit = '20';
 	var $helpurl = 'http://help.joomla.org';
 	var $debug = '0';
@@ -33,7 +33,7 @@ class JConfig {
 	var $dbtype = 'mysql';
 	var $host = 'localhost';
 	var $user = 'root';
-	var $db = 'wesharearticles';
+	var $db = 'git_weshre_git';
 	var $dbprefix = 'jos_';
 	var $mailer = 'mail';
 	var $mailfrom = 'admin@wesharearticles.com';
@@ -50,7 +50,7 @@ class JConfig {
 	var $lifetime = '15';
 	var $session_handler = 'database';
 	var $password = '';
-	var $sitename = 'wesharearticles';
+	var $sitename = '';
 	var $MetaDesc = 'Joomla! - the dynamic portal engine and content management system';
 	var $MetaKeys = 'joomla,Joomla,dhanapal';
 	var $offline_message = 'This site is down for maintenance. Please check back again soon.';

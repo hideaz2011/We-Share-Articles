@@ -390,3 +390,7 @@ input::-moz-focus-inner { border: 0; }
 #captcha{
 	height:150px!important;
 }
+#myApiLoginWrapper{
+	margin-top:160px;
+	position:absolute;
+}

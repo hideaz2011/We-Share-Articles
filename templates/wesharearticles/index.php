@@ -58,23 +58,27 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
     <div class="container showgrid">
            <div id="wrapper" class="span-24 last">
 				<div id="wrapper_t" class="span-24 last">
-                   <div id="wrapper_tl" class="span-24 last">
-                      <div id="wrapper_tr" class="span-24 last">
-                        <div id="wrapper_top" class="span-24 last">
-                            	<jdoc:include type="modules" name="top" />
-                        </div>
-                        <div id="submitarticle" class="span-19">
-                            	  <div id="article" class="prepend-15 span-1">
+					<div id="wrapper_tl" class="span-24 last">
+						<div id="wrapper_tr" class="span-24 last">
+
+                        	<div id="submitarticle" class="span-24">
+                            	<div class="span-15">&nbsp;</div>
+                            	<div id="article" class="span-1">
                                 	<img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/sus-button-icon.png" />
-                                  </div>
-                                
-                                  <div id="article1" class="span-3 last">
+                                </div>
+                                <div id="article1" class="span-8 last">
                             		<span class="articleimg"><a href="#">Submit an article</a></span>
-                            	 </div>
-                       </div>   
-                  </div>
-     			</div>
-		</div>
+                            	</div>
+                           </div>   
+                           <div id="seconddiv" class="span-24">
+                                <div class="span-13">&nbsp;</div>                            
+                                <div class="span-11 last"><jdoc:include type="modules" name="top" /></div
+                           ></div>
+                            
+                        </div>
+                        
+					</div>
+				</div>
 				<div id="wrapper_m" class="span-24 last">
                 	<div id="header" class="span-24 last">
                     			<div id="logo" class="prepend-1 span-9 last"><img  id="logoimg" src="<?php echo JURI::base()?>/templates/wesharearticles/images/we-shere-logo.png" /></div>
